@@ -1,0 +1,9 @@
+# -c requirements.txt (point to another in project if there are more)
+aws_cdk.core
+aws_cdk.aws_sns
+aws_cdk.aws_eks
+aws_cdk.aws_s3
+aws_cdk.aws_s3_deployment
+aws_cdk.pipelines
+# aws_cdk.aws_dynamodb
+# cdk-chalice

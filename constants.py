@@ -1,0 +1,2 @@
+CDK_APP_NAME = "AwsSkillsMapping"
+CDK_APP_PYTHON_VERSION = "3.8"
