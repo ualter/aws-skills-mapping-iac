@@ -1,0 +1,18 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "assembly-AwsSkillsMapping-Dev": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-AwsSkillsMapping-Dev",
+        "displayName": "AwsSkillsMapping-Dev"
+      }
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
