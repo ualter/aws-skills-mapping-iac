@@ -38,3 +38,4 @@ class AwsSkillsMapping(cdk.Stage):
             name="Aws-Skills-Mapping Pipeline",
             bucket_deploy_website=self.s3_website.bucket,
         )
+
