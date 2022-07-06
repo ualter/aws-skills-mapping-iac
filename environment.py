@@ -99,6 +99,6 @@ class AwsSkillsMappingPropsProd(AwsSkillsMappingProps):
 
 
 # Pipeline Properties
-class AwsSkillsMappingPipeline:
+class PipelineProps:
     def __init__(self) -> None:
         self.env = Environments()._PIPELINE_ENV

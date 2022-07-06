@@ -1,0 +1,1783 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.162.0"
+        }
+      },
+      "AwsSkillsMapping-Dev": {
+        "id": "AwsSkillsMapping-Dev",
+        "path": "AwsSkillsMapping-Dev",
+        "children": {
+          "Stateful": {
+            "id": "Stateful",
+            "path": "AwsSkillsMapping-Dev/Stateful",
+            "children": {
+              "WebSite": {
+                "id": "WebSite",
+                "path": "AwsSkillsMapping-Dev/Stateful/WebSite",
+                "children": {
+                  "BucketStaticWebSiteHosting": {
+                    "id": "BucketStaticWebSiteHosting",
+                    "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                          "aws:cdk:cloudformation:props": {
+                            "bucketName": "ualterjuniorawsskillsmapping",
+                            "publicAccessBlockConfiguration": {
+                              "blockPublicAcls": false,
+                              "blockPublicPolicy": false,
+                              "ignorePublicAcls": false,
+                              "restrictPublicBuckets": false
+                            },
+                            "tags": [
+                              {
+                                "key": "aws-cdk:auto-delete-objects",
+                                "value": "true"
+                              },
+                              {
+                                "key": "aws-cdk:cr-owned:77904120",
+                                "value": "true"
+                              }
+                            ],
+                            "websiteConfiguration": {
+                              "indexDocument": "index.html",
+                              "errorDocument": "index.html"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Policy": {
+                        "id": "Policy",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/Policy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/Policy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                              "aws:cdk:cloudformation:props": {
+                                "bucket": {
+                                  "Ref": "WebSiteBucketStaticWebSiteHosting26664AF5"
+                                },
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "s3:GetObject",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": "*"
+                                      },
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "WebSiteBucketStaticWebSiteHosting26664AF5",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/*"
+                                          ]
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": [
+                                        "s3:DeleteObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": {
+                                          "Fn::GetAtt": [
+                                            "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                            "Arn"
+                                          ]
+                                        }
+                                      },
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "WebSiteBucketStaticWebSiteHosting26664AF5",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "WebSiteBucketStaticWebSiteHosting26664AF5",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.BucketPolicy",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "AutoDeleteObjectsCustomResource": {
+                        "id": "AutoDeleteObjectsCustomResource",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.CfnResource",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.CustomResource",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.Bucket",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "bucket_name": {
+                    "id": "bucket_name",
+                    "path": "AwsSkillsMapping-Dev/Stateful/WebSite/bucket_name",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnOutput",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "bucket_website_url": {
+                    "id": "bucket_website_url",
+                    "path": "AwsSkillsMapping-Dev/Stateful/WebSite/bucket_website_url",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnOutput",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "DeployWebSite": {
+                    "id": "DeployWebSite",
+                    "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite",
+                    "children": {
+                      "AwsCliLayer": {
+                        "id": "AwsCliLayer",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer",
+                        "children": {
+                          "Code": {
+                            "id": "Code",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer/Code",
+                            "children": {
+                              "Stage": {
+                                "id": "Stage",
+                                "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer/Code/Stage",
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/core.AssetStaging",
+                                  "version": "1.162.0"
+                                }
+                              },
+                              "AssetBucket": {
+                                "id": "AssetBucket",
+                                "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer/Code/AssetBucket",
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-s3.BucketBase",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
+                              "aws:cdk:cloudformation:props": {
+                                "content": {
+                                  "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+                                  "s3Key": "9224197a0988613189788525036306b333034895bb69a8220b40e52dced6a8b7.zip"
+                                },
+                                "description": "/opt/awscli/aws"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-lambda.CfnLayerVersion",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/lambda-layer-awscli.AwsCliLayer",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "CustomResourceHandler": {
+                        "id": "CustomResourceHandler",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/CustomResourceHandler",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-lambda.SingletonFunction",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Asset1": {
+                        "id": "Asset1",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/Asset1",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/Asset1/Stage",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.AssetStaging",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/Asset1/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.BucketBase",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "CustomResource": {
+                        "id": "CustomResource",
+                        "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/CustomResource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/CustomResource/Default",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.CfnResource",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.CustomResource",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3-deployment.BucketDeployment",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.162.0"
+                }
+              },
+              "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
+                "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
+                "path": "AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+                "children": {
+                  "Staging": {
+                    "id": "Staging",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "Role": {
+                    "id": "Role",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "Handler": {
+                    "id": "Handler",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CustomResourceProvider",
+                  "version": "1.162.0"
+                }
+              },
+              "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": {
+                "id": "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+                "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.CfnRole",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetBucket*",
+                                        "s3:GetObject*",
+                                        "s3:List*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-411078575449-eu-west-3"
+                                            ]
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-411078575449-eu-west-3/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": [
+                                        "s3:Abort*",
+                                        "s3:DeleteObject*",
+                                        "s3:GetBucket*",
+                                        "s3:GetObject*",
+                                        "s3:List*",
+                                        "s3:PutObject*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "WebSiteBucketStaticWebSiteHosting26664AF5",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "WebSiteBucketStaticWebSiteHosting26664AF5",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                                "roles": [
+                                  {
+                                    "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Policy",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.Role",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.AssetStaging",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.BucketBase",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+                          "s3Key": "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+                            "Arn"
+                          ]
+                        },
+                        "handler": "index.handler",
+                        "layers": [
+                          {
+                            "Ref": "WebSiteDeployWebSiteAwsCliLayer184345BC"
+                          }
+                        ],
+                        "runtime": "python3.7",
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.Function",
+                  "version": "1.162.0"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "AwsSkillsMapping-Dev/Stateful/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "AwsSkillsMapping-Dev/Stateful/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.162.0"
+                }
+              },
+              "BootstrapVersion": {
+                "id": "BootstrapVersion",
+                "path": "AwsSkillsMapping-Dev/Stateful/BootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnParameter",
+                  "version": "1.162.0"
+                }
+              },
+              "CheckBootstrapVersion": {
+                "id": "CheckBootstrapVersion",
+                "path": "AwsSkillsMapping-Dev/Stateful/CheckBootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnRule",
+                  "version": "1.162.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Stack",
+              "version": "1.162.0"
+            }
+          },
+          "Stateless": {
+            "id": "Stateless",
+            "path": "AwsSkillsMapping-Dev/Stateless",
+            "children": {
+              "AwsSkillsMapping": {
+                "id": "AwsSkillsMapping",
+                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping",
+                "children": {
+                  "AwsSkillsMapping-Pipeline": {
+                    "id": "AwsSkillsMapping-Pipeline",
+                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline",
+                    "children": {
+                      "ArtifactsBucketEncryptionKey": {
+                        "id": "ArtifactsBucketEncryptionKey",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKey",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKey/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::KMS::Key",
+                              "aws:cdk:cloudformation:props": {
+                                "keyPolicy": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "kms:CancelKeyDeletion",
+                                        "kms:Create*",
+                                        "kms:Delete*",
+                                        "kms:Describe*",
+                                        "kms:Disable*",
+                                        "kms:Enable*",
+                                        "kms:GenerateDataKey",
+                                        "kms:Get*",
+                                        "kms:List*",
+                                        "kms:Put*",
+                                        "kms:Revoke*",
+                                        "kms:ScheduleKeyDeletion",
+                                        "kms:TagResource",
+                                        "kms:UntagResource",
+                                        "kms:Update*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":iam::411078575449:root"
+                                            ]
+                                          ]
+                                        }
+                                      },
+                                      "Resource": "*"
+                                    },
+                                    {
+                                      "Action": [
+                                        "kms:Decrypt",
+                                        "kms:DescribeKey",
+                                        "kms:Encrypt",
+                                        "kms:GenerateDataKey*",
+                                        "kms:ReEncrypt*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "AwsSkillsMappingAwsSkillsMappingPipelineRoleE418ED4C",
+                                              "Arn"
+                                            ]
+                                          },
+                                          {
+                                            "Fn::GetAtt": [
+                                              "AwsSkillsMappingProjectNameRole1E401549",
+                                              "Arn"
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "Resource": "*"
+                                    },
+                                    {
+                                      "Action": [
+                                        "kms:Decrypt",
+                                        "kms:DescribeKey"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingAwsSkillsMappingPipelineDeployS3DeployCodePipelineActionRole7E1EA0A4",
+                                            "Arn"
+                                          ]
+                                        }
+                                      },
+                                      "Resource": "*"
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-kms.CfnKey",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-kms.Key",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "ArtifactsBucketEncryptionKeyAlias": {
+                        "id": "ArtifactsBucketEncryptionKeyAlias",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKeyAlias",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::KMS::Alias",
+                              "aws:cdk:cloudformation:props": {
+                                "aliasName": "alias/codepipeline-awsskillsmappingdevstatelessawsskillsmappingawsskillsmappingpipeline43db17f3",
+                                "targetKeyId": {
+                                  "Fn::GetAtt": [
+                                    "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-kms.CfnAlias",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-kms.Alias",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "ArtifactsBucket": {
+                        "id": "ArtifactsBucket",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucket",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucket/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                              "aws:cdk:cloudformation:props": {
+                                "bucketEncryption": {
+                                  "serverSideEncryptionConfiguration": [
+                                    {
+                                      "serverSideEncryptionByDefault": {
+                                        "sseAlgorithm": "aws:kms",
+                                        "kmsMasterKeyId": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                            "Arn"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "publicAccessBlockConfiguration": {
+                                  "blockPublicAcls": true,
+                                  "blockPublicPolicy": true,
+                                  "ignorePublicAcls": true,
+                                  "restrictPublicBuckets": true
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "Policy": {
+                            "id": "Policy",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucket/Policy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/ArtifactsBucket/Policy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "bucket": {
+                                      "Ref": "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC"
+                                    },
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "s3:*",
+                                          "Condition": {
+                                            "Bool": {
+                                              "aws:SecureTransport": "false"
+                                            }
+                                          },
+                                          "Effect": "Deny",
+                                          "Principal": {
+                                            "AWS": "*"
+                                          },
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.BucketPolicy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.Bucket",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Role": {
+                        "id": "Role",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Role",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Role/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "codepipeline.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Role/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Role/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": [
+                                            "s3:Abort*",
+                                            "s3:DeleteObject*",
+                                            "s3:GetBucket*",
+                                            "s3:GetObject*",
+                                            "s3:List*",
+                                            "s3:PutObject*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "kms:Decrypt",
+                                            "kms:DescribeKey",
+                                            "kms:Encrypt",
+                                            "kms:GenerateDataKey*",
+                                            "kms:ReEncrypt*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::GetAtt": [
+                                              "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                              "Arn"
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "Action": "sts:AssumeRole",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingAwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleC57CA20E",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingAwsSkillsMappingPipelineDeployS3DeployCodePipelineActionRole7E1EA0A4",
+                                                "Arn"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "AwsSkillsMappingAwsSkillsMappingPipelineRoleDefaultPolicy6FFA08ED",
+                                    "roles": [
+                                      {
+                                        "Ref": "AwsSkillsMappingAwsSkillsMappingPipelineRoleE418ED4C"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.Policy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::CodePipeline::Pipeline",
+                          "aws:cdk:cloudformation:props": {
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingAwsSkillsMappingPipelineRoleE418ED4C",
+                                "Arn"
+                              ]
+                            },
+                            "stages": [
+                              {
+                                "name": "Source",
+                                "actions": [
+                                  {
+                                    "name": "GitHub",
+                                    "outputArtifacts": [
+                                      {
+                                        "name": "Artifact_Source_GitHub"
+                                      }
+                                    ],
+                                    "actionTypeId": {
+                                      "category": "Source",
+                                      "version": "1",
+                                      "owner": "ThirdParty",
+                                      "provider": "GitHub"
+                                    },
+                                    "configuration": {
+                                      "Owner": "ualter",
+                                      "Repo": "aws-skills-mapping-app",
+                                      "Branch": "v0.0.2",
+                                      "OAuthToken": "{{resolve:secretsmanager:github-ualter:SecretString:::}}",
+                                      "PollForSourceChanges": false
+                                    },
+                                    "runOrder": 1
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "Build",
+                                "actions": [
+                                  {
+                                    "name": "CodeBuild",
+                                    "inputArtifacts": [
+                                      {
+                                        "name": "Artifact_Source_GitHub"
+                                      }
+                                    ],
+                                    "actionTypeId": {
+                                      "category": "Build",
+                                      "version": "1",
+                                      "owner": "AWS",
+                                      "provider": "CodeBuild"
+                                    },
+                                    "configuration": {
+                                      "ProjectName": {
+                                        "Ref": "AwsSkillsMappingProjectName2E7FCDFB"
+                                      }
+                                    },
+                                    "runOrder": 2,
+                                    "roleArn": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingAwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleC57CA20E",
+                                        "Arn"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "Deploy",
+                                "actions": [
+                                  {
+                                    "name": "S3Deploy",
+                                    "inputArtifacts": [
+                                      {
+                                        "name": "Artifact_Source_GitHub"
+                                      }
+                                    ],
+                                    "actionTypeId": {
+                                      "category": "Deploy",
+                                      "version": "1",
+                                      "owner": "AWS",
+                                      "provider": "S3"
+                                    },
+                                    "configuration": {
+                                      "BucketName": {
+                                        "Ref": "AwsSkillsMappingualterjuniorawsskillsmappingA930BF19"
+                                      },
+                                      "Extract": "true"
+                                    },
+                                    "runOrder": 1,
+                                    "roleArn": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingAwsSkillsMappingPipelineDeployS3DeployCodePipelineActionRole7E1EA0A4",
+                                        "Arn"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "artifactStore": {
+                              "type": "S3",
+                              "location": {
+                                "Ref": "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC"
+                              },
+                              "encryptionKey": {
+                                "type": "KMS",
+                                "id": {
+                                  "Fn::GetAtt": [
+                                    "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-codepipeline.CfnPipeline",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Source": {
+                        "id": "Source",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Source",
+                        "children": {
+                          "GitHub": {
+                            "id": "GitHub",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Source/GitHub",
+                            "children": {
+                              "WebhookResource": {
+                                "id": "WebhookResource",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Source/GitHub/WebhookResource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::CodePipeline::Webhook",
+                                  "aws:cdk:cloudformation:props": {
+                                    "authentication": "GITHUB_HMAC",
+                                    "authenticationConfiguration": {
+                                      "secretToken": "{{resolve:secretsmanager:github-ualter:SecretString:::}}"
+                                    },
+                                    "filters": [
+                                      {
+                                        "jsonPath": "$.ref",
+                                        "matchEquals": "refs/heads/{Branch}"
+                                      }
+                                    ],
+                                    "targetAction": "GitHub",
+                                    "targetPipeline": {
+                                      "Ref": "AwsSkillsMappingAwsSkillsMappingPipeline7FAA7349"
+                                    },
+                                    "targetPipelineVersion": 1,
+                                    "registerWithThirdParty": true
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-codepipeline.CfnWebhook",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.Construct",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Build": {
+                        "id": "Build",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build",
+                        "children": {
+                          "CodeBuild": {
+                            "id": "CodeBuild",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build/CodeBuild",
+                            "children": {
+                              "CodePipelineActionRole": {
+                                "id": "CodePipelineActionRole",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                                      "aws:cdk:cloudformation:props": {
+                                        "assumeRolePolicyDocument": {
+                                          "Statement": [
+                                            {
+                                              "Action": "sts:AssumeRole",
+                                              "Effect": "Allow",
+                                              "Principal": {
+                                                "AWS": {
+                                                  "Fn::Join": [
+                                                    "",
+                                                    [
+                                                      "arn:",
+                                                      {
+                                                        "Ref": "AWS::Partition"
+                                                      },
+                                                      ":iam::411078575449:root"
+                                                    ]
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "Version": "2012-10-17"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                                      "version": "1.162.0"
+                                    }
+                                  },
+                                  "DefaultPolicy": {
+                                    "id": "DefaultPolicy",
+                                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy",
+                                    "children": {
+                                      "Resource": {
+                                        "id": "Resource",
+                                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource",
+                                        "attributes": {
+                                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                          "aws:cdk:cloudformation:props": {
+                                            "policyDocument": {
+                                              "Statement": [
+                                                {
+                                                  "Action": [
+                                                    "codebuild:BatchGetBuilds",
+                                                    "codebuild:StartBuild",
+                                                    "codebuild:StopBuild"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": {
+                                                    "Fn::GetAtt": [
+                                                      "AwsSkillsMappingProjectName2E7FCDFB",
+                                                      "Arn"
+                                                    ]
+                                                  }
+                                                }
+                                              ],
+                                              "Version": "2012-10-17"
+                                            },
+                                            "policyName": "AwsSkillsMappingAwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleDefaultPolicyD06E2B6C",
+                                            "roles": [
+                                              {
+                                                "Ref": "AwsSkillsMappingAwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleC57CA20E"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "constructInfo": {
+                                          "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                                          "version": "1.162.0"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-iam.Policy",
+                                      "version": "1.162.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-iam.Role",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.Construct",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Deploy": {
+                        "id": "Deploy",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy",
+                        "children": {
+                          "S3Deploy": {
+                            "id": "S3Deploy",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy/S3Deploy",
+                            "children": {
+                              "CodePipelineActionRole": {
+                                "id": "CodePipelineActionRole",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy/S3Deploy/CodePipelineActionRole",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy/S3Deploy/CodePipelineActionRole/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                                      "aws:cdk:cloudformation:props": {
+                                        "assumeRolePolicyDocument": {
+                                          "Statement": [
+                                            {
+                                              "Action": "sts:AssumeRole",
+                                              "Effect": "Allow",
+                                              "Principal": {
+                                                "AWS": {
+                                                  "Fn::Join": [
+                                                    "",
+                                                    [
+                                                      "arn:",
+                                                      {
+                                                        "Ref": "AWS::Partition"
+                                                      },
+                                                      ":iam::411078575449:root"
+                                                    ]
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "Version": "2012-10-17"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                                      "version": "1.162.0"
+                                    }
+                                  },
+                                  "DefaultPolicy": {
+                                    "id": "DefaultPolicy",
+                                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy/S3Deploy/CodePipelineActionRole/DefaultPolicy",
+                                    "children": {
+                                      "Resource": {
+                                        "id": "Resource",
+                                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/AwsSkillsMapping-Pipeline/Deploy/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource",
+                                        "attributes": {
+                                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                          "aws:cdk:cloudformation:props": {
+                                            "policyDocument": {
+                                              "Statement": [
+                                                {
+                                                  "Action": [
+                                                    "s3:Abort*",
+                                                    "s3:DeleteObject*",
+                                                    "s3:PutObject*"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": [
+                                                    {
+                                                      "Fn::GetAtt": [
+                                                        "AwsSkillsMappingualterjuniorawsskillsmappingA930BF19",
+                                                        "Arn"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "Fn::Join": [
+                                                        "",
+                                                        [
+                                                          {
+                                                            "Fn::GetAtt": [
+                                                              "AwsSkillsMappingualterjuniorawsskillsmappingA930BF19",
+                                                              "Arn"
+                                                            ]
+                                                          },
+                                                          "/*"
+                                                        ]
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "s3:GetBucket*",
+                                                    "s3:GetObject*",
+                                                    "s3:List*"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": [
+                                                    {
+                                                      "Fn::GetAtt": [
+                                                        "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                        "Arn"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "Fn::Join": [
+                                                        "",
+                                                        [
+                                                          {
+                                                            "Fn::GetAtt": [
+                                                              "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                              "Arn"
+                                                            ]
+                                                          },
+                                                          "/*"
+                                                        ]
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "kms:Decrypt",
+                                                    "kms:DescribeKey"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": {
+                                                    "Fn::GetAtt": [
+                                                      "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                                      "Arn"
+                                                    ]
+                                                  }
+                                                }
+                                              ],
+                                              "Version": "2012-10-17"
+                                            },
+                                            "policyName": "AwsSkillsMappingAwsSkillsMappingPipelineDeployS3DeployCodePipelineActionRoleDefaultPolicy973FC352",
+                                            "roles": [
+                                              {
+                                                "Ref": "AwsSkillsMappingAwsSkillsMappingPipelineDeployS3DeployCodePipelineActionRole7E1EA0A4"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "constructInfo": {
+                                          "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                                          "version": "1.162.0"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-iam.Policy",
+                                      "version": "1.162.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-iam.Role",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.Construct",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-codepipeline.Pipeline",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "ProjectName": {
+                    "id": "ProjectName",
+                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName",
+                    "children": {
+                      "Role": {
+                        "id": "Role",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName/Role",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName/Role/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "codebuild.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName/Role/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName/Role/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": [
+                                            "logs:CreateLogGroup",
+                                            "logs:CreateLogStream",
+                                            "logs:PutLogEvents"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":logs:eu-west-3:411078575449:log-group:/aws/codebuild/",
+                                                  {
+                                                    "Ref": "AwsSkillsMappingProjectName2E7FCDFB"
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":logs:eu-west-3:411078575449:log-group:/aws/codebuild/",
+                                                  {
+                                                    "Ref": "AwsSkillsMappingProjectName2E7FCDFB"
+                                                  }
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "codebuild:BatchPutCodeCoverages",
+                                            "codebuild:BatchPutTestCases",
+                                            "codebuild:CreateReport",
+                                            "codebuild:CreateReportGroup",
+                                            "codebuild:UpdateReport"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":codebuild:eu-west-3:411078575449:report-group/",
+                                                {
+                                                  "Ref": "AwsSkillsMappingProjectName2E7FCDFB"
+                                                },
+                                                "-*"
+                                              ]
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "Action": [
+                                            "s3:GetBucket*",
+                                            "s3:GetObject*",
+                                            "s3:List*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucket060A95DC",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "kms:Decrypt",
+                                            "kms:DescribeKey",
+                                            "kms:Encrypt",
+                                            "kms:GenerateDataKey*",
+                                            "kms:ReEncrypt*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::GetAtt": [
+                                              "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                              "Arn"
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "AwsSkillsMappingProjectNameRoleDefaultPolicy979806B3",
+                                    "roles": [
+                                      {
+                                        "Ref": "AwsSkillsMappingProjectNameRole1E401549"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.Policy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ProjectName/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                          "aws:cdk:cloudformation:props": {
+                            "artifacts": {
+                              "type": "CODEPIPELINE"
+                            },
+                            "environment": {
+                              "type": "LINUX_CONTAINER",
+                              "image": "aws/codebuild/standard:1.0",
+                              "imagePullCredentialsType": "CODEBUILD",
+                              "privilegedMode": false,
+                              "computeType": "BUILD_GENERAL1_SMALL"
+                            },
+                            "serviceRole": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingProjectNameRole1E401549",
+                                "Arn"
+                              ]
+                            },
+                            "source": {
+                              "type": "CODEPIPELINE",
+                              "buildSpec": "./codebuild/buildspec.yaml"
+                            },
+                            "cache": {
+                              "type": "NO_CACHE"
+                            },
+                            "encryptionKey": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingAwsSkillsMappingPipelineArtifactsBucketEncryptionKey8CF61A31",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-codebuild.CfnProject",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-codebuild.PipelineProject",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "ualterjuniorawsskillsmapping": {
+                    "id": "ualterjuniorawsskillsmapping",
+                    "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ualterjuniorawsskillsmapping",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-Dev/Stateless/AwsSkillsMapping/ualterjuniorawsskillsmapping/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                          "aws:cdk:cloudformation:props": {}
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.Bucket",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.162.0"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "AwsSkillsMapping-Dev/Stateless/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "AwsSkillsMapping-Dev/Stateless/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.162.0"
+                }
+              },
+              "BootstrapVersion": {
+                "id": "BootstrapVersion",
+                "path": "AwsSkillsMapping-Dev/Stateless/BootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnParameter",
+                  "version": "1.162.0"
+                }
+              },
+              "CheckBootstrapVersion": {
+                "id": "CheckBootstrapVersion",
+                "path": "AwsSkillsMapping-Dev/Stateless/CheckBootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnRule",
+                  "version": "1.162.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Stack",
+              "version": "1.162.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stage",
+          "version": "1.162.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.162.0"
+    }
+  }
+}
