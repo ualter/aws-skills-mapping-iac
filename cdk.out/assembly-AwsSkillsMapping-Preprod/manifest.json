@@ -1,40 +1,40 @@
 {
   "version": "20.0.0",
   "artifacts": {
-    "AwsSkillsMappingDevStateful47BF1530.assets": {
+    "AwsSkillsMappingPreprodStateful00CE86B3.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "AwsSkillsMappingDevStateful47BF1530.assets.json",
+        "file": "AwsSkillsMappingPreprodStateful00CE86B3.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "AwsSkillsMappingDevStateful47BF1530": {
+    "AwsSkillsMappingPreprodStateful00CE86B3": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://411078575449/eu-west-3",
+      "environment": "aws://411078575449/eu-west-1",
       "properties": {
-        "templateFile": "AwsSkillsMappingDevStateful47BF1530.template.json",
+        "templateFile": "AwsSkillsMappingPreprodStateful00CE86B3.template.json",
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-deploy-role-411078575449-eu-west-3",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-cfn-exec-role-411078575449-eu-west-3",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-411078575449-eu-west-3/7c4f0d43ba288ab941f1abbd11cab5c34f10861235ae629f05d56d100fd11163.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-deploy-role-411078575449-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-cfn-exec-role-411078575449-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-411078575449-eu-west-1/ab0b4c62560806bc78d563926929fcecb095058dca1f297a69bd4a1e267bbc7f.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "AwsSkillsMappingDevStateful47BF1530.assets"
+          "AwsSkillsMappingPreprodStateful00CE86B3.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-lookup-role-411078575449-eu-west-3",
+          "arn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-lookup-role-411078575449-eu-west-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         },
-        "stackName": "AwsSkillsMapping-Dev-Stateful"
+        "stackName": "AwsSkillsMapping-Preprod-Stateful"
       },
       "dependencies": [
-        "AwsSkillsMappingDevStateful47BF1530.assets"
+        "AwsSkillsMappingPreprodStateful00CE86B3.assets"
       ],
       "metadata": {
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/BucketStaticWebSiteHosting/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSiteBucketStaticWebSiteHosting26664AF5",
@@ -51,7 +51,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/Policy/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/BucketStaticWebSiteHosting/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSiteBucketStaticWebSiteHostingPolicy2E759170",
@@ -72,7 +72,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSiteBucketStaticWebSiteHostingAutoDeleteObjectsCustomResource7E2CB017",
@@ -91,7 +91,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/bucket_name": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/bucket_name": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSitebucketname0C62FF37",
@@ -107,7 +107,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/bucket_website_url": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/bucket_website_url": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSitebucketwebsiteurl30764848",
@@ -123,7 +123,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/AwsCliLayer/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/DeployWebSite/AwsCliLayer/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSiteDeployWebSiteAwsCliLayer184345BC",
@@ -142,7 +142,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/WebSite/DeployWebSite/CustomResource/Default": [
+        "/AwsSkillsMapping-Preprod/Stateful/WebSite/DeployWebSite/CustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebSiteDeployWebSiteCustomResourceE45797D7",
@@ -160,7 +160,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+        "/AwsSkillsMapping-Preprod/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
@@ -180,7 +180,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+        "/AwsSkillsMapping-Preprod/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
@@ -200,7 +200,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
@@ -221,7 +221,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
@@ -248,7 +248,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+        "/AwsSkillsMapping-Preprod/Stateful/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536",
@@ -268,7 +268,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/S3BucketWebSiteName": [
+        "/AwsSkillsMapping-Preprod/Stateful/S3BucketWebSiteName": [
           {
             "type": "aws:cdk:logicalId",
             "data": "S3BucketWebSiteName",
@@ -284,7 +284,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/CDKMetadata/Default": [
+        "/AwsSkillsMapping-Preprod/Stateful/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata",
@@ -311,7 +311,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/BootstrapVersion": [
+        "/AwsSkillsMapping-Preprod/Stateful/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion",
@@ -339,7 +339,7 @@
             ]
           }
         ],
-        "/AwsSkillsMapping-Dev/Stateful/CheckBootstrapVersion": [
+        "/AwsSkillsMapping-Preprod/Stateful/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion",
@@ -368,7 +368,7 @@
           }
         ]
       },
-      "displayName": "AwsSkillsMapping-Dev/Stateful"
+      "displayName": "AwsSkillsMapping-Preprod/Stateful"
     }
   }
 }

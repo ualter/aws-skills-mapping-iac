@@ -7,11 +7,11 @@
         "packaging": "zip"
       },
       "destinations": {
-        "411078575449-eu-west-3": {
-          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+        "411078575449-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-1",
           "objectKey": "b090a62c3af745e7829d846b5033bcd70ef3bcc28a33422247a2ac5f0f208e4e.zip",
-          "region": "eu-west-3",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-1"
         }
       }
     },
@@ -21,11 +21,11 @@
         "packaging": "file"
       },
       "destinations": {
-        "411078575449-eu-west-3": {
-          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+        "411078575449-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-1",
           "objectKey": "9224197a0988613189788525036306b333034895bb69a8220b40e52dced6a8b7.zip",
-          "region": "eu-west-3",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-1"
         }
       }
     },
@@ -35,11 +35,11 @@
         "packaging": "zip"
       },
       "destinations": {
-        "411078575449-eu-west-3": {
-          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+        "411078575449-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-1",
           "objectKey": "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da.zip",
-          "region": "eu-west-3",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-1"
         }
       }
     },
@@ -49,25 +49,25 @@
         "packaging": "zip"
       },
       "destinations": {
-        "411078575449-eu-west-3": {
-          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+        "411078575449-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-1",
           "objectKey": "934821a5004e70940507bac831a1c75074e16b2e88edf16e0643b5cdc348ce6e.zip",
-          "region": "eu-west-3",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-1"
         }
       }
     },
-    "7c4f0d43ba288ab941f1abbd11cab5c34f10861235ae629f05d56d100fd11163": {
+    "2f8c032564af771ca8693c4b17516178a56d9378067ad3acc5f49ec5c00e8342": {
       "source": {
-        "path": "AwsSkillsMappingDevStateful47BF1530.template.json",
+        "path": "AwsSkillsMappingPipelineAwsSkillsMappingPreprodStateful3FE33619.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "411078575449-eu-west-3": {
-          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
-          "objectKey": "7c4f0d43ba288ab941f1abbd11cab5c34f10861235ae629f05d56d100fd11163.json",
-          "region": "eu-west-3",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+        "411078575449-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-1",
+          "objectKey": "2f8c032564af771ca8693c4b17516178a56d9378067ad3acc5f49ec5c00e8342.json",
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-1"
         }
       }
     }

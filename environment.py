@@ -1,3 +1,4 @@
+import abc
 import os
 from dataclasses import dataclass
 
@@ -58,17 +59,16 @@ class AwsSkillsMappingProps(cdk.StageProps):
         super().__init__(env=env, outdir=None)
 
     # type ignore
-    def helm_repo_name(self) -> str:
+    def s3_bucket_website_name(self) -> str:
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
-            return (
-                f"helm-repository-{self.env.account}-{self.env.region}-{self.stage()}"
-            )
+            return f"ualter-aws-skills-mapping-{self.env.account}-{self.env.region}-{self.stage_name()}"
         raise ValueError(
             "Somethings very wrong! The self.env of AwsSkillsMappingProps Class, is not of type cdk.Environment, it must be!"
         )
 
-    def stage(self) -> str:
-        return "undefined"
+    @abc.abstractmethod
+    def stage_name(self) -> str:
+        pass
 
 
 # Dev
@@ -76,7 +76,7 @@ class AwsSkillsMappingPropsDev(AwsSkillsMappingProps):
     def __init__(self) -> None:
         super().__init__(env=Environments()._DEV_ENV)
 
-    def stage(self) -> str:
+    def stage_name(self) -> str:
         return "dev"
 
 
@@ -85,7 +85,7 @@ class AwsSkillsMappingPropsPreProd(AwsSkillsMappingProps):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PREPROD_ENV)
 
-    def stage(self) -> str:
+    def stage_name(self) -> str:
         return "preprod"
 
 
@@ -94,7 +94,7 @@ class AwsSkillsMappingPropsProd(AwsSkillsMappingProps):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PROD_ENV)
 
-    def stage(self) -> str:
+    def stage_name(self) -> str:
         return "prod"
 
 
