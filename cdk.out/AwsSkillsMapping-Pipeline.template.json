@@ -279,6 +279,12 @@
        "Resource": [
         {
          "Fn::GetAtt": [
+          "AwsSkillsMappingPipelineApproveCodePipelineActionRole8EFE5AAE",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
           "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34",
           "Arn"
          ]
@@ -410,6 +416,27 @@
        }
       ],
       "Name": "Deploy_dev"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Approval",
+         "Owner": "AWS",
+         "Provider": "Manual",
+         "Version": "1"
+        },
+        "Name": "Approve",
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "AwsSkillsMappingPipelineApproveCodePipelineActionRole8EFE5AAE",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       }
+      ],
+      "Name": "Approve"
      },
      {
       "Actions": [
@@ -688,6 +715,37 @@
    },
    "Metadata": {
     "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Deploy_dev/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
+   }
+  },
+  "AwsSkillsMappingPipelineApproveCodePipelineActionRole8EFE5AAE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::411078575449:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Approve/Approve/CodePipelineActionRole/Resource"
    }
   },
   "AwsSkillsMappingPipelineDeploypreprodS3DeployCodePipelineActionRole50B03DE1": {

@@ -55,10 +55,16 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             )
         )
 
-    def deploy_stage(self, stage: AwsSkillsMapping) -> None:
+    def add_approval_stage(self) -> None:
+        approval_stage = self._pipeline.add_stage(stage_name="Approve")
+        approval_stage.add_action(
+            codepipeline_actions.ManualApprovalAction(action_name="Approve")
+        )
+
+    def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
         bucket_name = cdk.Fn.import_value("bucket_website_name")
         target_bucket = s3.Bucket.from_bucket_name(
-            self, f"bucket-to-deploy-{stage.props.stage_name()}", bucket_name
+            self, f"bucket-{stage.props.stage_name()}", bucket_name
         )
         deploy_stage = self._pipeline.add_stage(
             stage_name=f"Deploy_{stage.props.stage_name()}"

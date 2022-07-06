@@ -34,8 +34,9 @@ preprod_stage = AwsSkillsMapping(
 
 # PIPELINE for Application: aws-skills-mapping
 app_pipeline = AwsSkillsMappingPipeline(app, env=PipelineProps().env)
-app_pipeline.deploy_stage(dev_stage)
-app_pipeline.deploy_stage(preprod_stage)
+app_pipeline.add_deploy_stage(dev_stage)
+app_pipeline.add_approval_stage()
+app_pipeline.add_deploy_stage(preprod_stage)
 
 # # PRE-PRODUCTION and PRODUCTION Stage will be deployed using this Pipeline
 # # Our Pipeline application will create the infra for CodePipeline and CodeBuild

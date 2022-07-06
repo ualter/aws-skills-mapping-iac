@@ -1583,6 +1583,12 @@
                                   "Resource": [
                                     {
                                       "Fn::GetAtt": [
+                                        "AwsSkillsMappingPipelineApproveCodePipelineActionRole8EFE5AAE",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::GetAtt": [
                                         "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34",
                                         "Arn"
                                       ]
@@ -1726,6 +1732,27 @@
                             "roleArn": {
                               "Fn::GetAtt": [
                                 "AwsSkillsMappingPipelineDeploydevS3DeployCodePipelineActionRole2D241667",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Approve",
+                        "actions": [
+                          {
+                            "name": "Approve",
+                            "actionTypeId": {
+                              "category": "Approval",
+                              "version": "1",
+                              "owner": "AWS",
+                              "provider": "Manual"
+                            },
+                            "runOrder": 1,
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingPipelineApproveCodePipelineActionRole8EFE5AAE",
                                 "Arn"
                               ]
                             }
@@ -2113,6 +2140,72 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Construct",
+                      "version": "1.162.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.162.0"
+                }
+              },
+              "Approve": {
+                "id": "Approve",
+                "path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Approve",
+                "children": {
+                  "Approve": {
+                    "id": "Approve",
+                    "path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Approve/Approve",
+                    "children": {
+                      "CodePipelineActionRole": {
+                        "id": "CodePipelineActionRole",
+                        "path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Approve/Approve/CodePipelineActionRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Approve/Approve/CodePipelineActionRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":iam::411078575449:root"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
                               "version": "1.162.0"
                             }
                           }
@@ -2558,17 +2651,17 @@
               "version": "1.162.0"
             }
           },
-          "bucket-to-deploy-dev": {
-            "id": "bucket-to-deploy-dev",
-            "path": "AwsSkillsMapping-Pipeline/bucket-to-deploy-dev",
+          "bucket-dev": {
+            "id": "bucket-dev",
+            "path": "AwsSkillsMapping-Pipeline/bucket-dev",
             "constructInfo": {
               "fqn": "@aws-cdk/aws-s3.BucketBase",
               "version": "1.162.0"
             }
           },
-          "bucket-to-deploy-preprod": {
-            "id": "bucket-to-deploy-preprod",
-            "path": "AwsSkillsMapping-Pipeline/bucket-to-deploy-preprod",
+          "bucket-preprod": {
+            "id": "bucket-preprod",
+            "path": "AwsSkillsMapping-Pipeline/bucket-preprod",
             "constructInfo": {
               "fqn": "@aws-cdk/aws-s3.BucketBase",
               "version": "1.162.0"
