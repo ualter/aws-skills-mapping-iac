@@ -55,6 +55,9 @@ class Environments:
 
 # Abstract Stage
 class AwsSkillsMappingProps(cdk.StageProps):
+    OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME = "S3-Bucket-Website-Name"
+    OUTPUT_KEY_S3_BUCKET_WEBSITE_URL = "S3-Bucket-Website-Url"
+
     def __init__(self, *, env: cdk.Environment) -> None:
         super().__init__(env=env, outdir=None)
 

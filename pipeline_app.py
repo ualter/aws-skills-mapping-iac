@@ -13,12 +13,14 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     def __init__(
         self,
         scope: cdk.Construct,
+        id_: str,
         **kwargs: Any,
     ):
 
-        super().__init__(scope, "AwsSkillsMapping-Pipeline", **kwargs)
-        self._pipeline = codepipeline.Pipeline(self, "AwsSkillsMapping-Pipeline")
+        super().__init__(scope, id_, **kwargs)
+        self._pipeline = codepipeline.Pipeline(self, id_)
         self._source_output = codepipeline.Artifact()
+        self._dist_output = codepipeline.Artifact()
 
         self._add_source_stage()
         self._add_build_stage(self)
@@ -51,6 +53,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                     ),
                 ),
                 input=self._source_output,
+                outputs=[self._dist_output], 
                 run_order=2,
             )
         )
@@ -62,17 +65,27 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
 
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
-        bucket_name = cdk.Fn.import_value("bucket_website_name")
-        target_bucket = s3.Bucket.from_bucket_name(
-            self, f"bucket-{stage.props.stage_name()}", bucket_name
+
+        # target_bucket = s3.Bucket.from_bucket_name(
+        #     self,
+        #     f"bucket-{stage.props.stage_name()}",
+        #     stage.props.s3_bucket_website_name(),
+        # )
+
+        target_bucket = s3.Bucket.from_bucket_attributes(
+            self,
+            f"bucket-{stage.props.stage_name()}",
+            bucket_name=stage.props.s3_bucket_website_name(),
+            region=stage.props.env.region
         )
+
         deploy_stage = self._pipeline.add_stage(
-            stage_name=f"Deploy_{stage.props.stage_name()}"
+            stage_name=f"Deploy_{stage.props.stage_name().upper()}"
         )
         deploy_stage.add_action(
             codepipeline_actions.S3DeployAction(
                 action_name="S3Deploy",
                 bucket=target_bucket,
-                input=self._source_output,
+                input=self._dist_output,
             )
         )

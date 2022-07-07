@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9": {
+  "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B": {
    "Type": "AWS::KMS::Key",
    "Properties": {
     "KeyPolicy": {
@@ -53,7 +53,7 @@
         "AWS": [
          {
           "Fn::GetAtt": [
-           "AwsSkillsMappingPipelineRole6FDEE86B",
+           "AwsSkillsMappingPIPELINERole32049DE8",
            "Arn"
           ]
          },
@@ -70,24 +70,34 @@
       {
        "Action": [
         "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "ProjectNameRole6D81AAFB",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
         "kms:DescribeKey"
        ],
        "Effect": "Allow",
        "Principal": {
-        "AWS": [
-         {
-          "Fn::GetAtt": [
-           "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRole1DC652E2",
-           "Arn"
-          ]
-         },
-         {
-          "Fn::GetAtt": [
-           "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDA8F9CC4",
-           "Arn"
-          ]
-         }
-        ]
+        "AWS": {
+         "Fn::GetAtt": [
+          "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62",
+          "Arn"
+         ]
+        }
        },
        "Resource": "*"
       }
@@ -98,16 +108,16 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKey/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/ArtifactsBucketEncryptionKey/Resource"
    }
   },
-  "AwsSkillsMappingPipelineArtifactsBucketEncryptionKeyAliasAD159413": {
+  "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyAlias583C421B": {
    "Type": "AWS::KMS::Alias",
    "Properties": {
-    "AliasName": "alias/codepipeline-awsskillsmappingpipeline5d594a00",
+    "AliasName": "alias/codepipeline-awsskillsmappingpipelinef1bbbb75",
     "TargetKeyId": {
      "Fn::GetAtt": [
-      "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
+      "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
       "Arn"
      ]
     }
@@ -115,10 +125,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/ArtifactsBucketEncryptionKeyAlias/Resource"
    }
   },
-  "AwsSkillsMappingPipelineArtifactsBucket99EE394F": {
+  "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455": {
    "Type": "AWS::S3::Bucket",
    "Properties": {
     "BucketEncryption": {
@@ -127,7 +137,7 @@
        "ServerSideEncryptionByDefault": {
         "KMSMasterKeyID": {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
+          "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
           "Arn"
          ]
         },
@@ -146,14 +156,14 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/ArtifactsBucket/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/ArtifactsBucket/Resource"
    }
   },
-  "AwsSkillsMappingPipelineArtifactsBucketPolicyA390D6D9": {
+  "AwsSkillsMappingPIPELINEArtifactsBucketPolicy7D0DC044": {
    "Type": "AWS::S3::BucketPolicy",
    "Properties": {
     "Bucket": {
-     "Ref": "AwsSkillsMappingPipelineArtifactsBucket99EE394F"
+     "Ref": "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455"
     },
     "PolicyDocument": {
      "Statement": [
@@ -171,7 +181,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+          "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
           "Arn"
          ]
         },
@@ -181,7 +191,7 @@
           [
            {
             "Fn::GetAtt": [
-             "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+             "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
              "Arn"
             ]
            },
@@ -196,10 +206,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/ArtifactsBucket/Policy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/ArtifactsBucket/Policy/Resource"
    }
   },
-  "AwsSkillsMappingPipelineRole6FDEE86B": {
+  "AwsSkillsMappingPIPELINERole32049DE8": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -216,10 +226,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Role/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Role/Resource"
    }
   },
-  "AwsSkillsMappingPipelineRoleDefaultPolicyAED9D5C4": {
+  "AwsSkillsMappingPIPELINERoleDefaultPolicy5A94B78C": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -237,8 +247,32 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+          "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
           "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
+          ]
          ]
         },
         {
@@ -247,7 +281,7 @@
           [
            {
             "Fn::GetAtt": [
-             "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+             "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
              "Arn"
             ]
            },
@@ -266,12 +300,15 @@
         "kms:ReEncrypt*"
        ],
        "Effect": "Allow",
-       "Resource": {
-        "Fn::GetAtt": [
-         "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
-         "Arn"
-        ]
-       }
+       "Resource": [
+        "*",
+        {
+         "Fn::GetAtt": [
+          "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
+          "Arn"
+         ]
+        }
+       ]
       },
       {
        "Action": "sts:AssumeRole",
@@ -279,19 +316,19 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34",
+          "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRole72E026B4",
           "Arn"
          ]
         },
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRole1DC652E2",
+          "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62",
           "Arn"
          ]
         },
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDA8F9CC4",
+          "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D",
           "Arn"
          ]
         }
@@ -300,23 +337,23 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "AwsSkillsMappingPipelineRoleDefaultPolicyAED9D5C4",
+    "PolicyName": "AwsSkillsMappingPIPELINERoleDefaultPolicy5A94B78C",
     "Roles": [
      {
-      "Ref": "AwsSkillsMappingPipelineRole6FDEE86B"
+      "Ref": "AwsSkillsMappingPIPELINERole32049DE8"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Role/DefaultPolicy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Role/DefaultPolicy/Resource"
    }
   },
-  "AwsSkillsMappingPipeline99B129BB": {
+  "AwsSkillsMappingPIPELINED4664A83": {
    "Type": "AWS::CodePipeline::Pipeline",
    "Properties": {
     "RoleArn": {
      "Fn::GetAtt": [
-      "AwsSkillsMappingPipelineRole6FDEE86B",
+      "AwsSkillsMappingPIPELINERole32049DE8",
       "Arn"
      ]
     },
@@ -368,9 +405,14 @@
          }
         ],
         "Name": "CodeBuild",
+        "OutputArtifacts": [
+         {
+          "Name": "Artifact_Build_CodeBuild"
+         }
+        ],
         "RoleArn": {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34",
+          "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRole72E026B4",
           "Arn"
          ]
         },
@@ -394,13 +436,13 @@
         },
         "InputArtifacts": [
          {
-          "Name": "Artifact_Source_GitHub"
+          "Name": "Artifact_Build_CodeBuild"
          }
         ],
         "Name": "S3Deploy",
         "RoleArn": {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRole1DC652E2",
+          "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62",
           "Arn"
          ]
         },
@@ -424,13 +466,14 @@
         },
         "InputArtifacts": [
          {
-          "Name": "Artifact_Source_GitHub"
+          "Name": "Artifact_Build_CodeBuild"
          }
         ],
         "Name": "S3Deploy",
+        "Region": "eu-west-1",
         "RoleArn": {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDA8F9CC4",
+          "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D",
           "Arn"
          ]
         },
@@ -440,31 +483,58 @@
       "Name": "Deploy_PREPROD"
      }
     ],
-    "ArtifactStore": {
-     "EncryptionKey": {
-      "Id": {
-       "Fn::GetAtt": [
-        "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
-        "Arn"
-       ]
+    "ArtifactStores": [
+     {
+      "ArtifactStore": {
+       "EncryptionKey": {
+        "Id": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":kms:eu-west-1:411078575449:alias/pipelinetencryptionaliaseda4fffd4e1bbf09995c"
+          ]
+         ]
+        },
+        "Type": "KMS"
+       },
+       "Location": "awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1",
+       "Type": "S3"
       },
-      "Type": "KMS"
+      "Region": "eu-west-1"
      },
-     "Location": {
-      "Ref": "AwsSkillsMappingPipelineArtifactsBucket99EE394F"
-     },
-     "Type": "S3"
-    }
+     {
+      "ArtifactStore": {
+       "EncryptionKey": {
+        "Id": {
+         "Fn::GetAtt": [
+          "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
+          "Arn"
+         ]
+        },
+        "Type": "KMS"
+       },
+       "Location": {
+        "Ref": "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455"
+       },
+       "Type": "S3"
+      },
+      "Region": "eu-west-3"
+     }
+    ]
    },
    "DependsOn": [
-    "AwsSkillsMappingPipelineRoleDefaultPolicyAED9D5C4",
-    "AwsSkillsMappingPipelineRole6FDEE86B"
+    "AwsSkillsMappingPIPELINERoleDefaultPolicy5A94B78C",
+    "AwsSkillsMappingPIPELINERole32049DE8"
    ],
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Resource"
    }
   },
-  "AwsSkillsMappingPipelineSourceGitHubWebhookResource1D8A4E6A": {
+  "AwsSkillsMappingPIPELINESourceGitHubWebhookResource50111606": {
    "Type": "AWS::CodePipeline::Webhook",
    "Properties": {
     "Authentication": "GITHUB_HMAC",
@@ -479,16 +549,16 @@
     ],
     "TargetAction": "GitHub",
     "TargetPipeline": {
-     "Ref": "AwsSkillsMappingPipeline99B129BB"
+     "Ref": "AwsSkillsMappingPIPELINED4664A83"
     },
     "TargetPipelineVersion": 1,
     "RegisterWithThirdParty": true
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Source/GitHub/WebhookResource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Source/GitHub/WebhookResource"
    }
   },
-  "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34": {
+  "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRole72E026B4": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -516,10 +586,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Build/CodeBuild/CodePipelineActionRole/Resource"
    }
   },
-  "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleDefaultPolicyB38F3778": {
+  "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRoleDefaultPolicy781447BF": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -541,18 +611,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRoleDefaultPolicyB38F3778",
+    "PolicyName": "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRoleDefaultPolicy781447BF",
     "Roles": [
      {
-      "Ref": "AwsSkillsMappingPipelineBuildCodeBuildCodePipelineActionRole0FEB1B34"
+      "Ref": "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRole72E026B4"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
-  "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRole1DC652E2": {
+  "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -580,10 +650,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Deploy_DEV/S3Deploy/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_DEV/S3Deploy/CodePipelineActionRole/Resource"
    }
   },
-  "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRoleDefaultPolicyB7B85384": {
+  "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRoleDefaultPolicy9BF836B5": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -632,7 +702,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+          "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
           "Arn"
          ]
         },
@@ -642,7 +712,7 @@
           [
            {
             "Fn::GetAtt": [
-             "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+             "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
              "Arn"
             ]
            },
@@ -660,7 +730,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
+         "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
          "Arn"
         ]
        }
@@ -668,18 +738,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRoleDefaultPolicyB7B85384",
+    "PolicyName": "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRoleDefaultPolicy9BF836B5",
     "Roles": [
      {
-      "Ref": "AwsSkillsMappingPipelineDeployDEVS3DeployCodePipelineActionRole1DC652E2"
+      "Ref": "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Deploy_DEV/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_DEV/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
-  "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDA8F9CC4": {
+  "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -707,10 +777,10 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/Resource"
    }
   },
-  "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicy038676CE": {
+  "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicyA9A019FD": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -758,22 +828,26 @@
        "Effect": "Allow",
        "Resource": [
         {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
-          "Arn"
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
+          ]
          ]
         },
         {
          "Fn::Join": [
           "",
           [
+           "arn:",
            {
-            "Fn::GetAtt": [
-             "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
-             "Arn"
-            ]
+            "Ref": "AWS::Partition"
            },
-           "/*"
+           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
           ]
          ]
         }
@@ -785,25 +859,20 @@
         "kms:DescribeKey"
        ],
        "Effect": "Allow",
-       "Resource": {
-        "Fn::GetAtt": [
-         "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
-         "Arn"
-        ]
-       }
+       "Resource": "*"
       }
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicy038676CE",
+    "PolicyName": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicyA9A019FD",
     "Roles": [
      {
-      "Ref": "AwsSkillsMappingPipelineDeployPREPRODS3DeployCodePipelineActionRoleDA8F9CC4"
+      "Ref": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/AwsSkillsMapping-Pipeline/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
   "ProjectNameRole6D81AAFB": {
@@ -823,7 +892,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/ProjectName/Role/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/ProjectName/Role/Resource"
    }
   },
   "ProjectNameRoleDefaultPolicy01F924A4": {
@@ -900,15 +969,18 @@
       },
       {
        "Action": [
+        "s3:Abort*",
+        "s3:DeleteObject*",
         "s3:GetBucket*",
         "s3:GetObject*",
-        "s3:List*"
+        "s3:List*",
+        "s3:PutObject*"
        ],
        "Effect": "Allow",
        "Resource": [
         {
          "Fn::GetAtt": [
-          "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+          "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
           "Arn"
          ]
         },
@@ -918,7 +990,7 @@
           [
            {
             "Fn::GetAtt": [
-             "AwsSkillsMappingPipelineArtifactsBucket99EE394F",
+             "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
              "Arn"
             ]
            },
@@ -939,7 +1011,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
+         "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
          "Arn"
         ]
        }
@@ -955,7 +1027,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/ProjectName/Role/DefaultPolicy/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/ProjectName/Role/DefaultPolicy/Resource"
    }
   },
   "ProjectName812B94AD": {
@@ -986,13 +1058,13 @@
     },
     "EncryptionKey": {
      "Fn::GetAtt": [
-      "AwsSkillsMappingPipelineArtifactsBucketEncryptionKey490F81A9",
+      "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
       "Arn"
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/ProjectName/Resource"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/ProjectName/Resource"
    }
   },
   "CDKMetadata": {
@@ -1001,7 +1073,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/02PzW7CMBCEn4W7WQqoqMeWHLlE4dCzcbZiseNF/hGKLL87cRwpPc03q1nt7B72pwN8bL7ly29Vr3dJsUNI1yCVFg1bH1xUQTR/tkPP0SnMomSnXI9PeqIhO+XbhUrwP//i7c6ss9CDh3TBsQyL/BiSvpgZsvBHSOeoNM63FqrSsiE1ruPFV3OWfmpEcoDUsZlvzrouVcqiFL5FMv3atnX8wPrdgjln0Y7hznZ3hC/43Dw80dZFG2hA6Kq+ATcHS+Y1AQAA"
    },
    "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-Pipeline/CDKMetadata/Default"
+    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/CDKMetadata/Default"
    }
   }
  },

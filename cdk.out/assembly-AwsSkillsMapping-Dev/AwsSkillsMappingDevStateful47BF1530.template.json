@@ -411,12 +411,23 @@
     ]
    }
   },
-  "S3BucketWebSiteName": {
+  "S3BucketWebsiteNameId": {
    "Value": {
     "Ref": "WebSiteBucketStaticWebSiteHosting26664AF5"
    },
    "Export": {
-    "Name": "bucket_website_name"
+    "Name": "S3-Bucket-Website-Name"
+   }
+  },
+  "S3BucketWebsiteUrlId": {
+   "Value": {
+    "Fn::GetAtt": [
+     "WebSiteBucketStaticWebSiteHosting26664AF5",
+     "WebsiteURL"
+    ]
+   },
+   "Export": {
+    "Name": "S3-Bucket-Website-Url"
    }
   }
  },

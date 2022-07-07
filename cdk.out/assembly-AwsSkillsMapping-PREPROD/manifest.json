@@ -1,0 +1,253 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "AwsSkillsMappingPREPRODStateful5ED40752.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "AwsSkillsMappingPREPRODStateful5ED40752.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "AwsSkillsMappingPREPRODStateful5ED40752": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://411078575449/eu-west-1",
+      "properties": {
+        "templateFile": "AwsSkillsMappingPREPRODStateful5ED40752.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-deploy-role-411078575449-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-cfn-exec-role-411078575449-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-411078575449-eu-west-1/f87d3bbbdf1dd93c477b7f3d5b0af5aad42ac6ba6abf02f43e8c3aeb6aae0fbc.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "AwsSkillsMappingPREPRODStateful5ED40752.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-lookup-role-411078575449-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "AwsSkillsMapping-PREPROD-Stateful"
+      },
+      "dependencies": [
+        "AwsSkillsMappingPREPRODStateful5ED40752.assets"
+      ],
+      "metadata": {
+        "/AwsSkillsMapping-PREPROD/Stateful/WebSite/BucketStaticWebSiteHosting/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSiteBucketStaticWebSiteHosting26664AF5",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/WebSite/BucketStaticWebSiteHosting/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSiteBucketStaticWebSiteHostingPolicy2E759170",
+            "trace": [
+              "new BucketPolicy (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:45:25)",
+              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:169:27)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-iam/lib/grant.js:75:49)",
+              "Bucket.grantPublicAccess (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:367:26)",
+              "new Bucket (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:718:18)",
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebSiteBucketStaticWebSiteHostingAutoDeleteObjectsCustomResource7E2CB017",
+            "trace": [
+              "new CustomResource (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/custom-resource.js:49:25)",
+              "Bucket.enableAutoDeleteObjects (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:1218:32)",
+              "new Bucket (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:724:18)",
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+            "trace": [
+              "new CustomResourceProvider (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/custom-resource-provider/custom-resource-provider.js:102:22)",
+              "Function.getOrCreateProvider (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/custom-resource-provider/custom-resource-provider.js:189:16)",
+              "Bucket.enableAutoDeleteObjects (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:1199:56)",
+              "new Bucket (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:724:18)",
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+            "trace": [
+              "new CustomResourceProvider (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/custom-resource-provider/custom-resource-provider.js:118:25)",
+              "Function.getOrCreateProvider (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/custom-resource-provider/custom-resource-provider.js:189:16)",
+              "Bucket.enableAutoDeleteObjects (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:1199:56)",
+              "new Bucket (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/aws-s3/lib/bucket.js:724:18)",
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/S3-Bucket-Website-Name-Id": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3BucketWebsiteNameId",
+            "trace": [
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/S3-Bucket-Website-Url-Id": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3BucketWebsiteUrlId",
+            "trace": [
+              "/tmp/tmpsbjb8e79/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpsbjb8e79/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpsbjb8e79/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "Stage.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "synthNestedAssemblies (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:56:19)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:15:5)",
+              "App.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:107",
+              "Kernel._ensureSync (/tmp/tmpsbjb8e79/lib/program.js:8573:28)",
+              "Kernel.invoke (/tmp/tmpsbjb8e79/lib/program.js:7993:34)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:282:19)",
+              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
+              "/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "synthesizeTree (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
+              "Stage.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "synthNestedAssemblies (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:56:19)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:15:5)",
+              "App.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:107",
+              "Kernel._ensureSync (/tmp/tmpsbjb8e79/lib/program.js:8573:28)",
+              "Kernel.invoke (/tmp/tmpsbjb8e79/lib/program.js:7993:34)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PREPROD/Stateful/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:290:5)",
+              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
+              "/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "synthesizeTree (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
+              "Stage.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "synthNestedAssemblies (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:56:19)",
+              "Object.synthesize (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/private/synthesis.js:15:5)",
+              "App.synth (/tmp/jsii-kernel-iEjo8A/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpsbjb8e79/lib/program.js:8592:24)",
+              "/tmp/tmpsbjb8e79/lib/program.js:7993:107",
+              "Kernel._ensureSync (/tmp/tmpsbjb8e79/lib/program.js:8573:28)",
+              "Kernel.invoke (/tmp/tmpsbjb8e79/lib/program.js:7993:34)",
+              "KernelHost.processRequest (/tmp/tmpsbjb8e79/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpsbjb8e79/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpsbjb8e79/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "AwsSkillsMapping-PREPROD/Stateful"
+    }
+  }
+}

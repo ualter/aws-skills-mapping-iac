@@ -18,7 +18,7 @@ app = cdk.App()
 dev_props = AwsSkillsMappingPropsDev()
 dev_stage = AwsSkillsMapping(
     app,
-    f"{constants.CDK_APP_NAME}-Dev",
+    f"{constants.CDK_APP_NAME}-{dev_props.stage_name().upper()}",
     props=dev_props,
     env=dev_props.env,
 )
@@ -27,16 +27,19 @@ dev_stage = AwsSkillsMapping(
 preprod_props = AwsSkillsMappingPropsPreProd()
 preprod_stage = AwsSkillsMapping(
     app,
-    f"{constants.CDK_APP_NAME}-Preprod",
+    f"{constants.CDK_APP_NAME}-{preprod_props.stage_name().upper()}",
     props=preprod_props,
     env=preprod_props.env,
 )
 
-# PIPELINE for Application: aws-skills-mapping
-app_pipeline = AwsSkillsMappingPipeline(app, env=PipelineProps().env)
+# PIPELINE Application: aws-skills-mapping
+app_pipeline = AwsSkillsMappingPipeline(
+    app, "AwsSkillsMapping-PIPELINE", env=PipelineProps().env
+)
 app_pipeline.add_deploy_stage(dev_stage)
-app_pipeline.add_approval_stage()
+# app_pipeline.add_approval_stage()
 app_pipeline.add_deploy_stage(preprod_stage)
+
 
 # # PRE-PRODUCTION and PRODUCTION Stage will be deployed using this Pipeline
 # # Our Pipeline application will create the infra for CodePipeline and CodeBuild

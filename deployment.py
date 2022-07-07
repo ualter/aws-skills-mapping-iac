@@ -2,7 +2,6 @@ from typing import Any
 
 from aws_cdk import core as cdk
 
-# from devtools.infrastructure import Aws
 from environment import AwsSkillsMappingProps
 from s3.infrastructure import BucketStaticWebSiteHosting
 
@@ -34,11 +33,18 @@ class AwsSkillsMapping(cdk.Stage):
             stateful,
             "WebSite",
             name=f"{props.s3_bucket_website_name()}",
+            deploy_hello_world=False,
         )
 
-        self.s3_website_bucket_name = cdk.CfnOutput(
+        self.s3_bucket_website_name = cdk.CfnOutput(
             stateful,
-            "S3BucketWebSiteName",
+            f"{AwsSkillsMappingProps.OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME}-Id",
             value=self.s3_website.bucket.bucket_name,
-            export_name="bucket_website_name",
+            export_name=AwsSkillsMappingProps.OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME,
+        )
+        self.s3_bucket_website_url = cdk.CfnOutput(
+            stateful,
+            f"{AwsSkillsMappingProps.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL}-Id",
+            value=self.s3_website.bucket.bucket_website_url,
+            export_name=AwsSkillsMappingProps.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL,
         )
