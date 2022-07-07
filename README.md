@@ -143,8 +143,14 @@ chmod +x codebuild_build.sh
 #        to specify the location of the build project, add the -s <build project directory>
 ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a /tmp/artifact -s ./ -b ./codebuild/buildspec.yml
 
-
 ```
+
+#### **Troubleshootings**
+- **mypy checking errors**
+  - *Error*: 
+    - `error: Library stubs not installed for "yaml" (or incompatible with Python 3.8)  [import]`
+  - *Solution*: 
+    - `python3 -m pip install types-PyYAML`
 
 #### **Links**
  - AWS CDK Toolkit (cdk command): https://docs.aws.amazon.com/cdk/v2/guide/cli.html

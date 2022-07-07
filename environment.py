@@ -1,28 +1,31 @@
 import abc
 import os
-from dataclasses import dataclass
-from enum import Enum
 
 from aws_cdk import core as cdk
 
+from configuration import ConfigurationLoader
+from stages import Stages
 
-class Stages(Enum):
-    DEV = "dev"
-    PREPROD = "preprod"
-    PROD = "prod"
+# from dataclasses import dataclass
 
 
-@dataclass
-class Environment:
-    Account_Id: str
-    Region: str
+
+
+# @dataclass
+# class Environment:
+#     Account_Id: str
+#     Region: str
 
 
 class Environments:
     def __init__(self) -> None:
+
+        config_loader = ConfigurationLoader()
+        dev_config = config_loader.get_configuration(Stages.DEV)
+
         self._DEV_ENV = cdk.Environment(
-            account=os.environ.get("CDK_DEVELOPMENT_ACCOUNT", "dev-acc-notset"),
-            region=os.environ.get("CDK_DEVELOPMENT_REGION", "dev-region-notset"),
+            account=dev_config.Configuration["account"],
+            region=dev_config.Configuration["region"],
         )
         self._PREPROD_ENV = cdk.Environment(
             account=os.environ.get("CDK_PREPROD_ACCOUNT", "pprod-acc-notset"),
@@ -37,17 +40,17 @@ class Environments:
             region=os.environ.get("CDK_PRODUCTION_REGION", "prod-region-notset"),
         )
 
-    def dev_account(self) -> Environment:
-        return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
+    # def dev_account(self) -> Environment:
+    #     return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
 
-    def preprod_account(self) -> Environment:
-        return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
+    # def preprod_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
 
-    def pipeline_account(self) -> Environment:
-        return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
+    # def pipeline_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
 
-    def prod_account(self) -> Environment:
-        return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
+    # def prod_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
 
 
 # STAGES Properties
@@ -84,7 +87,7 @@ class AwsSkillsMappingPropsDev(AwsSkillsMappingProps):
         super().__init__(env=Environments()._DEV_ENV)
 
     def stage_name(self) -> str:
-        return "dev"
+        return Stages.DEV.value
 
 
 # PreProd
@@ -93,7 +96,7 @@ class AwsSkillsMappingPropsPreProd(AwsSkillsMappingProps):
         super().__init__(env=Environments()._PREPROD_ENV)
 
     def stage_name(self) -> str:
-        return "preprod"
+        return Stages.PREPROD.value
 
 
 # Prod
@@ -102,7 +105,7 @@ class AwsSkillsMappingPropsProd(AwsSkillsMappingProps):
         super().__init__(env=Environments()._PROD_ENV)
 
     def stage_name(self) -> str:
-        return "prod"
+        return Stages.PROD.value
 
 
 # Pipeline Properties

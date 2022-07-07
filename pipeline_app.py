@@ -65,18 +65,17 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
 
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
-
-        # target_bucket = s3.Bucket.from_bucket_name(
-        #     self,
-        #     f"bucket-{stage.props.stage_name()}",
-        #     stage.props.s3_bucket_website_name(),
-        # )
+        stage_region = ""
+        if (
+            stage.props.env is not None and stage.props.env.region is not None
+        ):  # avoid mypy checking error
+            stage_region = stage.props.env.region
 
         target_bucket = s3.Bucket.from_bucket_attributes(
             self,
             f"bucket-{stage.props.stage_name()}",
             bucket_name=stage.props.s3_bucket_website_name(),
-            region=stage.props.env.region,
+            region=stage_region,
         )
 
         deploy_stage = self._pipeline.add_stage(
