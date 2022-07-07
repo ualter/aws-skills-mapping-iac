@@ -1,0 +1,5 @@
+environment:
+  account: 111111111111
+
+website:
+  bucket-prefix: my-bucket-name-prefix

@@ -1,11 +1,15 @@
 import abc
 import os
 from dataclasses import dataclass
+from enum import Enum
 
 from aws_cdk import core as cdk
 
-# ENVIRONMENTS
-# Basically consists of an AWS Account and Region
+
+class Stages(Enum):
+    DEV = "dev"
+    PREPROD = "preprod"
+    PROD = "prod"
 
 
 @dataclass

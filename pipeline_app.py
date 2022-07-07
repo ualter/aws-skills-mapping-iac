@@ -53,7 +53,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                     ),
                 ),
                 input=self._source_output,
-                outputs=[self._dist_output], 
+                outputs=[self._dist_output],
                 run_order=2,
             )
         )
@@ -76,7 +76,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             self,
             f"bucket-{stage.props.stage_name()}",
             bucket_name=stage.props.s3_bucket_website_name(),
-            region=stage.props.env.region
+            region=stage.props.env.region,
         )
 
         deploy_stage = self._pipeline.add_stage(

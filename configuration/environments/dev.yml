@@ -1,0 +1,4 @@
+stage: dev
+
+environment:
+  region: eu-west-3
