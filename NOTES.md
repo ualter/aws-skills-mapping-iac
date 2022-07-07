@@ -1,0 +1,5 @@
+- v0.0.1
+  - Skelenton (nothing important)
+- v0.0.2
+  - Application Stages DEV and PREPROD deploying
+  - Application Pipeline Stack deploying
