@@ -128,6 +128,8 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
 
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
+        # this stage might be in a different region where this Pipeline Stack is deployed
+        # ... also in another account - feature not implemented right now :-)
         stage_region = ""
         if (
             stage.config.env is not None and stage.config.env.region is not None

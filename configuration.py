@@ -5,7 +5,7 @@ from typing import Dict, Tuple, Any, List
 from stages import Stages
 
 @dataclass
-class ConfigurationStageEnvironment:
+class ConfigurationEnvironment:
     Account: str
     Region: str
 
@@ -19,12 +19,15 @@ class ConfigurationPipeline:
     Name: str
     Branch: str
     SecretNameOauthToken: str
+    Environment: ConfigurationEnvironment
+    Origin: str
 
 @dataclass
 class ConfigurationStage:
     Name: str
-    Environment: ConfigurationStageEnvironment
+    Environment: ConfigurationEnvironment
     WebSite: ConfigurationStageWebSite
+    Origin: str
 
 
 class ConfigurationLoader:
@@ -105,16 +108,24 @@ class ConfigurationLoader:
             return lookup_attribute(cfg, attribute_path) # type: ignore
 
     def get_configuration_pipeline(self) -> ConfigurationPipeline:
+        # Pipeline Environment will be create in the Dev Environment
+        dev_config = self.get_configuration_stage(Stages.DEV)
+        pipe_env = ConfigurationEnvironment(
+            Account=dev_config.Environment.Account,
+            Region=dev_config.Environment.Region
+        )
         cfg_pipe = ConfigurationPipeline(
             Owner=self._get_configuration_member(Stages.PIPELINE,"repository","owner"),
             Name=self._get_configuration_member(Stages.PIPELINE,"repository","name"),
             Branch=self._get_configuration_member(Stages.PIPELINE,"repository","branch"),
             SecretNameOauthToken=self._get_configuration_member(Stages.PIPELINE,"repository","secret-name-oauth-token"),
+            Environment=pipe_env,
+            Origin=self._get_configuration_member(Stages.PIPELINE,"origin"),
         )
         return cfg_pipe
 
     def get_configuration_stage(self, stage: Stages) -> ConfigurationStage:
-        cfgEnvironment = ConfigurationStageEnvironment(
+        cfgEnvironment = ConfigurationEnvironment(
             Account=str(self._get_configuration_member(stage,"environment","account")),
             Region=str(self._get_configuration_member(stage,"environment","region"))
         )
@@ -124,7 +135,8 @@ class ConfigurationLoader:
         configuration_stage = ConfigurationStage(
             Name=stage.value, 
             Environment=cfgEnvironment,
-            WebSite=cfgStageWebSite
+            WebSite=cfgStageWebSite,
+            Origin=self._get_configuration_member(stage,"origin")
         )
         return configuration_stage
 
@@ -134,38 +146,43 @@ class ConfigurationLoader:
     def pretty_print_stage(self, s: ConfigurationStage) -> None:
         print(f"""
  Name................: \033[0;32m{s.Name}\033[0m
- Environment.........:
+ Environment:
    - Account.........: \033[0;32m{s.Environment.Account}\033[0m
    - Region..........: \033[0;32m{s.Environment.Region}\033[0m
- WebSite
+ WebSite:
    - Bucket Prefix...: \033[0;32m{s.WebSite.BucketPrefix}\033[0m
+ Origin..............: \033[0;32m{s.Origin}\033[0m
         """)
     
     def print_all(self) -> None:
-        print("\033[1;34m---------------------------------------------------")
-        print("------------------------------------------> DEFAULT\033[0m")
+        print("\033[1;34m----------------------------------------------------------------------------")
+        print("-------------------------------------------------------------------> DEFAULT\033[0m")
         self.pretty_print_stage(self.get_configuration_stage(Stages.DEFAULT))
-        print("\033[1;34m---------------------------------------------------")
-        print("----------------------------------------------> DEV\033[0m")
+        print("\033[1;34m----------------------------------------------------------------------------")
+        print("-----------------------------------------------------------------------> DEV\033[0m")
         self.pretty_print_stage(self.get_configuration_stage(Stages.DEV))
-        print("\033[1;34m---------------------------------------------------")
-        print("------------------------------------------> PREPROD\033[0m")
+        print("\033[1;34m----------------------------------------------------------------------------")
+        print("-------------------------------------------------------------------> PREPROD\033[0m")
         self.pretty_print_stage(self.get_configuration_stage(Stages.PREPROD))
-        print("\033[1;34m---------------------------------------------------")
-        print("---------------------------------------------> PROD\033[0m")
+        print("\033[1;34m----------------------------------------------------------------------------")
+        print("----------------------------------------------------------------------> PROD\033[0m")
         self.pretty_print_stage(self.get_configuration_stage(Stages.PROD))
-        print("\033[1;34m---------------------------------------------------")
+        print("\033[1;34m----------------------------------------------------------------------------")
         cfg_pipe = self.get_configuration_pipeline()
-        print("\033[1;34m-----------------------------------------> PIPELINE\033[0m")
+        print("\033[1;34m------------------------------------------------------------------> PIPELINE\033[0m")
         print(f"""
- Owner....................: \033[0;32m{cfg_pipe.Owner}\033[0m
- Name.....................: \033[0;32m{cfg_pipe.Name}\033[0m
- Branch...................: \033[0;32m{cfg_pipe.Branch}\033[0m
- Secret Name Oauth Token..: \033[0;32m{cfg_pipe.SecretNameOauthToken}\033[0m
+ Repository:
+   - Owner....................: \033[0;32m{cfg_pipe.Owner}\033[0m
+   - Name.....................: \033[0;32m{cfg_pipe.Name}\033[0m
+   - Branch...................: \033[0;32m{cfg_pipe.Branch}\033[0m
+   - Secret Name Oauth Token..: \033[0;32m{cfg_pipe.SecretNameOauthToken}\033[0m
+ Environment:
+   - Account..................: \033[0;32m{cfg_pipe.Environment.Account}\033[0m
+   - Region...................: \033[0;32m{cfg_pipe.Environment.Region}\033[0m
+ Origin.......................: \033[0;32m{cfg_pipe.Origin}\033[0m
         """)
         print("---------------------------------------------------")
         print("")
-
 
 def main() -> None:
     loader = ConfigurationLoader()

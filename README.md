@@ -42,7 +42,11 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 
 0. [**Before start...**](#my-platform---aws-cdk-python-project-blueprint)
 
-Verify and complete with your application configuration correct values (`Account, Region, Bucket-Prefix, Repository, etc...`) in the files located at `configuration` folder.
+- Create a secret at [AWS Secrets Manager](https://aws.amazon.com/es/secrets-manager/) with a valid [Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to Application's Github repository. The Pipeline created in this IaC solution will need that information. It must be created in the same AWS Region where the Pipeline (`AWS CodePipeline, CodeBuild`) is deployed (*remember to grant access for repo_hooks*).
+
+`$ aws secretsmanager create-secret --region=eu-west-3 --name=github-ualter --description="My github token" --secret-string="[YOUR-PERSONAL-ACCESS-TOKEN-HERE]"`
+  
+- Verify and complete with your application configuration correct values (`Account, Region, Bucket-Prefix, Repository, etc...`) in the files located at `configuration` folder.
 ```bash
 ./configuration
   |

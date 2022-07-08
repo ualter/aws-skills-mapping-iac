@@ -21,6 +21,7 @@ class Environments:
         dev_config = config_loader.get_configuration_stage(Stages.DEV)
         preprod_config = config_loader.get_configuration_stage(Stages.PREPROD)
         prod_config = config_loader.get_configuration_stage(Stages.PROD)
+        pipeline_config = config_loader.get_configuration_pipeline()
 
         self._DEV_ENV = cdk.Environment(
             account=dev_config.Environment.Account,
@@ -31,9 +32,8 @@ class Environments:
             region=preprod_config.Environment.Region,
         )
         self._PIPELINE_ENV = cdk.Environment(
-            # Let's use DEV to deploy Pipelines
-            account=dev_config.Environment.Account,
-            region=dev_config.Environment.Region,
+            account=pipeline_config.Environment.Account,
+            region=pipeline_config.Environment.Region,
         )
         self._PROD_ENV = cdk.Environment(
             account=prod_config.Environment.Account,
