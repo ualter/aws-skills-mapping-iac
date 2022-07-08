@@ -276,6 +276,10 @@ show-envs:  ## Show my environments (CDK Dev, PreProd, Prod Account/Region)
 	printf " \033[36mTrunk\Branch....: \033[33m${CDK_GITHUB_TRUNK_BRANCH}\033[0m\n\n"; \
 	printf " \n"; \
 
+show-config: ## Show my configurations from YAML files
+	@printf " \n\033[33m CONFIGURATIONS (./configuration/**/*.yml)\n"; \
+	python configuration.py ; \
+
 codebuild-build: ## Run builds locally with the AWS CodeBuild agent (check README for installation)
 	clear ; \
 	export file_env=./codebuild/codebuild.env; \

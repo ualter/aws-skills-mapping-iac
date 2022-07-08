@@ -23,12 +23,12 @@ Github-Repo
 │   └── infrastructure.py
 │       
 |
-├── deployment.py           # <---- Modeling your Application and its Stacks
-├── environment.py          # <---- Stages, Environments and Properties of your Application
-├── app.py                  # <---- Instantiate the Application and deploy 
-|                           #       in a environment. Instantiate it multiple 
-|                           #       times to deploy in more than one environment
-├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild for Production stage deploy
+├── deployment.py           # <---- Modeling your Application, its Stage and Stacks
+├── environment.py          # <---- Environments and Stage Configurations information
+├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
+|                           #       in a environment with a specific desired configuration. 
+|                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
+├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
 └── constants.py            # <---- Well, you know... :-)
 
 ```
@@ -42,7 +42,19 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 
 0. [**Before start...**](#my-platform---aws-cdk-python-project-blueprint)
 
-Set the Environment Variables (AWS ACCOUNT and REGION) for bootstrapping and the target Cloud environment (Account/Region). *Notice! Create the file `./scripts/set-env.sh`, copying the template `./scripts/set-env-template.sh`, and replace for real values.*
+Verify and complete with your application configuration correct values (`Account, Region, Bucket-Prefix, Repository, etc...`) in the files located at `configuration` folder.
+```bash
+./configuration
+  |
+  ├── environments            # <---- Configuration values (different) for each 
+  │   ├── dev.yml             #       environment and the Application Pipeline
+  │   ├── preprod.yml
+  │   ├── pipeline.yml
+  │   └── ...
+  └── default.yml             # <---- Default values (equal for all environments)
+
+```
+
 ```bash
 $ source ./scripts/set-env.sh
 $ python -m venv .venv
@@ -98,9 +110,9 @@ make help
 
 #### **What ?**
 * **Constructs**
-  * Basic building block of AWS CDK Application. Check `class BucketHelmRepo(cdk.Construct)` at file `./s3/infrastructure.py`.
+  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./s3/infrastructure.py`.
 * **Stacks**
-  * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class MyPlatform(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
+  * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class AwsSkillsMapping(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
     *  Stateful (database, s3)
     *  Stateless (api, sns, mq)
 

@@ -1,0 +1,5 @@
+repository:
+  owner: ualter
+  name: aws-skills-mapping-app
+  branch: master
+  secret-name-oauth-token: github-ualter

@@ -296,7 +296,7 @@
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                           "aws:cdk:cloudformation:props": {
-                            "bucketName": "ualter-aws-skills-mapping-411078575449-eu-west-1-preprod",
+                            "bucketName": "ualter-aws-skills-mapping-411078575449-eu-central-1-preprod",
                             "publicAccessBlockConfiguration": {
                               "blockPublicAcls": false,
                               "blockPublicPolicy": false,
@@ -873,7 +873,7 @@
                                           {
                                             "Ref": "AWS::Partition"
                                           },
-                                          ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
+                                          ":s3:::awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5"
                                         ]
                                       ]
                                     },
@@ -885,7 +885,7 @@
                                           {
                                             "Ref": "AWS::Partition"
                                           },
-                                          ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
+                                          ":s3:::awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5/*"
                                         ]
                                       ]
                                     },
@@ -1008,7 +1008,7 @@
                             "configuration": {
                               "Owner": "ualter",
                               "Repo": "aws-skills-mapping-app",
-                              "Branch": "v0.0.2",
+                              "Branch": "master",
                               "OAuthToken": "{{resolve:secretsmanager:github-ualter:SecretString:::}}",
                               "PollForSourceChanges": false
                             },
@@ -1099,7 +1099,7 @@
                               "provider": "S3"
                             },
                             "configuration": {
-                              "BucketName": "ualter-aws-skills-mapping-411078575449-eu-west-1-preprod",
+                              "BucketName": "ualter-aws-skills-mapping-411078575449-eu-central-1-preprod",
                               "Extract": "true"
                             },
                             "runOrder": 1,
@@ -1109,17 +1109,17 @@
                                 "Arn"
                               ]
                             },
-                            "region": "eu-west-1"
+                            "region": "eu-central-1"
                           }
                         ]
                       }
                     ],
                     "artifactStores": [
                       {
-                        "region": "eu-west-1",
+                        "region": "eu-central-1",
                         "artifactStore": {
                           "type": "S3",
-                          "location": "awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1",
+                          "location": "awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5",
                           "encryptionKey": {
                             "type": "KMS",
                             "id": {
@@ -1130,7 +1130,7 @@
                                   {
                                     "Ref": "AWS::Partition"
                                   },
-                                  ":kms:eu-west-1:411078575449:alias/pipelinetencryptionaliaseda4fffd4e1bbf09995c"
+                                  ":kms:eu-central-1:411078575449:alias/pipelinetencryptionaliasc1c5c7df8b76e9ec7c36"
                                 ]
                               ]
                             }
@@ -1579,7 +1579,7 @@
                                                   {
                                                     "Ref": "AWS::Partition"
                                                   },
-                                                  ":s3:::ualter-aws-skills-mapping-411078575449-eu-west-1-preprod"
+                                                  ":s3:::ualter-aws-skills-mapping-411078575449-eu-central-1-preprod"
                                                 ]
                                               ]
                                             },
@@ -1591,7 +1591,7 @@
                                                   {
                                                     "Ref": "AWS::Partition"
                                                   },
-                                                  ":s3:::ualter-aws-skills-mapping-411078575449-eu-west-1-preprod/*"
+                                                  ":s3:::ualter-aws-skills-mapping-411078575449-eu-central-1-preprod/*"
                                                 ]
                                               ]
                                             }
@@ -1613,7 +1613,7 @@
                                                   {
                                                     "Ref": "AWS::Partition"
                                                   },
-                                                  ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
+                                                  ":s3:::awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5"
                                                 ]
                                               ]
                                             },
@@ -1625,7 +1625,7 @@
                                                   {
                                                     "Ref": "AWS::Partition"
                                                   },
-                                                  ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
+                                                  ":s3:::awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5/*"
                                                 ]
                                               ]
                                             }
@@ -1962,21 +1962,21 @@
           "version": "1.162.0"
         }
       },
-      "cross-region-stack-411078575449:eu-west-1": {
-        "id": "cross-region-stack-411078575449:eu-west-1",
-        "path": "cross-region-stack-411078575449:eu-west-1",
+      "cross-region-stack-411078575449:eu-central-1": {
+        "id": "cross-region-stack-411078575449:eu-central-1",
+        "path": "cross-region-stack-411078575449:eu-central-1",
         "children": {
           "Default": {
             "id": "Default",
-            "path": "cross-region-stack-411078575449:eu-west-1/Default",
+            "path": "cross-region-stack-411078575449:eu-central-1/Default",
             "children": {
               "CrossRegionCodePipelineReplicationBucketEncryptionKey": {
                 "id": "CrossRegionCodePipelineReplicationBucketEncryptionKey",
-                "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionKey",
+                "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionKey",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionKey/Resource",
+                    "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionKey/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::KMS::Key",
                       "aws:cdk:cloudformation:props": {
@@ -2082,15 +2082,15 @@
               },
               "CrossRegionCodePipelineReplicationBucketEncryptionAlias": {
                 "id": "CrossRegionCodePipelineReplicationBucketEncryptionAlias",
-                "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionAlias",
+                "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionAlias",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionAlias/Resource",
+                    "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionAlias/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::KMS::Alias",
                       "aws:cdk:cloudformation:props": {
-                        "aliasName": "alias/pipelinetencryptionaliaseda4fffd4e1bbf09995c",
+                        "aliasName": "alias/pipelinetencryptionaliasc1c5c7df8b76e9ec7c36",
                         "targetKeyId": {
                           "Fn::GetAtt": [
                             "CrossRegionCodePipelineReplicationBucketEncryptionKey70216490",
@@ -2112,11 +2112,11 @@
               },
               "CrossRegionCodePipelineReplicationBucket": {
                 "id": "CrossRegionCodePipelineReplicationBucket",
-                "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket",
+                "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucket",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket/Resource",
+                    "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucket/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                       "aws:cdk:cloudformation:props": {
@@ -2133,7 +2133,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":kms:eu-west-1:411078575449:alias/pipelinetencryptionaliaseda4fffd4e1bbf09995c"
+                                      ":kms:eu-central-1:411078575449:alias/pipelinetencryptionaliasc1c5c7df8b76e9ec7c36"
                                     ]
                                   ]
                                 }
@@ -2141,7 +2141,7 @@
                             }
                           ]
                         },
-                        "bucketName": "awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1",
+                        "bucketName": "awsskillsmapping-pipelineeplicationbucketaeb65ff07e9f9560d5d5",
                         "publicAccessBlockConfiguration": {
                           "blockPublicAcls": true,
                           "blockPublicPolicy": true,
@@ -2157,11 +2157,11 @@
                   },
                   "Policy": {
                     "id": "Policy",
-                    "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket/Policy",
+                    "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucket/Policy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket/Policy/Resource",
+                        "path": "cross-region-stack-411078575449:eu-central-1/Default/CrossRegionCodePipelineReplicationBucket/Policy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
                           "aws:cdk:cloudformation:props": {
@@ -2234,11 +2234,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "cross-region-stack-411078575449:eu-west-1/CDKMetadata",
+            "path": "cross-region-stack-411078575449:eu-central-1/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "cross-region-stack-411078575449:eu-west-1/CDKMetadata/Default",
+                "path": "cross-region-stack-411078575449:eu-central-1/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
                   "version": "1.162.0"

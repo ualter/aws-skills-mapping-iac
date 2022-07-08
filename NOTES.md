@@ -3,3 +3,6 @@
 - v0.0.2
   - Application Stages DEV and PREPROD deploying
   - Application Pipeline Stack deploying
+- v0.0.3
+  - Configuration by YAML files implemented
+  - Removed Environment Variables depencies

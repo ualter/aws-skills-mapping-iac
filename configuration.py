@@ -1,43 +1,65 @@
 from dataclasses import dataclass
 import yaml, json
 import os
-from typing import Dict, Tuple, Any
+from typing import Dict, Tuple, Any, List
 from stages import Stages
 
 @dataclass
-class ConfigurationStage():
+class ConfigurationStageEnvironment:
+    Account: str
+    Region: str
+
+@dataclass
+class ConfigurationStageWebSite:
+    BucketPrefix: str
+
+@dataclass
+class ConfigurationPipeline:
+    Owner: str
     Name: str
-    Configuration: Dict[Any, Any]
+    Branch: str
+    SecretNameOauthToken: str
+
+@dataclass
+class ConfigurationStage:
+    Name: str
+    Environment: ConfigurationStageEnvironment
+    WebSite: ConfigurationStageWebSite
+
 
 class ConfigurationLoader:
 
     CONFIG_PATH = "./configuration"
+    # CONFIG_PATH = "./aws-skills-mapping-iac/configuration"
 
     def __init__(self) -> None:
         self.configurations = {}                  # type: Dict[Any, Any]
-        self.configurations["default"]      = {}
-        self.configurations[Stages.DEV]     = {}
-        self.configurations[Stages.PREPROD] = {}
-        self.configurations[Stages.PROD]    = {}
-
+        self.configurations[Stages.DEV]      = {}
+        self.configurations[Stages.PREPROD]  = {}
+        self.configurations[Stages.PROD]     = {}
+        self.configurations[Stages.DEFAULT]  = {}
+        self.configurations[Stages.PIPELINE] = {}
+        
         self.load()
         self.merge()
         
     def load(self) -> None:
-        self.configurations["default"],      file_origin_default = self.load_config("default.yml")
-        self.configurations[Stages.DEV],     file_origin_dev     = self.load_config("dev.yml"    ,"environments")
-        self.configurations[Stages.PREPROD], file_origin_preprod = self.load_config("preprod.yml","environments")
-        self.configurations[Stages.PROD],    file_origin_prod    = self.load_config("prod.yml"   ,"environments")
+        self.configurations[Stages.DEFAULT],  file_origin_default  = self.load_config("default.yml")
+        self.configurations[Stages.PIPELINE], file_origin_pipeline = self.load_config("pipeline.yml","environments")
+        self.configurations[Stages.DEV],      file_origin_dev      = self.load_config("dev.yml"     ,"environments")
+        self.configurations[Stages.PREPROD],  file_origin_preprod  = self.load_config("preprod.yml" ,"environments")
+        self.configurations[Stages.PROD],     file_origin_prod     = self.load_config("prod.yml"    ,"environments")
 
-        self.configurations["default"]["origin"]      = file_origin_default
-        self.configurations[Stages.DEV]["origin"]     = file_origin_dev
-        self.configurations[Stages.PREPROD]["origin"] = file_origin_preprod
-        self.configurations[Stages.PROD]["origin"]    = file_origin_prod
+        self.configurations[Stages.DEV]["origin"]      = file_origin_dev
+        self.configurations[Stages.PREPROD]["origin"]  = file_origin_preprod
+        self.configurations[Stages.PROD]["origin"]     = file_origin_prod
+        self.configurations[Stages.DEFAULT]["origin"]  = file_origin_default
+        self.configurations[Stages.PIPELINE]["origin"] = file_origin_pipeline
     
     def merge(self) -> None:
-        self.merge_dict(self.configurations[Stages.DEV],     self.configurations["default"])
-        self.merge_dict(self.configurations[Stages.PREPROD], self.configurations["default"])
-        self.merge_dict(self.configurations[Stages.PROD],    self.configurations["default"])
+        self.merge_dict(self.configurations[Stages.DEV],     self.configurations[Stages.DEFAULT])
+        self.merge_dict(self.configurations[Stages.PREPROD], self.configurations[Stages.DEFAULT])
+        self.merge_dict(self.configurations[Stages.PROD],    self.configurations[Stages.DEFAULT])
     
     def load_config(self, file_name: str, *paths: str) -> Tuple[Dict[Any, Any], str]: 
         path = [self.CONFIG_PATH]
@@ -61,37 +83,94 @@ class ConfigurationLoader:
                     if (k not in d1):
                         d1[k] = v2
 
-    def get_configuration(self, stage: Stages) -> ConfigurationStage:
+    def _get_configuration_member(self, stage: Stages, *attribute_path: str) -> Any:
         cfg = self.configurations[stage]
+
+        if len(attribute_path) < 2:
+            att = attribute_path[0]
+            return cfg[att]
+        else:
+            def lookup_attribute(_cfg: Dict[Any, Any], _attribute_path: List[str]) -> Any:
+                last = False
+                for idx, attr in enumerate(_attribute_path):
+                    if idx == (len(_attribute_path) - 1):
+                       last = True    
+                    if last:
+                        if attr in _cfg:
+                            return _cfg[attr]
+                        return "None"
+                    else:
+                        return lookup_attribute(_cfg[attr], _attribute_path[1:])
+                return f"Ops... path{_attribute_path} not found"
+            return lookup_attribute(cfg, attribute_path) # type: ignore
+
+    def get_configuration_pipeline(self) -> ConfigurationPipeline:
+        cfg_pipe = ConfigurationPipeline(
+            Owner=self._get_configuration_member(Stages.PIPELINE,"repository","owner"),
+            Name=self._get_configuration_member(Stages.PIPELINE,"repository","name"),
+            Branch=self._get_configuration_member(Stages.PIPELINE,"repository","branch"),
+            SecretNameOauthToken=self._get_configuration_member(Stages.PIPELINE,"repository","secret-name-oauth-token"),
+        )
+        return cfg_pipe
+
+    def get_configuration_stage(self, stage: Stages) -> ConfigurationStage:
+        cfgEnvironment = ConfigurationStageEnvironment(
+            Account=str(self._get_configuration_member(stage,"environment","account")),
+            Region=str(self._get_configuration_member(stage,"environment","region"))
+        )
+        cfgStageWebSite = ConfigurationStageWebSite(
+            BucketPrefix=str(self._get_configuration_member(stage,"website","bucket-prefix"))
+        )
         configuration_stage = ConfigurationStage(
-            stage.value, 
-            cfg
+            Name=stage.value, 
+            Environment=cfgEnvironment,
+            WebSite=cfgStageWebSite
         )
         return configuration_stage
 
     def pretty_print(self, d: Dict[Any,Any]) -> None:
         print(json.dumps(d,sort_keys=True, indent=4))
+
+    def pretty_print_stage(self, s: ConfigurationStage) -> None:
+        print(f"""
+ Name................: \033[0;32m{s.Name}\033[0m
+ Environment.........:
+   - Account.........: \033[0;32m{s.Environment.Account}\033[0m
+   - Region..........: \033[0;32m{s.Environment.Region}\033[0m
+ WebSite
+   - Bucket Prefix...: \033[0;32m{s.WebSite.BucketPrefix}\033[0m
+        """)
     
     def print_all(self) -> None:
-        print("---------------------------------------------------")
-        print("------------------------------------------> DEFAULT")
-        self.pretty_print(self.configurations["default"])
-        print("---------------------------------------------------")
-        print("----------------------------------------------> DEV ")
-        self.pretty_print(self.configurations[Stages.DEV])
-        print("---------------------------------------------------")
-        print("------------------------------------------> PREPROD ")
-        self.pretty_print(self.configurations[Stages.PREPROD])
-        print("---------------------------------------------------")
-        print("---------------------------------------------> PROD")
-        self.pretty_print(self.configurations[Stages.PROD])
+        print("\033[1;34m---------------------------------------------------")
+        print("------------------------------------------> DEFAULT\033[0m")
+        self.pretty_print_stage(self.get_configuration_stage(Stages.DEFAULT))
+        print("\033[1;34m---------------------------------------------------")
+        print("----------------------------------------------> DEV\033[0m")
+        self.pretty_print_stage(self.get_configuration_stage(Stages.DEV))
+        print("\033[1;34m---------------------------------------------------")
+        print("------------------------------------------> PREPROD\033[0m")
+        self.pretty_print_stage(self.get_configuration_stage(Stages.PREPROD))
+        print("\033[1;34m---------------------------------------------------")
+        print("---------------------------------------------> PROD\033[0m")
+        self.pretty_print_stage(self.get_configuration_stage(Stages.PROD))
+        print("\033[1;34m---------------------------------------------------")
+        cfg_pipe = self.get_configuration_pipeline()
+        print("\033[1;34m-----------------------------------------> PIPELINE\033[0m")
+        print(f"""
+ Owner....................: \033[0;32m{cfg_pipe.Owner}\033[0m
+ Name.....................: \033[0;32m{cfg_pipe.Name}\033[0m
+ Branch...................: \033[0;32m{cfg_pipe.Branch}\033[0m
+ Secret Name Oauth Token..: \033[0;32m{cfg_pipe.SecretNameOauthToken}\033[0m
+        """)
         print("---------------------------------------------------")
         print("")
 
+
 def main() -> None:
     loader = ConfigurationLoader()
-    print(loader.get_configuration(Stages.DEV))
-    print(loader.get_configuration(Stages.PREPROD))
+    loader.print_all()
 
 if __name__ == '__main__':
     main()
+    
