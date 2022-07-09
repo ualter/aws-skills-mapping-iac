@@ -7,5 +7,5 @@
   - Configuration by YAML files implemented
   - Removed Environment Variables depencies
 - v1.0.0
-  - Working deployment Application IaC and its Pipeline
-  - Pipeline deploying to DEV and PREPROD with Approvals and notifications to deploy to PREPROD
+  - Deployment Application AwsSkillMapping Services (IaC) and its Pipeline (IaC)
+  - Pipeline deploying to DEV and PREPROD with Approvals and notifications before deploying to PREPROD
