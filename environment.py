@@ -1,48 +1,57 @@
-import os
-from dataclasses import dataclass
+import abc
 
 from aws_cdk import core as cdk
 
-# ENVIRONMENTS
-# Basically consists of an AWS Account and Region
+from configuration import ConfigurationLoader
+from configuration import ConfigurationPipeline
+from stages import Stages
+
+# from dataclasses import dataclass
 
 
-@dataclass
-class Environment:
-    Account_Id: str
-    Region: str
+# @dataclass
+# class Environment:
+#     Account_Id: str
+#     Region: str
 
 
 class Environments:
     def __init__(self) -> None:
+
+        config_loader = ConfigurationLoader()
+        dev_config = config_loader.get_configuration_stage(Stages.DEV)
+        preprod_config = config_loader.get_configuration_stage(Stages.PREPROD)
+        prod_config = config_loader.get_configuration_stage(Stages.PROD)
+        pipeline_config = config_loader.get_configuration_pipeline()
+
         self._DEV_ENV = cdk.Environment(
-            account=os.environ.get("CDK_DEVELOPMENT_ACCOUNT", "dev-acc-notset"),
-            region=os.environ.get("CDK_DEVELOPMENT_REGION", "dev-region-notset"),
+            account=dev_config.Environment.Account,
+            region=dev_config.Environment.Region,
         )
         self._PREPROD_ENV = cdk.Environment(
-            account=os.environ.get("CDK_PREPROD_ACCOUNT", "pprod-acc-notset"),
-            region=os.environ.get("CDK_PREPROD_REGION", "pprod-region-notset"),
+            account=preprod_config.Environment.Account,
+            region=preprod_config.Environment.Region,
         )
         self._PIPELINE_ENV = cdk.Environment(
-            account=os.environ.get("CDK_PIPELINE_ACCOUNT", "pipeline-acc-notset"),
-            region=os.environ.get("CDK_PIPELINE_REGION", "pipeline-region-notset"),
+            account=pipeline_config.Environment.Account,
+            region=pipeline_config.Environment.Region,
         )
         self._PROD_ENV = cdk.Environment(
-            account=os.environ.get("CDK_PRODUCTION_ACCOUNT", "prod-acc-notset"),
-            region=os.environ.get("CDK_PRODUCTION_REGION", "prod-region-notset"),
+            account=prod_config.Environment.Account,
+            region=prod_config.Environment.Region,
         )
 
-    def dev_account(self) -> Environment:
-        return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
+    # def dev_account(self) -> Environment:
+    #     return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
 
-    def preprod_account(self) -> Environment:
-        return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
+    # def preprod_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
 
-    def pipeline_account(self) -> Environment:
-        return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
+    # def pipeline_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
 
-    def prod_account(self) -> Environment:
-        return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
+    # def prod_account(self) -> Environment:
+    #     return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
 
 
 # STAGES Properties
@@ -53,52 +62,63 @@ class Environments:
 #    - DynamoDB Billing Mode
 
 # Abstract Stage
-class AwsSkillsMappingProps(cdk.StageProps):
+class AwsSkillsMappingConfig(cdk.StageProps):
+    OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME = "S3-Bucket-Website-Name"
+    OUTPUT_KEY_S3_BUCKET_WEBSITE_URL = "S3-Bucket-Website-Url"
+
     def __init__(self, *, env: cdk.Environment) -> None:
         super().__init__(env=env, outdir=None)
 
+        self.config_loader = ConfigurationLoader()
+        self.configuration = self.config_loader.get_configuration_stage(self.stage())
+
     # type ignore
-    def helm_repo_name(self) -> str:
+    def s3_bucket_website_name(self) -> str:
+        default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
+        bucket_website_name_prefix = default_config.WebSite.BucketPrefix
+
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
-            return (
-                f"helm-repository-{self.env.account}-{self.env.region}-{self.stage()}"
-            )
+            return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage().value}"
         raise ValueError(
             "Somethings very wrong! The self.env of AwsSkillsMappingProps Class, is not of type cdk.Environment, it must be!"
         )
 
-    def stage(self) -> str:
-        return "undefined"
+    @abc.abstractmethod
+    def stage(self) -> Stages:
+        pass
 
 
 # Dev
-class AwsSkillsMappingPropsDev(AwsSkillsMappingProps):
+class AwsSkillsMappingConfigDev(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._DEV_ENV)
 
-    def stage(self) -> str:
-        return "dev"
+    def stage(self) -> Stages:
+        return Stages.DEV
 
 
 # PreProd
-class AwsSkillsMappingPropsPreProd(AwsSkillsMappingProps):
+class AwsSkillsMappingConfigPreProd(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PREPROD_ENV)
 
-    def stage(self) -> str:
-        return "preprod"
+    def stage(self) -> Stages:
+        return Stages.PREPROD
 
 
 # Prod
-class AwsSkillsMappingPropsProd(AwsSkillsMappingProps):
+class AwsSkillsMappingConfigProd(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PROD_ENV)
 
-    def stage(self) -> str:
-        return "prod"
+    def stage(self) -> Stages:
+        return Stages.PROD
 
 
 # Pipeline Properties
-class PipelineProps:
+class PipelineConfig:
     def __init__(self) -> None:
         self.env = Environments()._PIPELINE_ENV
+        self.configuration: ConfigurationPipeline = (
+            ConfigurationLoader().get_configuration_pipeline()
+        )

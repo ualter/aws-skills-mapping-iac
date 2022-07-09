@@ -112,7 +112,7 @@ check-bootstrap: check-tools ## Check bootstrap status of all environments
 
 ls: check-tools ## cdk ls
 	@printf " \n"; \
-	$(MAKE) -s check-envvars; \
+	# $(MAKE) -s check-envvars; \
 	cdk ls ; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (ls)\033[0m\n"; \
@@ -121,7 +121,6 @@ ls: check-tools ## cdk ls
 
 synth: check-tools ## cdk synth, syntax: make synth [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
 	clear ; \
-	$(MAKE) -s check-envvars; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
 		source ./scripts/makefile-scripts.sh CHOOSE_STACK Synth; \
@@ -140,7 +139,6 @@ synth: check-tools ## cdk synth, syntax: make synth [stacks="'Stack1 Stack2...'"
 # make diff
 diff: check-tools ## cdk diff, syntax: make diff [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
 	clear ; \
-	$(MAKE) -s check-envvars; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
 		source ./scripts/makefile-scripts.sh CHOOSE_STACK Diff; \
@@ -157,14 +155,12 @@ diff: check-tools ## cdk diff, syntax: make diff [stacks="'Stack1 Stack2...'"], 
 
 ls-diffs: check-tools ## List all Pipelines, marking those with diffs found
 	clear ; \
-	$(MAKE) -s check-envvars; \
 	printf " \n"; \
 	source ./scripts/makefile-scripts.sh LIST_DIFFS Synth; \
 	printf " \n"; \
 
 deploy: check-tools ## cdk deploy, syntax: make deploy [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
 	clear ; \
-	$(MAKE) -s check-envvars; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
 		source ./scripts/makefile-scripts.sh CHOOSE_STACK Deploy; \
@@ -181,7 +177,6 @@ deploy: check-tools ## cdk deploy, syntax: make deploy [stacks="'Stack1 Stack2..
 
 destroy: check-tools ## cdk destroy, syntax: make destroy [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
 	clear ; \
-	$(MAKE) -s check-envvars; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
 		source ./scripts/makefile-scripts.sh CHOOSE_STACK Destroy; \
@@ -275,6 +270,10 @@ show-envs:  ## Show my environments (CDK Dev, PreProd, Prod Account/Region)
 	printf " \033[36mRepository......: \033[33m${CDK_GITHUB_REPO}\033[0m\n"; \
 	printf " \033[36mTrunk\Branch....: \033[33m${CDK_GITHUB_TRUNK_BRANCH}\033[0m\n\n"; \
 	printf " \n"; \
+
+show-config: ## Show my configurations from YAML files
+	@printf " \n\033[33m CONFIGURATIONS (./configuration/**/*.yml)\n"; \
+	python configuration.py ; \
 
 codebuild-build: ## Run builds locally with the AWS CodeBuild agent (check README for installation)
 	clear ; \

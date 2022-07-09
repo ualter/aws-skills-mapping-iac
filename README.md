@@ -1,9 +1,9 @@
 
 # **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
-**AWS Skills Mapping IaC** is a AWS CDK Python project, represeting the the Infrastructure-as-Code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)), to install all the supporting infrastructure for application AWS Skills Mapping.
+**AWS Skills Mapping IaC** is a AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
- Actually, its main purpose is to server as a ***sandbox*** project...  i.e. a sample (blueprint) and guide to organize, to structure, to apply best practices, and patterns in developing of Cloud Solutions with AWS CDK.
+Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sample (**Blueprint**) and guide to organize, to structure, to apply (*good / best*) practices, and patterns in the development of Cloud Solutions using AWS CDK.
 
 ---
 
@@ -23,12 +23,12 @@ Github-Repo
 │   └── infrastructure.py
 │       
 |
-├── deployment.py           # <---- Modeling your Application and its Stacks
-├── environment.py          # <---- Stages, Environments and Properties of your Application
-├── app.py                  # <---- Instantiate the Application and deploy 
-|                           #       in a environment. Instantiate it multiple 
-|                           #       times to deploy in more than one environment
-├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild for Production stage deploy
+├── deployment.py           # <---- Modeling your Application, its Stage and Stacks
+├── environment.py          # <---- Environments and Stage Configurations information
+├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
+|                           #       in a environment with a specific desired configuration. 
+|                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
+├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
 └── constants.py            # <---- Well, you know... :-)
 
 ```
@@ -42,7 +42,23 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 
 0. [**Before start...**](#my-platform---aws-cdk-python-project-blueprint)
 
-Set the Environment Variables (AWS ACCOUNT and REGION) for bootstrapping and the target Cloud environment (Account/Region). *Notice! Create the file `./scripts/set-env.sh`, copying the template `./scripts/set-env-template.sh`, and replace for real values.*
+- Create a secret at [AWS Secrets Manager](https://aws.amazon.com/es/secrets-manager/) with a valid [Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to Application's Github repository. The Pipeline created in this IaC solution will need that information. It must be created in the same AWS Region where the Pipeline (`AWS CodePipeline, CodeBuild`) is deployed (*remember to grant access for repo_hooks*).
+
+`$ aws secretsmanager create-secret --region=eu-west-3 --name=github-ualter --description="My github token" --secret-string="[YOUR-PERSONAL-ACCESS-TOKEN-HERE]"`
+  
+- Verify and complete with your application configuration correct values (`Account, Region, Bucket-Prefix, Repository, etc...`) in the files located at `configuration` folder.
+```bash
+./configuration
+  |
+  ├── environments            # <---- Configuration values (different) for each 
+  │   ├── dev.yml             #       environment and the Application Pipeline
+  │   ├── preprod.yml
+  │   ├── pipeline.yml
+  │   └── ...
+  └── default.yml             # <---- Default values (equal for all environments)
+
+```
+
 ```bash
 $ source ./scripts/set-env.sh
 $ python -m venv .venv
@@ -72,6 +88,12 @@ pip list
 ```
 1. [**Bootstrapping**](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html)
 ```bash
+
+#
+# In case of using the makefile targets below to boostrap AWS Environments (account/region), 
+# they make use of Environment Variables (ex: CDK_DEVELOPMENT_ACCOUNT, CDK_DEVELOPMENT_REGION) to perform their functions, 
+# take a look at the file ./scripts/set-env-template.sh to help set this required env vars for the scripts.
+#
 $ make bootstrap-dev    # development 
 $ make bootstrap-pre    # pre-production
 $ make bootstrap-prod   # production
@@ -98,15 +120,17 @@ make help
 
 #### **What ?**
 * **Constructs**
-  * Basic building block of AWS CDK Application. Check `class BucketHelmRepo(cdk.Construct)` at file `./s3/infrastructure.py`.
+  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./s3/infrastructure.py`.
 * **Stacks**
-  * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class MyPlatform(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
+  * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class AwsSkillsMapping(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
     *  Stateful (database, s3)
     *  Stateless (api, sns, mq)
 
 ---
 
 #### **Cheat Sheet / Extra Info**
+
+Just some annotations, to help remember something quickly.
 ```bash
 
 # --------------------------------------
@@ -143,8 +167,14 @@ chmod +x codebuild_build.sh
 #        to specify the location of the build project, add the -s <build project directory>
 ./codebuild_build.sh -i aws/codebuild/standard:5.0 -a /tmp/artifact -s ./ -b ./codebuild/buildspec.yml
 
-
 ```
+
+#### **Troubleshootings**
+- **mypy checking errors**
+  - *Error*: 
+    - `error: Library stubs not installed for "yaml" (or incompatible with Python 3.8)  [import]`
+  - *Solution*: 
+    - `python3 -m pip install types-PyYAML`
 
 #### **Links**
  - AWS CDK Toolkit (cdk command): https://docs.aws.amazon.com/cdk/v2/guide/cli.html

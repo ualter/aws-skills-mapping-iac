@@ -1,0 +1,11 @@
+- v0.0.1
+  - Skelenton (nothing important)
+- v0.0.2
+  - Application Stages DEV and PREPROD deploying
+  - Application Pipeline Stack deploying
+- v0.0.3
+  - Configuration by YAML files implemented
+  - Removed Environment Variables depencies
+- v1.0.0
+  - Deployment Application AwsSkillMapping Services (IaC) and its Pipeline (IaC)
+  - Pipeline deploying to DEV and PREPROD with Approvals and notifications before deploying to PREPROD

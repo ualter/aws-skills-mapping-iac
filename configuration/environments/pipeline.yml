@@ -1,0 +1,17 @@
+repository:
+  owner: ualter
+  name: aws-skills-mapping-app
+  branch: master
+  secret-name-oauth-token: github-ualter
+
+sre-team:
+  - name: Ualter Otoni
+    email: ualter.junior@gmail.com
+  - name: Paul Lenon
+    email: fake.paul.email@gmail.com
+
+application-team:
+  - name: Jonh Mcartney
+    email: fake.jonh.email@gmail.com
+  - name: Ringo Harrison
+    email: fake.ringo.email@gmail.com

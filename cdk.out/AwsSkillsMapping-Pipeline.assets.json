@@ -1,0 +1,20 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "e3003e42eb2d30f7e10572fd6729fc8951f82798ea16f7405640bcf737b75ed2": {
+      "source": {
+        "path": "AwsSkillsMapping-Pipeline.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "411078575449-eu-west-3": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+          "objectKey": "e3003e42eb2d30f7e10572fd6729fc8951f82798ea16f7405640bcf737b75ed2.json",
+          "region": "eu-west-3",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

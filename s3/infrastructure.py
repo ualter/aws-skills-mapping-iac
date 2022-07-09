@@ -19,7 +19,9 @@ class BucketHelmRepo(cdk.Construct):
 
 
 class BucketStaticWebSiteHosting(cdk.Construct):
-    def __init__(self, scope: cdk.Construct, id_: str, *, name: str):
+    def __init__(
+        self, scope: cdk.Construct, id_: str, *, name: str, deploy_hello_world: bool
+    ):
         super().__init__(scope, id_)
 
         self.bucket = s3.Bucket(
@@ -39,14 +41,11 @@ class BucketStaticWebSiteHosting(cdk.Construct):
             auto_delete_objects=True,
         )
 
-        cdk.CfnOutput(self, "bucket_name", value=self.bucket.bucket_name)
-        cdk.CfnOutput(self, "bucket_website_url", value=self.bucket.bucket_website_url)
-
-        source_dir = pathlib.Path(__file__).resolve().parent.joinpath("runtime")
-
-        s3deploy.BucketDeployment(
-            self,
-            "DeployWebSite",
-            sources=[s3deploy.Source.asset(str(source_dir))],
-            destination_bucket=self.bucket,
-        )
+        if deploy_hello_world:
+            source_dir = pathlib.Path(__file__).resolve().parent.joinpath("runtime")
+            s3deploy.BucketDeployment(
+                self,
+                "DeployIndexHtmlHelloWorld",
+                sources=[s3deploy.Source.asset(str(source_dir))],
+                destination_bucket=self.bucket,
+            )

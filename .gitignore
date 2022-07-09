@@ -3,6 +3,7 @@ set-env.sh
 my-platform/set-env.sh
 my-platform/scripts/set-env.sh
 codebuild/codebuild.env
+configuration/default.yml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

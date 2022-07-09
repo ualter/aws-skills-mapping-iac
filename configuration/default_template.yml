@@ -1,0 +1,7 @@
+# Put your real values and rename it to default.yml
+
+environment:
+  account: 111111111111
+
+website:
+  bucket-prefix: my-bucket-name-prefix
