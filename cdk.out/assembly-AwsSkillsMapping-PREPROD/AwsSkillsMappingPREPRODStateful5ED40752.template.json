@@ -3,7 +3,7 @@
   "WebSiteBucketStaticWebSiteHosting26664AF5": {
    "Type": "AWS::S3::Bucket",
    "Properties": {
-    "BucketName": "ualter-aws-skills-mapping-411078575449-eu-central-1-preprod",
+    "BucketName": "ualter-aws-skills-mapping-411078575449-eu-west-1-preprod",
     "PublicAccessBlockConfiguration": {
      "BlockPublicAcls": false,
      "BlockPublicPolicy": false,
@@ -153,7 +153,7 @@
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
-     "S3Bucket": "cdk-hnb659fds-assets-411078575449-eu-central-1",
+     "S3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-1",
      "S3Key": "b090a62c3af745e7829d846b5033bcd70ef3bcc28a33422247a2ac5f0f208e4e.zip"
     },
     "Timeout": 900,

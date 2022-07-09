@@ -3,3 +3,9 @@ repository:
   name: aws-skills-mapping-app
   branch: master
   secret-name-oauth-token: github-ualter
+
+sre-team:
+  - name: Ualter Otoni
+    email: ualter.junior@gmail.com
+  - name: John Foo
+    email: fake.email@gmail.com

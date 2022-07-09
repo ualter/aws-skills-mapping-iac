@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List
 
 from aws_cdk import aws_codebuild as codebuild
 from aws_cdk import aws_codepipeline as codepipeline
@@ -6,8 +6,8 @@ from aws_cdk import aws_codepipeline_actions as codepipeline_actions
 from aws_cdk import aws_s3 as s3
 from aws_cdk import core as cdk
 
-from configuration import ConfigurationLoader
 from environment import AwsSkillsMappingConfig
+from environment import PipelineConfig
 from s3.infrastructure import BucketStaticWebSiteHosting
 
 # Application that represents "The Platform" itself,
@@ -71,10 +71,13 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         self,
         scope: cdk.Construct,
         id_: str,
+        *,
+        pipe_config: PipelineConfig,
         **kwargs: Any,
     ):
 
         super().__init__(scope, id_, **kwargs)
+        self._pipe_config = pipe_config
         self._pipeline = codepipeline.Pipeline(self, id_)
         self._source_output = codepipeline.Artifact()
         self._dist_output = codepipeline.Artifact()
@@ -85,17 +88,14 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     def _add_source_stage(self) -> None:
         source_stage = self._pipeline.add_stage(stage_name="Source")
 
-        config_loader = ConfigurationLoader()
-        pipeline_config = config_loader.get_configuration_pipeline()
-
         source_stage.add_action(
             codepipeline_actions.GitHubSourceAction(
                 action_name="GitHub",
-                owner=pipeline_config.Owner,
-                repo=pipeline_config.Name,
-                branch=pipeline_config.Branch,
+                owner=self._pipe_config.configuration.Owner,
+                repo=self._pipe_config.configuration.Name,
+                branch=self._pipe_config.configuration.Branch,
                 oauth_token=cdk.SecretValue.secrets_manager(
-                    pipeline_config.SecretNameOauthToken
+                    self._pipe_config.configuration.SecretNameOauthToken
                 ),
                 output=self._source_output,
                 run_order=1
@@ -121,11 +121,40 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             )
         )
 
+    # def _add_manual_approvals_stage(self, codepipeline: pipelines.CodePipeline) -> None:
+    #     approval_stage = codepipeline.add_wave("Approvals")
+    #     approval_stage.add_pre(pipelines.ManualApprovalStep("Application Team Approval"))  # type: ignore
+    #     approval_stage.add_pre(pipelines.ManualApprovalStep("SRE Team Approval"))
+
+    # def _add_notifications(self, codepipeline: pipelines.CodePipeline) -> None:
+    #     codepipeline.build_pipeline()
+    #     topic = sns.Topic(self, "TopicManualApprovalNeeded")
+    #     sns.Subscription(
+    #         self,
+    #         "Subscription-SRE-Team-Member",
+    #         topic=topic,
+    #         endpoint="ualter.junior@gmail.com",
+    #         protocol=sns.SubscriptionProtocol.EMAIL,
+    #     )
+    #     notifications.NotificationRule(
+    #         self,
+    #         "ManualApprovalNeeded",
+    #         source=codepipeline.pipeline,
+    #         # Checks here for events: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events
+    #         events=["codepipeline-pipeline-manual-approval-needed"],
+    #         targets=[topic],
+    #     )
+
     def add_approval_stage(self) -> None:
-        approval_stage = self._pipeline.add_stage(stage_name="Approve")
-        approval_stage.add_action(
-            codepipeline_actions.ManualApprovalAction(action_name="Approve")
+        approval_stage = self._pipeline.add_stage(stage_name="Approvals")
+
+        emails_sre_team: List[str] = []
+        for sre_member in self._pipe_config.configuration.SreTeam:
+            emails_sre_team.append(sre_member.Email)
+        sre_approval_action = codepipeline_actions.ManualApprovalAction(
+            action_name="SRETeamApproval", notify_emails=emails_sre_team
         )
+        approval_stage.add_action(sre_approval_action)
 
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
         # this stage might be in a different region where this Pipeline Stack is deployed
@@ -138,13 +167,13 @@ class AwsSkillsMappingPipeline(cdk.Stack):
 
         target_bucket = s3.Bucket.from_bucket_attributes(
             self,
-            f"bucket-{stage.config.stage_name()}",
+            f"bucket-{stage.config.stage().value}",
             bucket_name=stage.config.s3_bucket_website_name(),
             region=stage_region,
         )
 
         deploy_stage = self._pipeline.add_stage(
-            stage_name=f"Deploy_{stage.config.stage_name().upper()}"
+            stage_name=f"Deploy_{stage.config.stage().name}"
         )
         deploy_stage.add_action(
             codepipeline_actions.S3DeployAction(

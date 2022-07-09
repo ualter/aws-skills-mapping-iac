@@ -3,6 +3,7 @@ import abc
 from aws_cdk import core as cdk
 
 from configuration import ConfigurationLoader
+from configuration import ConfigurationPipeline
 from stages import Stages
 
 # from dataclasses import dataclass
@@ -69,6 +70,7 @@ class AwsSkillsMappingConfig(cdk.StageProps):
         super().__init__(env=env, outdir=None)
 
         self.config_loader = ConfigurationLoader()
+        self.configuration = self.config_loader.get_configuration_stage(self.stage())
 
     # type ignore
     def s3_bucket_website_name(self) -> str:
@@ -76,13 +78,13 @@ class AwsSkillsMappingConfig(cdk.StageProps):
         bucket_website_name_prefix = default_config.WebSite.BucketPrefix
 
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
-            return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage_name()}"
+            return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage().value}"
         raise ValueError(
             "Somethings very wrong! The self.env of AwsSkillsMappingProps Class, is not of type cdk.Environment, it must be!"
         )
 
     @abc.abstractmethod
-    def stage_name(self) -> str:
+    def stage(self) -> Stages:
         pass
 
 
@@ -91,8 +93,8 @@ class AwsSkillsMappingConfigDev(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._DEV_ENV)
 
-    def stage_name(self) -> str:
-        return Stages.DEV.value
+    def stage(self) -> Stages:
+        return Stages.DEV
 
 
 # PreProd
@@ -100,8 +102,8 @@ class AwsSkillsMappingConfigPreProd(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PREPROD_ENV)
 
-    def stage_name(self) -> str:
-        return Stages.PREPROD.value
+    def stage(self) -> Stages:
+        return Stages.PREPROD
 
 
 # Prod
@@ -109,11 +111,14 @@ class AwsSkillsMappingConfigProd(AwsSkillsMappingConfig):
     def __init__(self) -> None:
         super().__init__(env=Environments()._PROD_ENV)
 
-    def stage_name(self) -> str:
-        return Stages.PROD.value
+    def stage(self) -> Stages:
+        return Stages.PROD
 
 
 # Pipeline Properties
 class PipelineConfig:
     def __init__(self) -> None:
         self.env = Environments()._PIPELINE_ENV
+        self.configuration: ConfigurationPipeline = (
+            ConfigurationLoader().get_configuration_pipeline()
+        )

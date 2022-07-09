@@ -14,6 +14,11 @@ class ConfigurationStageWebSite:
     BucketPrefix: str
 
 @dataclass
+class ConfigurationPipelineSreTeamMember:
+    Name: str
+    Email: str
+
+@dataclass
 class ConfigurationPipeline:
     Owner: str
     Name: str
@@ -21,6 +26,7 @@ class ConfigurationPipeline:
     SecretNameOauthToken: str
     Environment: ConfigurationEnvironment
     Origin: str
+    SreTeam: List[ConfigurationPipelineSreTeamMember]
 
 @dataclass
 class ConfigurationStage:
@@ -114,6 +120,15 @@ class ConfigurationLoader:
             Account=dev_config.Environment.Account,
             Region=dev_config.Environment.Region
         )
+
+        sre_team = self._get_configuration_member(Stages.PIPELINE,"sre-team")
+        pipeline_sre_team: List[ConfigurationPipelineSreTeamMember] = []
+        for member in sre_team:
+            pipeline_sre_team.append(ConfigurationPipelineSreTeamMember(
+                Name=member["name"],
+                Email=member["email"],
+            ))
+
         cfg_pipe = ConfigurationPipeline(
             Owner=self._get_configuration_member(Stages.PIPELINE,"repository","owner"),
             Name=self._get_configuration_member(Stages.PIPELINE,"repository","name"),
@@ -121,6 +136,7 @@ class ConfigurationLoader:
             SecretNameOauthToken=self._get_configuration_member(Stages.PIPELINE,"repository","secret-name-oauth-token"),
             Environment=pipe_env,
             Origin=self._get_configuration_member(Stages.PIPELINE,"origin"),
+            SreTeam=pipeline_sre_team
         )
         return cfg_pipe
 
@@ -170,6 +186,11 @@ class ConfigurationLoader:
         print("\033[1;34m----------------------------------------------------------------------------")
         cfg_pipe = self.get_configuration_pipeline()
         print("\033[1;34m------------------------------------------------------------------> PIPELINE\033[0m")
+
+        sre_members = "\n   - "
+        for m in cfg_pipe.SreTeam: sre_members = sre_members + f"\033[0;32m{m.Name} \033[0m- \033[1;34m{m.Email}\033[0m" + "\n   - "
+        sre_members = sre_members[0:len(sre_members)-6]
+
         print(f"""
  Repository:
    - Owner....................: \033[0;32m{cfg_pipe.Owner}\033[0m
@@ -179,6 +200,7 @@ class ConfigurationLoader:
  Environment:
    - Account..................: \033[0;32m{cfg_pipe.Environment.Account}\033[0m
    - Region...................: \033[0;32m{cfg_pipe.Environment.Region}\033[0m
+ SRE Team:{sre_members}
  Origin.......................: \033[0;32m{cfg_pipe.Origin}\033[0m
         """)
         print("---------------------------------------------------")

@@ -18,7 +18,7 @@ app = cdk.App()
 dev_config = AwsSkillsMappingConfigDev()
 dev_stage = AwsSkillsMapping(
     app,
-    f"{constants.CDK_APP_NAME}-{dev_config.stage_name().upper()}",
+    f"{constants.CDK_APP_NAME}-{dev_config.stage().name}",
     config=dev_config,
     env=dev_config.env,
 )
@@ -27,17 +27,21 @@ dev_stage = AwsSkillsMapping(
 preprod_config = AwsSkillsMappingConfigPreProd()
 preprod_stage = AwsSkillsMapping(
     app,
-    f"{constants.CDK_APP_NAME}-{preprod_config.stage_name().upper()}",
+    f"{constants.CDK_APP_NAME}-{preprod_config.stage().name}",
     config=preprod_config,
     env=preprod_config.env,
 )
 
 # PIPELINE Application: aws-skills-mapping
+pipeline_config = PipelineConfig()
 app_pipeline = AwsSkillsMappingPipeline(
-    app, "AwsSkillsMapping-PIPELINE", env=PipelineConfig().env
+    app,
+    "AwsSkillsMapping-PIPELINE",
+    pipe_config=pipeline_config,
+    env=pipeline_config.env,
 )
 app_pipeline.add_deploy_stage(dev_stage)
-# app_pipeline.add_approval_stage()
+app_pipeline.add_approval_stage()
 app_pipeline.add_deploy_stage(preprod_stage)
 
 
