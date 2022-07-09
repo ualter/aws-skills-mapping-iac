@@ -604,13 +604,13 @@
                                 "AWS": [
                                   {
                                     "Fn::GetAtt": [
-                                      "AwsSkillsMappingPIPELINERole32049DE8",
+                                      "AwsSkillsMappingBuildRole55DCCEA3",
                                       "Arn"
                                     ]
                                   },
                                   {
                                     "Fn::GetAtt": [
-                                      "ProjectNameRole6D81AAFB",
+                                      "AwsSkillsMappingPIPELINERole32049DE8",
                                       "Arn"
                                     ]
                                   }
@@ -629,7 +629,7 @@
                               "Principal": {
                                 "AWS": {
                                   "Fn::GetAtt": [
-                                    "ProjectNameRole6D81AAFB",
+                                    "AwsSkillsMappingBuildRole55DCCEA3",
                                     "Arn"
                                   ]
                                 }
@@ -930,6 +930,12 @@
                                   "Resource": [
                                     {
                                       "Fn::GetAtt": [
+                                        "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::GetAtt": [
                                         "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278",
                                         "Arn"
                                       ]
@@ -1045,7 +1051,7 @@
                             },
                             "configuration": {
                               "ProjectName": {
-                                "Ref": "ProjectName812B94AD"
+                                "Ref": "AwsSkillsMappingBuild2D25EA67"
                               }
                             },
                             "runOrder": 2,
@@ -1108,6 +1114,27 @@
                             "roleArn": {
                               "Fn::GetAtt": [
                                 "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278",
+                                "Arn"
+                              ]
+                            }
+                          },
+                          {
+                            "name": "ApplicationTeamApproval",
+                            "actionTypeId": {
+                              "category": "Approval",
+                              "version": "1",
+                              "owner": "AWS",
+                              "provider": "Manual"
+                            },
+                            "configuration": {
+                              "NotificationArn": {
+                                "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
+                              }
+                            },
+                            "runOrder": 1,
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42",
                                 "Arn"
                               ]
                             }
@@ -1187,7 +1214,8 @@
                           }
                         }
                       }
-                    ]
+                    ],
+                    "name": "AwsSkillsMapping-Pipeline"
                   }
                 },
                 "constructInfo": {
@@ -1313,7 +1341,7 @@
                                           "Effect": "Allow",
                                           "Resource": {
                                             "Fn::GetAtt": [
-                                              "ProjectName812B94AD",
+                                              "AwsSkillsMappingBuild2D25EA67",
                                               "Arn"
                                             ]
                                           }
@@ -1674,13 +1702,13 @@
                               "version": "1.162.0"
                             }
                           },
-                          "fake.email@gmail.com": {
-                            "id": "fake.email@gmail.com",
-                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.email@gmail.com",
+                          "fake.paul.email@gmail.com": {
+                            "id": "fake.paul.email@gmail.com",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.paul.email@gmail.com",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.email@gmail.com/Resource",
+                                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.paul.email@gmail.com/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
                                   "aws:cdk:cloudformation:props": {
@@ -1688,7 +1716,182 @@
                                     "topicArn": {
                                       "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC"
                                     },
-                                    "endpoint": "fake.email@gmail.com"
+                                    "endpoint": "fake.paul.email@gmail.com"
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-sns.CfnSubscription",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-sns.Subscription",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-sns.Topic",
+                          "version": "1.162.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Construct",
+                      "version": "1.162.0"
+                    }
+                  },
+                  "ApplicationTeamApproval": {
+                    "id": "ApplicationTeamApproval",
+                    "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval",
+                    "children": {
+                      "CodePipelineActionRole": {
+                        "id": "CodePipelineActionRole",
+                        "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "AWS": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":iam::411078575449:root"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "sns:Publish",
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleDefaultPolicy6D411500",
+                                    "roles": [
+                                      {
+                                        "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.Policy",
+                              "version": "1.162.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.162.0"
+                        }
+                      },
+                      "TopicResource": {
+                        "id": "TopicResource",
+                        "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::SNS::Topic",
+                              "aws:cdk:cloudformation:props": {}
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-sns.CfnTopic",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "fake.jonh.email@gmail.com": {
+                            "id": "fake.jonh.email@gmail.com",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.jonh.email@gmail.com",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.jonh.email@gmail.com/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
+                                  "aws:cdk:cloudformation:props": {
+                                    "protocol": "email",
+                                    "topicArn": {
+                                      "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
+                                    },
+                                    "endpoint": "fake.jonh.email@gmail.com"
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-sns.CfnSubscription",
+                                  "version": "1.162.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-sns.Subscription",
+                              "version": "1.162.0"
+                            }
+                          },
+                          "fake.ringo.email@gmail.com": {
+                            "id": "fake.ringo.email@gmail.com",
+                            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.ringo.email@gmail.com",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.ringo.email@gmail.com/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
+                                  "aws:cdk:cloudformation:props": {
+                                    "protocol": "email",
+                                    "topicArn": {
+                                      "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
+                                    },
+                                    "endpoint": "fake.ringo.email@gmail.com"
                                   }
                                 },
                                 "constructInfo": {
@@ -1902,17 +2105,17 @@
               "version": "1.162.0"
             }
           },
-          "ProjectName": {
-            "id": "ProjectName",
-            "path": "AwsSkillsMapping-PIPELINE/ProjectName",
+          "AwsSkillsMapping-Build": {
+            "id": "AwsSkillsMapping-Build",
+            "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build",
             "children": {
               "Role": {
                 "id": "Role",
-                "path": "AwsSkillsMapping-PIPELINE/ProjectName/Role",
+                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build/Role",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "AwsSkillsMapping-PIPELINE/ProjectName/Role/Resource",
+                    "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build/Role/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1937,11 +2140,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "AwsSkillsMapping-PIPELINE/ProjectName/Role/DefaultPolicy",
+                    "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build/Role/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "AwsSkillsMapping-PIPELINE/ProjectName/Role/DefaultPolicy/Resource",
+                        "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build/Role/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -1965,7 +2168,7 @@
                                           },
                                           ":logs:eu-west-3:411078575449:log-group:/aws/codebuild/",
                                           {
-                                            "Ref": "ProjectName812B94AD"
+                                            "Ref": "AwsSkillsMappingBuild2D25EA67"
                                           },
                                           ":*"
                                         ]
@@ -1981,7 +2184,7 @@
                                           },
                                           ":logs:eu-west-3:411078575449:log-group:/aws/codebuild/",
                                           {
-                                            "Ref": "ProjectName812B94AD"
+                                            "Ref": "AwsSkillsMappingBuild2D25EA67"
                                           }
                                         ]
                                       ]
@@ -2007,7 +2210,7 @@
                                         },
                                         ":codebuild:eu-west-3:411078575449:report-group/",
                                         {
-                                          "Ref": "ProjectName812B94AD"
+                                          "Ref": "AwsSkillsMappingBuild2D25EA67"
                                         },
                                         "-*"
                                       ]
@@ -2066,10 +2269,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "ProjectNameRoleDefaultPolicy01F924A4",
+                            "policyName": "AwsSkillsMappingBuildRoleDefaultPolicy2B87F6F5",
                             "roles": [
                               {
-                                "Ref": "ProjectNameRole6D81AAFB"
+                                "Ref": "AwsSkillsMappingBuildRole55DCCEA3"
                               }
                             ]
                           }
@@ -2093,7 +2296,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "AwsSkillsMapping-PIPELINE/ProjectName/Resource",
+                "path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
                   "aws:cdk:cloudformation:props": {
@@ -2109,7 +2312,7 @@
                     },
                     "serviceRole": {
                       "Fn::GetAtt": [
-                        "ProjectNameRole6D81AAFB",
+                        "AwsSkillsMappingBuildRole55DCCEA3",
                         "Arn"
                       ]
                     },
@@ -2125,7 +2328,8 @@
                         "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
                         "Arn"
                       ]
-                    }
+                    },
+                    "name": "AwsSkillsMapping-Build"
                   }
                 },
                 "constructInfo": {

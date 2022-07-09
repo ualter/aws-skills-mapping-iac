@@ -88,6 +88,12 @@ pip list
 ```
 1. [**Bootstrapping**](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html)
 ```bash
+
+#
+# In case of using the makefile targets below to boostrap AWS Environments (account/region), 
+# they make use of Environment Variables (ex: CDK_DEVELOPMENT_ACCOUNT, CDK_DEVELOPMENT_REGION) to perform their functions, 
+# take a look at the file ./scripts/set-env-template.sh to help set this required env vars for the scripts.
+#
 $ make bootstrap-dev    # development 
 $ make bootstrap-pre    # pre-production
 $ make bootstrap-prod   # production
@@ -123,6 +129,8 @@ make help
 ---
 
 #### **Cheat Sheet / Extra Info**
+
+Just some annotations, to help remember something quickly.
 ```bash
 
 # --------------------------------------

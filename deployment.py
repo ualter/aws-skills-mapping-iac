@@ -78,7 +78,9 @@ class AwsSkillsMappingPipeline(cdk.Stack):
 
         super().__init__(scope, id_, **kwargs)
         self._pipe_config = pipe_config
-        self._pipeline = codepipeline.Pipeline(self, id_)
+        self._pipeline = codepipeline.Pipeline(
+            self, id_, pipeline_name="AwsSkillsMapping-Pipeline"
+        )
         self._source_output = codepipeline.Artifact()
         self._dist_output = codepipeline.Artifact()
 
@@ -110,40 +112,17 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                 action_name="CodeBuild",
                 project=codebuild.PipelineProject(
                     scope,
-                    "ProjectName",
+                    "AwsSkillsMapping-Build",
                     build_spec=codebuild.BuildSpec.from_source_filename(
                         "./codebuild/buildspec.yaml"
                     ),
+                    project_name="AwsSkillsMapping-Build",
                 ),
                 input=self._source_output,
                 outputs=[self._dist_output],
                 run_order=2,
             )
         )
-
-    # def _add_manual_approvals_stage(self, codepipeline: pipelines.CodePipeline) -> None:
-    #     approval_stage = codepipeline.add_wave("Approvals")
-    #     approval_stage.add_pre(pipelines.ManualApprovalStep("Application Team Approval"))  # type: ignore
-    #     approval_stage.add_pre(pipelines.ManualApprovalStep("SRE Team Approval"))
-
-    # def _add_notifications(self, codepipeline: pipelines.CodePipeline) -> None:
-    #     codepipeline.build_pipeline()
-    #     topic = sns.Topic(self, "TopicManualApprovalNeeded")
-    #     sns.Subscription(
-    #         self,
-    #         "Subscription-SRE-Team-Member",
-    #         topic=topic,
-    #         endpoint="ualter.junior@gmail.com",
-    #         protocol=sns.SubscriptionProtocol.EMAIL,
-    #     )
-    #     notifications.NotificationRule(
-    #         self,
-    #         "ManualApprovalNeeded",
-    #         source=codepipeline.pipeline,
-    #         # Checks here for events: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events
-    #         events=["codepipeline-pipeline-manual-approval-needed"],
-    #         targets=[topic],
-    #     )
 
     def add_approval_stage(self) -> None:
         approval_stage = self._pipeline.add_stage(stage_name="Approvals")
@@ -155,6 +134,14 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             action_name="SRETeamApproval", notify_emails=emails_sre_team
         )
         approval_stage.add_action(sre_approval_action)
+
+        emails_app_team: List[str] = []
+        for app_member in self._pipe_config.configuration.ApplicationTeam:
+            emails_app_team.append(app_member.Email)
+        app_approval_action = codepipeline_actions.ManualApprovalAction(
+            action_name="ApplicationTeamApproval", notify_emails=emails_app_team
+        )
+        approval_stage.add_action(app_approval_action)
 
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
         # this stage might be in a different region where this Pipeline Stack is deployed

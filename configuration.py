@@ -14,6 +14,11 @@ class ConfigurationStageWebSite:
     BucketPrefix: str
 
 @dataclass
+class ConfigurationPipelineApplicationTeamMember:
+    Name: str
+    Email: str
+
+@dataclass
 class ConfigurationPipelineSreTeamMember:
     Name: str
     Email: str
@@ -27,6 +32,7 @@ class ConfigurationPipeline:
     Environment: ConfigurationEnvironment
     Origin: str
     SreTeam: List[ConfigurationPipelineSreTeamMember]
+    ApplicationTeam: List[ConfigurationPipelineApplicationTeamMember]
 
 @dataclass
 class ConfigurationStage:
@@ -128,6 +134,14 @@ class ConfigurationLoader:
                 Name=member["name"],
                 Email=member["email"],
             ))
+        
+        app_team = self._get_configuration_member(Stages.PIPELINE,"application-team")
+        pipeline_app_team: List[ConfigurationPipelineApplicationTeamMember] = []
+        for member in app_team:
+            pipeline_app_team.append(ConfigurationPipelineApplicationTeamMember(
+                Name=member["name"],
+                Email=member["email"],
+            ))
 
         cfg_pipe = ConfigurationPipeline(
             Owner=self._get_configuration_member(Stages.PIPELINE,"repository","owner"),
@@ -136,7 +150,8 @@ class ConfigurationLoader:
             SecretNameOauthToken=self._get_configuration_member(Stages.PIPELINE,"repository","secret-name-oauth-token"),
             Environment=pipe_env,
             Origin=self._get_configuration_member(Stages.PIPELINE,"origin"),
-            SreTeam=pipeline_sre_team
+            SreTeam=pipeline_sre_team,
+            ApplicationTeam=pipeline_app_team,
         )
         return cfg_pipe
 
@@ -191,6 +206,11 @@ class ConfigurationLoader:
         for m in cfg_pipe.SreTeam: sre_members = sre_members + f"\033[0;32m{m.Name} \033[0m- \033[1;34m{m.Email}\033[0m" + "\n   - "
         sre_members = sre_members[0:len(sre_members)-6]
 
+        app_members = "\n   - "
+        print(cfg_pipe.ApplicationTeam)
+        for x in cfg_pipe.ApplicationTeam: app_members = app_members +  f"\033[0;32m{x.Name} \033[0m- \033[1;34m{x.Email}\033[0m" + "\n   - "
+        app_members = app_members[0:len(app_members)-6]
+
         print(f"""
  Repository:
    - Owner....................: \033[0;32m{cfg_pipe.Owner}\033[0m
@@ -201,6 +221,7 @@ class ConfigurationLoader:
    - Account..................: \033[0;32m{cfg_pipe.Environment.Account}\033[0m
    - Region...................: \033[0;32m{cfg_pipe.Environment.Region}\033[0m
  SRE Team:{sre_members}
+ Application Team:{app_members}
  Origin.......................: \033[0;32m{cfg_pipe.Origin}\033[0m
         """)
         print("---------------------------------------------------")
@@ -212,4 +233,5 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+    
     
