@@ -363,7 +363,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-3",
-                              "s3Key": "329d001a986d28abd1a769636daeded57c1b65524f7430989e39319511c31345.zip"
+                              "s3Key": "3e4d34ede0fe36bd60020b764a1193ce035131e23e40faabc5e33df10c271e2b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [
@@ -1270,7 +1270,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-1",
-                              "s3Key": "329d001a986d28abd1a769636daeded57c1b65524f7430989e39319511c31345.zip"
+                              "s3Key": "3e4d34ede0fe36bd60020b764a1193ce035131e23e40faabc5e33df10c271e2b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [

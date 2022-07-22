@@ -50,7 +50,10 @@ const sendRes = (status, body) => {
     var response = {
         statusCode: status,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET"
         },
         body: body
     };
