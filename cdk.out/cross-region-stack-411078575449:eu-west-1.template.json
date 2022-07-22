@@ -205,7 +205,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WLSw7CIBCGz9I9nVobjUu1SzdNPQEZx4i0kDAQQwh3NxQTV9//7KE/7mHXnOWHW3zoLqF1BOnuJWoxWsPeBfRifJqZ2AaHlEXZJr0ypBvFUhVcFiW5mE1kwQOka0BN2/mnKia7KIz/uPqcs5iif1nTDXCCQ/NmpVoXjFcrwVz5BdHN7j2wAAAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WLSwrCMBCGz9J9OrWUiku1SzelniCMI8a0CWQSJITcXdIIrr7/2UN/HOHQnOWHW3zoLqF1BOnuJWoxWcPeBfRiepqF2AaHlEXZJr0xpBvFUhVcViW5mF1kwQOka0BN+/mnKma7Koz/uPqcs5ijf1nTDXCCsXmzUq0LxquNYKn8AlZouoOwAAAA"
    },
    "Metadata": {
     "aws:cdk:path": "cross-region-stack-411078575449:eu-west-1/CDKMetadata/Default"

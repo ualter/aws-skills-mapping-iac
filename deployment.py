@@ -6,6 +6,7 @@ from aws_cdk import aws_codepipeline_actions as codepipeline_actions
 from aws_cdk import aws_s3 as s3
 from aws_cdk import core as cdk
 
+from api.infrastructure import AwsSkillsMappingApi
 from environment import AwsSkillsMappingConfig
 from environment import PipelineConfig
 from s3.infrastructure import BucketStaticWebSiteHosting
@@ -37,12 +38,16 @@ class AwsSkillsMapping(cdk.Stage):
         self.config = config
 
         stateful = cdk.Stack(self, "Stateful")
-        # stateless = cdk.Stack(self, "Stateless")
+        stateless = cdk.Stack(self, "Stateless")
 
+        self.build_stateful(stateful)
+        self.build_stateless(stateless)
+
+    def build_stateful(self, stateful: cdk.Stack) -> None:
         self.s3_website = BucketStaticWebSiteHosting(
             stateful,
             "WebSite",
-            name=f"{config.s3_bucket_website_name()}",
+            name=f"{self.config.s3_bucket_website_name()}",
             deploy_hello_world=False,
         )
 
@@ -57,6 +62,17 @@ class AwsSkillsMapping(cdk.Stage):
             f"{AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL}-Id",
             value=self.s3_website.bucket.bucket_website_url,
             export_name=AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL,
+        )
+
+    def build_stateless(self, stateless: cdk.Stack) -> None:
+        self.api = AwsSkillsMappingApi(
+            stateless, "AwsSkillsMappingApi", _name_api="Aws-Skills-Mapping-Api"
+        )
+        self.api_url = cdk.CfnOutput(
+            stateless,
+            f"{AwsSkillsMappingConfig.OUTPUT_KEY_API_URL}-Id",
+            value=self.api.skills_mapping_api.url,
+            export_name=AwsSkillsMappingConfig.OUTPUT_KEY_API_URL,
         )
 
 

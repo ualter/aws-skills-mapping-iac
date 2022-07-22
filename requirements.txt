@@ -8,49 +8,51 @@ attrs==21.4.0
     # via
     #   cattrs
     #   jsii
-aws-cdk-assets==1.162.0
+aws-cdk-assets==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-ecr-assets
     #   aws-cdk-aws-s3-assets
-aws-cdk-aws-acmpca==1.162.0
+aws-cdk-aws-acmpca==1.165.0
     # via aws-cdk-aws-certificatemanager
-aws-cdk-aws-apigateway==1.162.0
+aws-cdk-aws-apigateway==1.165.0
     # via
+    #   -r requirements.in
     #   aws-cdk-aws-events-targets
     #   aws-cdk-aws-route53-targets
-aws-cdk-aws-applicationautoscaling==1.162.0
+aws-cdk-aws-applicationautoscaling==1.165.0
     # via
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-lambda
-aws-cdk-aws-autoscaling==1.162.0
+aws-cdk-aws-autoscaling==1.165.0
     # via
     #   aws-cdk-aws-autoscaling-hooktargets
     #   aws-cdk-aws-codedeploy
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-events-targets
-aws-cdk-aws-autoscaling-common==1.162.0
+aws-cdk-aws-autoscaling-common==1.165.0
     # via
     #   aws-cdk-aws-applicationautoscaling
     #   aws-cdk-aws-autoscaling
-aws-cdk-aws-autoscaling-hooktargets==1.162.0
+aws-cdk-aws-autoscaling-hooktargets==1.165.0
     # via aws-cdk-aws-ecs
-aws-cdk-aws-certificatemanager==1.162.0
+aws-cdk-aws-certificatemanager==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-cloudfront
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-elasticloadbalancingv2
-aws-cdk-aws-cloudformation==1.162.0
+aws-cdk-aws-cloudformation==1.165.0
     # via
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-custom-resources
-aws-cdk-aws-cloudfront==1.162.0
+aws-cdk-aws-cloudfront==1.165.0
     # via
     #   aws-cdk-aws-route53-targets
     #   aws-cdk-aws-s3-deployment
-aws-cdk-aws-cloudwatch==1.162.0
+aws-cdk-aws-cloudwatch==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-applicationautoscaling
@@ -69,38 +71,38 @@ aws-cdk-aws-cloudwatch==1.162.0
     #   aws-cdk-aws-sns
     #   aws-cdk-aws-sqs
     #   aws-cdk-aws-stepfunctions
-aws-cdk-aws-codebuild==1.162.0
+aws-cdk-aws-codebuild==1.165.0
     # via
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-events-targets
     #   aws-cdk-pipelines
-aws-cdk-aws-codecommit==1.162.0
+aws-cdk-aws-codecommit==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-pipelines
-aws-cdk-aws-codedeploy==1.162.0
+aws-cdk-aws-codedeploy==1.165.0
     # via aws-cdk-aws-codepipeline-actions
-aws-cdk-aws-codeguruprofiler==1.162.0
+aws-cdk-aws-codeguruprofiler==1.165.0
     # via aws-cdk-aws-lambda
-aws-cdk-aws-codepipeline==1.162.0
+aws-cdk-aws-codepipeline==1.165.0
     # via
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-events-targets
     #   aws-cdk-pipelines
-aws-cdk-aws-codepipeline-actions==1.162.0
+aws-cdk-aws-codepipeline-actions==1.165.0
     # via aws-cdk-pipelines
-aws-cdk-aws-codestarnotifications==1.162.0
+aws-cdk-aws-codestarnotifications==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codecommit
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-sns
-aws-cdk-aws-cognito==1.162.0
+aws-cdk-aws-cognito==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-route53-targets
-aws-cdk-aws-ec2==1.162.0
+aws-cdk-aws-ec2==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-autoscaling
@@ -123,7 +125,7 @@ aws-cdk-aws-ec2==1.162.0
     #   aws-cdk-aws-servicediscovery
     #   aws-cdk-custom-resources
     #   aws-cdk-pipelines
-aws-cdk-aws-ecr==1.162.0
+aws-cdk-aws-ecr==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codepipeline-actions
@@ -131,28 +133,28 @@ aws-cdk-aws-ecr==1.162.0
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-lambda
     #   aws-cdk-pipelines
-aws-cdk-aws-ecr-assets==1.162.0
+aws-cdk-aws-ecr-assets==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-lambda
-aws-cdk-aws-ecs==1.162.0
+aws-cdk-aws-ecs==1.165.0
     # via
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-events-targets
-aws-cdk-aws-efs==1.162.0
+aws-cdk-aws-efs==1.165.0
     # via
     #   aws-cdk-aws-lambda
     #   aws-cdk-aws-s3-deployment
-aws-cdk-aws-eks==1.162.0
+aws-cdk-aws-eks==1.165.0
     # via -r requirements.in
-aws-cdk-aws-elasticloadbalancing==1.162.0
+aws-cdk-aws-elasticloadbalancing==1.165.0
     # via
     #   aws-cdk-aws-autoscaling
     #   aws-cdk-aws-codedeploy
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-route53-targets
-aws-cdk-aws-elasticloadbalancingv2==1.162.0
+aws-cdk-aws-elasticloadbalancingv2==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-autoscaling
@@ -160,7 +162,7 @@ aws-cdk-aws-elasticloadbalancingv2==1.162.0
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-route53-targets
     #   aws-cdk-aws-servicediscovery
-aws-cdk-aws-events==1.162.0
+aws-cdk-aws-events==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codecommit
@@ -173,11 +175,11 @@ aws-cdk-aws-events==1.162.0
     #   aws-cdk-aws-sns
     #   aws-cdk-aws-stepfunctions
     #   aws-cdk-pipelines
-aws-cdk-aws-events-targets==1.162.0
+aws-cdk-aws-events-targets==1.165.0
     # via aws-cdk-aws-codepipeline-actions
-aws-cdk-aws-globalaccelerator==1.162.0
+aws-cdk-aws-globalaccelerator==1.165.0
     # via aws-cdk-aws-route53-targets
-aws-cdk-aws-iam==1.162.0
+aws-cdk-aws-iam==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-applicationautoscaling
@@ -194,6 +196,7 @@ aws-cdk-aws-iam==1.162.0
     #   aws-cdk-aws-codeguruprofiler
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -221,19 +224,20 @@ aws-cdk-aws-iam==1.162.0
     #   aws-cdk-aws-stepfunctions
     #   aws-cdk-custom-resources
     #   aws-cdk-pipelines
-aws-cdk-aws-kinesis==1.162.0
+aws-cdk-aws-kinesis==1.165.0
     # via
     #   aws-cdk-aws-events-targets
     #   aws-cdk-aws-kinesisfirehose
-aws-cdk-aws-kinesisfirehose==1.162.0
+aws-cdk-aws-kinesisfirehose==1.165.0
     # via aws-cdk-aws-events-targets
-aws-cdk-aws-kms==1.162.0
+aws-cdk-aws-kms==1.165.0
     # via
     #   aws-cdk-aws-autoscaling-hooktargets
     #   aws-cdk-aws-cloudfront
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecs
@@ -251,8 +255,9 @@ aws-cdk-aws-kms==1.162.0
     #   aws-cdk-aws-sns-subscriptions
     #   aws-cdk-aws-sqs
     #   aws-cdk-aws-ssm
-aws-cdk-aws-lambda==1.162.0
+aws-cdk-aws-lambda==1.165.0
     # via
+    #   -r requirements.in
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-autoscaling-hooktargets
     #   aws-cdk-aws-certificatemanager
@@ -260,6 +265,7 @@ aws-cdk-aws-lambda==1.162.0
     #   aws-cdk-aws-cloudfront
     #   aws-cdk-aws-codedeploy
     #   aws-cdk-aws-codepipeline-actions
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-elasticloadbalancingv2
@@ -273,7 +279,7 @@ aws-cdk-aws-lambda==1.162.0
     #   aws-cdk-lambda-layer-kubectl
     #   aws-cdk-lambda-layer-node-proxy-agent
     #   aws-cdk-pipelines
-aws-cdk-aws-logs==1.162.0
+aws-cdk-aws-logs==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-codebuild
@@ -287,16 +293,16 @@ aws-cdk-aws-logs==1.162.0
     #   aws-cdk-aws-s3-deployment
     #   aws-cdk-aws-stepfunctions
     #   aws-cdk-custom-resources
-aws-cdk-aws-route53==1.162.0
+aws-cdk-aws-route53==1.165.0
     # via
     #   aws-cdk-aws-certificatemanager
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-elasticloadbalancingv2
     #   aws-cdk-aws-route53-targets
     #   aws-cdk-aws-servicediscovery
-aws-cdk-aws-route53-targets==1.162.0
+aws-cdk-aws-route53-targets==1.165.0
     # via aws-cdk-aws-ecs
-aws-cdk-aws-s3==1.162.0
+aws-cdk-aws-s3==1.165.0
     # via
     #   -r requirements.in
     #   aws-cdk-aws-apigateway
@@ -317,7 +323,7 @@ aws-cdk-aws-s3==1.162.0
     #   aws-cdk-aws-s3-deployment
     #   aws-cdk-aws-stepfunctions
     #   aws-cdk-pipelines
-aws-cdk-aws-s3-assets==1.162.0
+aws-cdk-aws-s3-assets==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-codebuild
@@ -329,20 +335,20 @@ aws-cdk-aws-s3-assets==1.162.0
     #   aws-cdk-aws-logs
     #   aws-cdk-aws-s3-deployment
     #   aws-cdk-pipelines
-aws-cdk-aws-s3-deployment==1.162.0
+aws-cdk-aws-s3-deployment==1.165.0
     # via -r requirements.in
-aws-cdk-aws-sam==1.162.0
+aws-cdk-aws-sam==1.165.0
     # via aws-cdk-aws-secretsmanager
-aws-cdk-aws-secretsmanager==1.162.0
+aws-cdk-aws-secretsmanager==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-ecs
     #   aws-cdk-pipelines
-aws-cdk-aws-servicediscovery==1.162.0
+aws-cdk-aws-servicediscovery==1.165.0
     # via aws-cdk-aws-ecs
-aws-cdk-aws-signer==1.162.0
+aws-cdk-aws-signer==1.165.0
     # via aws-cdk-aws-lambda
-aws-cdk-aws-sns==1.162.0
+aws-cdk-aws-sns==1.165.0
     # via
     #   -r requirements.in
     #   aws-cdk-aws-autoscaling
@@ -355,12 +361,12 @@ aws-cdk-aws-sns==1.162.0
     #   aws-cdk-aws-sns-subscriptions
     #   aws-cdk-custom-resources
     #   aws-cdk-pipelines
-aws-cdk-aws-sns-subscriptions==1.162.0
+aws-cdk-aws-sns-subscriptions==1.165.0
     # via
     #   aws-cdk-aws-autoscaling-hooktargets
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-events-targets
-aws-cdk-aws-sqs==1.162.0
+aws-cdk-aws-sqs==1.165.0
     # via
     #   aws-cdk-aws-autoscaling-hooktargets
     #   aws-cdk-aws-ecs
@@ -368,18 +374,18 @@ aws-cdk-aws-sqs==1.162.0
     #   aws-cdk-aws-lambda
     #   aws-cdk-aws-sns
     #   aws-cdk-aws-sns-subscriptions
-aws-cdk-aws-ssm==1.162.0
+aws-cdk-aws-ssm==1.165.0
     # via
     #   aws-cdk-aws-cloudfront
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-eks
-aws-cdk-aws-stepfunctions==1.162.0
+aws-cdk-aws-stepfunctions==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-events-targets
-aws-cdk-cloud-assembly-schema==1.162.0
+aws-cdk-cloud-assembly-schema==1.165.0
     # via
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-efs
@@ -390,7 +396,7 @@ aws-cdk-cloud-assembly-schema==1.162.0
     #   aws-cdk-core
     #   aws-cdk-cx-api
     #   aws-cdk-pipelines
-aws-cdk-core==1.162.0
+aws-cdk-core==1.165.0
     # via
     #   -r requirements.in
     #   aws-cdk-assets
@@ -411,6 +417,7 @@ aws-cdk-core==1.162.0
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -446,13 +453,14 @@ aws-cdk-core==1.162.0
     #   aws-cdk-lambda-layer-kubectl
     #   aws-cdk-lambda-layer-node-proxy-agent
     #   aws-cdk-pipelines
-aws-cdk-custom-resources==1.162.0
+aws-cdk-custom-resources==1.165.0
     # via
     #   aws-cdk-aws-codedeploy
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-events-targets
     #   aws-cdk-aws-route53
-aws-cdk-cx-api==1.162.0
+aws-cdk-cx-api==1.165.0
     # via
     #   aws-cdk-assets
     #   aws-cdk-aws-apigateway
@@ -472,17 +480,17 @@ aws-cdk-cx-api==1.162.0
     #   aws-cdk-aws-secretsmanager
     #   aws-cdk-core
     #   aws-cdk-pipelines
-aws-cdk-lambda-layer-awscli==1.162.0
+aws-cdk-lambda-layer-awscli==1.165.0
     # via
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-s3-deployment
-aws-cdk-lambda-layer-kubectl==1.162.0
+aws-cdk-lambda-layer-kubectl==1.165.0
     # via aws-cdk-aws-eks
-aws-cdk-lambda-layer-node-proxy-agent==1.162.0
+aws-cdk-lambda-layer-node-proxy-agent==1.165.0
     # via aws-cdk-aws-eks
-aws-cdk-pipelines==1.162.0
+aws-cdk-pipelines==1.165.0
     # via -r requirements.in
-aws-cdk-region-info==1.162.0
+aws-cdk-region-info==1.165.0
     # via
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-ec2
@@ -494,7 +502,7 @@ aws-cdk-region-info==1.162.0
     #   aws-cdk-core
 cattrs==22.1.0
     # via jsii
-constructs==3.4.39
+constructs==3.4.46
     # via
     #   aws-cdk-assets
     #   aws-cdk-aws-acmpca
@@ -514,6 +522,7 @@ constructs==3.4.39
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -552,7 +561,7 @@ constructs==3.4.39
     #   aws-cdk-pipelines
 exceptiongroup==1.0.0rc8
     # via cattrs
-jsii==1.61.0
+jsii==1.62.0
     # via
     #   aws-cdk-assets
     #   aws-cdk-aws-acmpca
@@ -572,6 +581,7 @@ jsii==1.61.0
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -632,6 +642,7 @@ publication==0.0.3
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
+    #   aws-cdk-aws-cognito
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -674,6 +685,8 @@ publication==0.0.3
     #   constructs
 python-dateutil==2.8.2
     # via jsii
+pyyaml==6.0
+    # via -r requirements.in
 six==1.16.0
     # via python-dateutil
 typing-extensions==4.3.0

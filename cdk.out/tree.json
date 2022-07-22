@@ -9,7 +9,7 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "@aws-cdk/core.Construct",
-          "version": "1.162.0"
+          "version": "1.165.0"
         }
       },
       "AwsSkillsMapping-DEV": {
@@ -55,7 +55,7 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.CfnBucket",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "Policy": {
@@ -139,13 +139,13 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.BucketPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "AutoDeleteObjectsCustomResource": {
@@ -157,25 +157,25 @@
                             "path": "AwsSkillsMapping-DEV/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default",
                             "constructInfo": {
                               "fqn": "@aws-cdk/core.CfnResource",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.CustomResource",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.Bucket",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
@@ -187,7 +187,7 @@
                     "path": "AwsSkillsMapping-DEV/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.AssetStaging",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Role": {
@@ -195,7 +195,7 @@
                     "path": "AwsSkillsMapping-DEV/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Handler": {
@@ -203,13 +203,13 @@
                     "path": "AwsSkillsMapping-DEV/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CustomResourceProvider",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "S3-Bucket-Website-Name-Id": {
@@ -217,7 +217,7 @@
                 "path": "AwsSkillsMapping-DEV/Stateful/S3-Bucket-Website-Name-Id",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnOutput",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "S3-Bucket-Website-Url-Id": {
@@ -225,7 +225,7 @@
                 "path": "AwsSkillsMapping-DEV/Stateful/S3-Bucket-Website-Url-Id",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnOutput",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CDKMetadata": {
@@ -237,13 +237,13 @@
                     "path": "AwsSkillsMapping-DEV/Stateful/CDKMetadata/Default",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "BootstrapVersion": {
@@ -251,7 +251,7 @@
                 "path": "AwsSkillsMapping-DEV/Stateful/BootstrapVersion",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnParameter",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CheckBootstrapVersion": {
@@ -259,19 +259,664 @@
                 "path": "AwsSkillsMapping-DEV/Stateful/CheckBootstrapVersion",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnRule",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Stack",
-              "version": "1.162.0"
+              "version": "1.165.0"
+            }
+          },
+          "Stateless": {
+            "id": "Stateless",
+            "path": "AwsSkillsMapping-DEV/Stateless",
+            "children": {
+              "AwsSkillsMappingApi": {
+                "id": "AwsSkillsMappingApi",
+                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi",
+                "children": {
+                  "LambdaHandler-AwsSkillsMapping": {
+                    "id": "LambdaHandler-AwsSkillsMapping",
+                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/ServiceRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.AssetStaging",
+                              "version": "1.165.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.BucketBase",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+                              "s3Key": "329d001a986d28abd1a769636daeded57c1b65524f7430989e39319511c31345.zip"
+                            },
+                            "role": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingApiLambdaHandlerAwsSkillsMappingServiceRole0B8452AD",
+                                "Arn"
+                              ]
+                            },
+                            "environment": {
+                              "variables": {
+                                "VERSION": "2"
+                              }
+                            },
+                            "handler": "index.handler",
+                            "runtime": "nodejs14.x"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                          "version": "1.165.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-lambda.Function",
+                      "version": "1.165.0"
+                    }
+                  },
+                  "Aws-Skills-Mapping-Api": {
+                    "id": "Aws-Skills-Mapping-Api",
+                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                          "aws:cdk:cloudformation:props": {
+                            "description": "Aws-Skills-Mapping-Api",
+                            "name": "Aws-Skills-Mapping-Api"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.CfnRestApi",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "CloudWatchRole": {
+                        "id": "CloudWatchRole",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "apigateway.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Account": {
+                        "id": "Account",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Account",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+                          "aws:cdk:cloudformation:props": {
+                            "cloudWatchRoleArn": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleC0BAAACE",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.CfnAccount",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Deployment": {
+                        "id": "Deployment",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                },
+                                "description": "Automatically created by the RestApi construct"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.CfnDeployment",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.Deployment",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "DeploymentStage.api": {
+                        "id": "DeploymentStage.api",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                },
+                                "deploymentId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentEF6F38437e3a36a7e3e106464ff304ee25d9033e"
+                                },
+                                "stageName": "api"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.CfnStage",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.Stage",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Endpoint": {
+                        "id": "Endpoint",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Endpoint",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.CfnOutput",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default",
+                        "children": {
+                          "GET": {
+                            "id": "GET",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET",
+                            "children": {
+                              "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..": {
+                                "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-3:411078575449:",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          },
+                                          "/",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                          },
+                                          "/GET/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..": {
+                                "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-3:411078575449:",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          },
+                                          "/test-invoke-stage/GET/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "httpMethod": "GET",
+                                    "resourceId": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "restApiId": {
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                    },
+                                    "authorizationType": "NONE",
+                                    "integration": {
+                                      "type": "AWS_PROXY",
+                                      "uri": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":apigateway:eu-west-3:lambda:path/2015-03-31/functions/",
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/invocations"
+                                          ]
+                                        ]
+                                      },
+                                      "integrationHttpMethod": "POST"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.CfnMethod",
+                                  "version": "1.165.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.Method",
+                              "version": "1.165.0"
+                            }
+                          },
+                          "skills": {
+                            "id": "skills",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "pathPart": "skills",
+                                    "restApiId": {
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.CfnResource",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "GET": {
+                                "id": "GET",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET",
+                                "children": {
+                                  "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills": {
+                                    "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-west-3:411078575449:",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                              },
+                                              "/",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                              },
+                                              "/GET/skills"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                      "version": "1.165.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills": {
+                                    "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-west-3:411078575449:",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                              },
+                                              "/test-invoke-stage/GET/skills"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                      "version": "1.165.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "GET",
+                                        "resourceId": {
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills59EA75CA"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:eu-west-3:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-apigateway.CfnMethod",
+                                      "version": "1.165.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.Method",
+                                  "version": "1.165.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.Resource",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.ResourceBase",
+                          "version": "1.165.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigateway.RestApi",
+                      "version": "1.165.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.165.0"
+                }
+              },
+              "S3-Api-Url-Id": {
+                "id": "S3-Api-Url-Id",
+                "path": "AwsSkillsMapping-DEV/Stateless/S3-Api-Url-Id",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnOutput",
+                  "version": "1.165.0"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "AwsSkillsMapping-DEV/Stateless/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "AwsSkillsMapping-DEV/Stateless/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.165.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.165.0"
+                }
+              },
+              "BootstrapVersion": {
+                "id": "BootstrapVersion",
+                "path": "AwsSkillsMapping-DEV/Stateless/BootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnParameter",
+                  "version": "1.165.0"
+                }
+              },
+              "CheckBootstrapVersion": {
+                "id": "CheckBootstrapVersion",
+                "path": "AwsSkillsMapping-DEV/Stateless/CheckBootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnRule",
+                  "version": "1.165.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Stack",
+              "version": "1.165.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stage",
-          "version": "1.162.0"
+          "version": "1.165.0"
         }
       },
       "AwsSkillsMapping-PREPROD": {
@@ -317,7 +962,7 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.CfnBucket",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "Policy": {
@@ -401,13 +1046,13 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.BucketPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "AutoDeleteObjectsCustomResource": {
@@ -419,25 +1064,25 @@
                             "path": "AwsSkillsMapping-PREPROD/Stateful/WebSite/BucketStaticWebSiteHosting/AutoDeleteObjectsCustomResource/Default",
                             "constructInfo": {
                               "fqn": "@aws-cdk/core.CfnResource",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.CustomResource",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.Bucket",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
@@ -449,7 +1094,7 @@
                     "path": "AwsSkillsMapping-PREPROD/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.AssetStaging",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Role": {
@@ -457,7 +1102,7 @@
                     "path": "AwsSkillsMapping-PREPROD/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Handler": {
@@ -465,13 +1110,13 @@
                     "path": "AwsSkillsMapping-PREPROD/Stateful/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CustomResourceProvider",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "S3-Bucket-Website-Name-Id": {
@@ -479,7 +1124,7 @@
                 "path": "AwsSkillsMapping-PREPROD/Stateful/S3-Bucket-Website-Name-Id",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnOutput",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "S3-Bucket-Website-Url-Id": {
@@ -487,7 +1132,7 @@
                 "path": "AwsSkillsMapping-PREPROD/Stateful/S3-Bucket-Website-Url-Id",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnOutput",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CDKMetadata": {
@@ -499,13 +1144,13 @@
                     "path": "AwsSkillsMapping-PREPROD/Stateful/CDKMetadata/Default",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnResource",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "BootstrapVersion": {
@@ -513,7 +1158,7 @@
                 "path": "AwsSkillsMapping-PREPROD/Stateful/BootstrapVersion",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnParameter",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CheckBootstrapVersion": {
@@ -521,19 +1166,664 @@
                 "path": "AwsSkillsMapping-PREPROD/Stateful/CheckBootstrapVersion",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnRule",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Stack",
-              "version": "1.162.0"
+              "version": "1.165.0"
+            }
+          },
+          "Stateless": {
+            "id": "Stateless",
+            "path": "AwsSkillsMapping-PREPROD/Stateless",
+            "children": {
+              "AwsSkillsMappingApi": {
+                "id": "AwsSkillsMappingApi",
+                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi",
+                "children": {
+                  "LambdaHandler-AwsSkillsMapping": {
+                    "id": "LambdaHandler-AwsSkillsMapping",
+                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/ServiceRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/core.AssetStaging",
+                              "version": "1.165.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-s3.BucketBase",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/LambdaHandler-AwsSkillsMapping/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": "cdk-hnb659fds-assets-411078575449-eu-west-1",
+                              "s3Key": "329d001a986d28abd1a769636daeded57c1b65524f7430989e39319511c31345.zip"
+                            },
+                            "role": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingApiLambdaHandlerAwsSkillsMappingServiceRole0B8452AD",
+                                "Arn"
+                              ]
+                            },
+                            "environment": {
+                              "variables": {
+                                "VERSION": "2"
+                              }
+                            },
+                            "handler": "index.handler",
+                            "runtime": "nodejs14.x"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                          "version": "1.165.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-lambda.Function",
+                      "version": "1.165.0"
+                    }
+                  },
+                  "Aws-Skills-Mapping-Api": {
+                    "id": "Aws-Skills-Mapping-Api",
+                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                          "aws:cdk:cloudformation:props": {
+                            "description": "Aws-Skills-Mapping-Api",
+                            "name": "Aws-Skills-Mapping-Api"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.CfnRestApi",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "CloudWatchRole": {
+                        "id": "CloudWatchRole",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "apigateway.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnRole",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Role",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Account": {
+                        "id": "Account",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Account",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+                          "aws:cdk:cloudformation:props": {
+                            "cloudWatchRoleArn": {
+                              "Fn::GetAtt": [
+                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleC0BAAACE",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.CfnAccount",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Deployment": {
+                        "id": "Deployment",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                },
+                                "description": "Automatically created by the RestApi construct"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.CfnDeployment",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.Deployment",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "DeploymentStage.api": {
+                        "id": "DeploymentStage.api",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                },
+                                "deploymentId": {
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentEF6F38439ee6c6300e80b47bd5f8984686abd0c9"
+                                },
+                                "stageName": "api"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.CfnStage",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.Stage",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Endpoint": {
+                        "id": "Endpoint",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Endpoint",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.CfnOutput",
+                          "version": "1.165.0"
+                        }
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default",
+                        "children": {
+                          "GET": {
+                            "id": "GET",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET",
+                            "children": {
+                              "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..": {
+                                "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-1:411078575449:",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          },
+                                          "/",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                          },
+                                          "/GET/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..": {
+                                "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:eu-west-1:411078575449:",
+                                          {
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          },
+                                          "/test-invoke-stage/GET/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "httpMethod": "GET",
+                                    "resourceId": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "restApiId": {
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                    },
+                                    "authorizationType": "NONE",
+                                    "integration": {
+                                      "type": "AWS_PROXY",
+                                      "uri": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":apigateway:eu-west-1:lambda:path/2015-03-31/functions/",
+                                            {
+                                              "Fn::GetAtt": [
+                                                "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/invocations"
+                                          ]
+                                        ]
+                                      },
+                                      "integrationHttpMethod": "POST"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.CfnMethod",
+                                  "version": "1.165.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.Method",
+                              "version": "1.165.0"
+                            }
+                          },
+                          "skills": {
+                            "id": "skills",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Fn::GetAtt": [
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "pathPart": "skills",
+                                    "restApiId": {
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.CfnResource",
+                                  "version": "1.165.0"
+                                }
+                              },
+                              "GET": {
+                                "id": "GET",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET",
+                                "children": {
+                                  "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills": {
+                                    "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-west-1:411078575449:",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                              },
+                                              "/",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                              },
+                                              "/GET/skills"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                      "version": "1.165.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills": {
+                                    "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-west-1:411078575449:",
+                                              {
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                              },
+                                              "/test-invoke-stage/GET/skills"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                                      "version": "1.165.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "GET",
+                                        "resourceId": {
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills59EA75CA"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:eu-west-1:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "AwsSkillsMappingApiLambdaHandlerAwsSkillsMapping458F1DDD",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "@aws-cdk/aws-apigateway.CfnMethod",
+                                      "version": "1.165.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "@aws-cdk/aws-apigateway.Method",
+                                  "version": "1.165.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-apigateway.Resource",
+                              "version": "1.165.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigateway.ResourceBase",
+                          "version": "1.165.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigateway.RestApi",
+                      "version": "1.165.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.165.0"
+                }
+              },
+              "S3-Api-Url-Id": {
+                "id": "S3-Api-Url-Id",
+                "path": "AwsSkillsMapping-PREPROD/Stateless/S3-Api-Url-Id",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnOutput",
+                  "version": "1.165.0"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "AwsSkillsMapping-PREPROD/Stateless/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "AwsSkillsMapping-PREPROD/Stateless/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.165.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.165.0"
+                }
+              },
+              "BootstrapVersion": {
+                "id": "BootstrapVersion",
+                "path": "AwsSkillsMapping-PREPROD/Stateless/BootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnParameter",
+                  "version": "1.165.0"
+                }
+              },
+              "CheckBootstrapVersion": {
+                "id": "CheckBootstrapVersion",
+                "path": "AwsSkillsMapping-PREPROD/Stateless/CheckBootstrapVersion",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnRule",
+                  "version": "1.165.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Stack",
+              "version": "1.165.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stage",
-          "version": "1.162.0"
+          "version": "1.165.0"
         }
       },
       "AwsSkillsMapping-PIPELINE": {
@@ -659,13 +1949,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnKey",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Key",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "ArtifactsBucketEncryptionKeyAlias": {
@@ -689,13 +1979,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnAlias",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Alias",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "ArtifactsBucket": {
@@ -733,7 +2023,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.CfnBucket",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Policy": {
@@ -792,19 +2082,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.BucketPolicy",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-s3.Bucket",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Role": {
@@ -833,7 +2123,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -973,19 +2263,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Resource": {
@@ -1220,7 +2510,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-codepipeline.CfnPipeline",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Source": {
@@ -1257,19 +2547,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-codepipeline.CfnWebhook",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Build": {
@@ -1317,7 +2607,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -1359,31 +2649,31 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Deploy_DEV": {
@@ -1431,7 +2721,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -1536,31 +2826,31 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Approvals": {
@@ -1608,7 +2898,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -1643,19 +2933,19 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "TopicResource": {
@@ -1671,7 +2961,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.CfnTopic",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "ualter.junior@gmail.com": {
@@ -1693,13 +2983,13 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-sns.CfnSubscription",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.Subscription",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "fake.paul.email@gmail.com": {
@@ -1721,25 +3011,25 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-sns.CfnSubscription",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.Subscription",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-sns.Topic",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "ApplicationTeamApproval": {
@@ -1783,7 +3073,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -1818,19 +3108,19 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       },
                       "TopicResource": {
@@ -1846,7 +3136,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.CfnTopic",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "fake.jonh.email@gmail.com": {
@@ -1868,13 +3158,13 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-sns.CfnSubscription",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.Subscription",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "fake.ringo.email@gmail.com": {
@@ -1896,31 +3186,31 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-sns.CfnSubscription",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-sns.Subscription",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-sns.Topic",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Deploy_PREPROD": {
@@ -1968,7 +3258,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -2072,37 +3362,37 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.162.0"
+                                  "version": "1.165.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.162.0"
+                              "version": "1.165.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-codepipeline.Pipeline",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           },
           "AwsSkillsMapping-Build": {
@@ -2135,7 +3425,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -2279,19 +3569,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "Resource": {
@@ -2334,13 +3624,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-codebuild.CfnProject",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-codebuild.PipelineProject",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           },
           "bucket-dev": {
@@ -2348,7 +3638,7 @@
             "path": "AwsSkillsMapping-PIPELINE/bucket-dev",
             "constructInfo": {
               "fqn": "@aws-cdk/aws-s3.BucketBase",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           },
           "bucket-preprod": {
@@ -2356,7 +3646,7 @@
             "path": "AwsSkillsMapping-PIPELINE/bucket-preprod",
             "constructInfo": {
               "fqn": "@aws-cdk/aws-s3.BucketBase",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           },
           "CDKMetadata": {
@@ -2368,19 +3658,19 @@
                 "path": "AwsSkillsMapping-PIPELINE/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Construct",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stack",
-          "version": "1.162.0"
+          "version": "1.165.0"
         }
       },
       "cross-region-stack-411078575449:eu-west-1": {
@@ -2492,13 +3782,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnKey",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Key",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CrossRegionCodePipelineReplicationBucketEncryptionAlias": {
@@ -2522,13 +3812,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnAlias",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Alias",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               },
               "CrossRegionCodePipelineReplicationBucket": {
@@ -2573,7 +3863,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.CfnBucket",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   },
                   "Policy": {
@@ -2632,25 +3922,25 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-s3.CfnBucketPolicy",
-                          "version": "1.162.0"
+                          "version": "1.165.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.BucketPolicy",
-                      "version": "1.162.0"
+                      "version": "1.165.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-s3.Bucket",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Construct",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           },
           "CDKMetadata": {
@@ -2662,25 +3952,25 @@
                 "path": "cross-region-stack-411078575449:eu-west-1/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
-                  "version": "1.162.0"
+                  "version": "1.165.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Construct",
-              "version": "1.162.0"
+              "version": "1.165.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stack",
-          "version": "1.162.0"
+          "version": "1.165.0"
         }
       }
     },
     "constructInfo": {
       "fqn": "@aws-cdk/core.App",
-      "version": "1.162.0"
+      "version": "1.165.0"
     }
   }
 }

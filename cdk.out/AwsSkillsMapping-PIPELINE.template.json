@@ -1309,7 +1309,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02QzW7CMBCEn4W7MQVUxLGFI5coVOrZcbZiseON/CMUWX732nGkcJpvRmPtrvd8fzrwj82XeLmt7NUuSrLA490LqdiVjPM2SM+uf6YFR8FKSKx0c6+HEUfQaHK/WagU3/kXugeRSkwNjscbTCUs8q1RuGJmSMwdebwEqWCetVCVhjTKaY0XX81FuLwRioHHlvQ8c9b1UaU8weQNfmhEWdIK99A5aXH0SKak7z6xcmIXUPfrfY2lJ9T/WDClxJrJP8jsjvzMPzdPh7i1wXgcgLdV/wHdy6CaZwEAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02QzWrDMBCEnyV3RUkwKT02yTEX4xR6luUt2UjWGv1QjNC7V7IMzmm+GUbsrk789HHmx92X+HN7OahDlGSBx4cXUrEbGedtkJ7dfk0HjoKVkFjp5t4AE06g0eR+u1IpvvMP9E8ilZgaHY93mEtY5KJRuGIWSMw1PF6DVLDMWqlKSxrlvMWrr+YqXN4IxchjR3qZuej2qFKeYPIG3zShLGmFR+idtDh5JFPSd59YObEPqIftvtbSC+p/rJhSYu3sn2QODf/k593LIe5tMB5H4F3Vf6O3kyNnAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "AwsSkillsMapping-PIPELINE/CDKMetadata/Default"
