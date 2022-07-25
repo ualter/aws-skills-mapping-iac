@@ -255,30 +255,6 @@
          "Fn::Join": [
           "",
           [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
-          ]
-         ]
-        },
-        {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
-          ]
-         ]
-        },
-        {
-         "Fn::Join": [
-          "",
-          [
            {
             "Fn::GetAtt": [
              "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
@@ -300,32 +276,17 @@
         "kms:ReEncrypt*"
        ],
        "Effect": "Allow",
-       "Resource": [
-        "*",
-        {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
-          "Arn"
-         ]
-        }
-       ]
+       "Resource": {
+        "Fn::GetAtt": [
+         "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
+         "Arn"
+        ]
+       }
       },
       {
        "Action": "sts:AssumeRole",
        "Effect": "Allow",
        "Resource": [
-        {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42",
-          "Arn"
-         ]
-        },
-        {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278",
-          "Arn"
-         ]
-        },
         {
          "Fn::GetAtt": [
           "AwsSkillsMappingPIPELINEBuildCodeBuildCodePipelineActionRole72E026B4",
@@ -335,12 +296,6 @@
         {
          "Fn::GetAtt": [
           "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRole367E7B62",
-          "Arn"
-         ]
-        },
-        {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D",
           "Arn"
          ]
         }
@@ -382,7 +337,7 @@
         "Configuration": {
          "Owner": "ualter",
          "Repo": "aws-skills-mapping-app",
-         "Branch": "master",
+         "Branch": "v2.0.0",
          "OAuthToken": "{{resolve:secretsmanager:github-ualter:SecretString:::}}",
          "PollForSourceChanges": false
         },
@@ -462,128 +417,23 @@
        }
       ],
       "Name": "Deploy_DEV"
-     },
-     {
-      "Actions": [
-       {
-        "ActionTypeId": {
-         "Category": "Approval",
-         "Owner": "AWS",
-         "Provider": "Manual",
-         "Version": "1"
-        },
-        "Configuration": {
-         "NotificationArn": {
-          "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC"
-         }
-        },
-        "Name": "SRETeamApproval",
-        "RoleArn": {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278",
-          "Arn"
-         ]
-        },
-        "RunOrder": 1
-       },
-       {
-        "ActionTypeId": {
-         "Category": "Approval",
-         "Owner": "AWS",
-         "Provider": "Manual",
-         "Version": "1"
-        },
-        "Configuration": {
-         "NotificationArn": {
-          "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
-         }
-        },
-        "Name": "ApplicationTeamApproval",
-        "RoleArn": {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42",
-          "Arn"
-         ]
-        },
-        "RunOrder": 1
-       }
-      ],
-      "Name": "Approvals"
-     },
-     {
-      "Actions": [
-       {
-        "ActionTypeId": {
-         "Category": "Deploy",
-         "Owner": "AWS",
-         "Provider": "S3",
-         "Version": "1"
-        },
-        "Configuration": {
-         "BucketName": "ualter-aws-skills-mapping-411078575449-eu-west-1-preprod",
-         "Extract": "true"
-        },
-        "InputArtifacts": [
-         {
-          "Name": "Artifact_Build_CodeBuild"
-         }
-        ],
-        "Name": "S3Deploy",
-        "Region": "eu-west-1",
-        "RoleArn": {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D",
-          "Arn"
-         ]
-        },
-        "RunOrder": 1
-       }
-      ],
-      "Name": "Deploy_PREPROD"
      }
     ],
-    "ArtifactStores": [
-     {
-      "ArtifactStore": {
-       "EncryptionKey": {
-        "Id": {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":kms:eu-west-1:411078575449:alias/pipelinetencryptionaliaseda4fffd4e1bbf09995c"
-          ]
-         ]
-        },
-        "Type": "KMS"
-       },
-       "Location": "awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1",
-       "Type": "S3"
+    "ArtifactStore": {
+     "EncryptionKey": {
+      "Id": {
+       "Fn::GetAtt": [
+        "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
+        "Arn"
+       ]
       },
-      "Region": "eu-west-1"
+      "Type": "KMS"
      },
-     {
-      "ArtifactStore": {
-       "EncryptionKey": {
-        "Id": {
-         "Fn::GetAtt": [
-          "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
-          "Arn"
-         ]
-        },
-        "Type": "KMS"
-       },
-       "Location": {
-        "Ref": "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455"
-       },
-       "Type": "S3"
-      },
-      "Region": "eu-west-3"
-     }
-    ],
+     "Location": {
+      "Ref": "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455"
+     },
+     "Type": "S3"
+    },
     "Name": "AwsSkillsMapping-Pipeline"
    },
    "DependsOn": [
@@ -809,310 +659,6 @@
     "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_DEV/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
    }
   },
-  "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":iam::411078575449:root"
-          ]
-         ]
-        }
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/CodePipelineActionRole/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleDefaultPolicyCD6C9D3C": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sns:Publish",
-       "Effect": "Allow",
-       "Resource": {
-        "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleDefaultPolicyCD6C9D3C",
-    "Roles": [
-     {
-      "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/CodePipelineActionRole/DefaultPolicy/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC": {
-   "Type": "AWS::SNS::Topic",
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceualterjuniorgmailcom5176FAA7": {
-   "Type": "AWS::SNS::Subscription",
-   "Properties": {
-    "Protocol": "email",
-    "TopicArn": {
-     "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC"
-    },
-    "Endpoint": "ualter.junior@gmail.com"
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/ualter.junior@gmail.com/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourcefakepaulemailgmailcom191C9734": {
-   "Type": "AWS::SNS::Subscription",
-   "Properties": {
-    "Protocol": "email",
-    "TopicArn": {
-     "Ref": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC"
-    },
-    "Endpoint": "fake.paul.email@gmail.com"
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.paul.email@gmail.com/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":iam::411078575449:root"
-          ]
-         ]
-        }
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleDefaultPolicy6D411500": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sns:Publish",
-       "Effect": "Allow",
-       "Resource": {
-        "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleDefaultPolicy6D411500",
-    "Roles": [
-     {
-      "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/DefaultPolicy/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6": {
-   "Type": "AWS::SNS::Topic",
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResourcefakejonhemailgmailcom0AC67129": {
-   "Type": "AWS::SNS::Subscription",
-   "Properties": {
-    "Protocol": "email",
-    "TopicArn": {
-     "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
-    },
-    "Endpoint": "fake.jonh.email@gmail.com"
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.jonh.email@gmail.com/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResourcefakeringoemailgmailcom20FD4C26": {
-   "Type": "AWS::SNS::Subscription",
-   "Properties": {
-    "Protocol": "email",
-    "TopicArn": {
-     "Ref": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6"
-    },
-    "Endpoint": "fake.ringo.email@gmail.com"
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.ringo.email@gmail.com/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":iam::411078575449:root"
-          ]
-         ]
-        }
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/Resource"
-   }
-  },
-  "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicyA9A019FD": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": [
-        "s3:Abort*",
-        "s3:DeleteObject*",
-        "s3:PutObject*"
-       ],
-       "Effect": "Allow",
-       "Resource": [
-        {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::ualter-aws-skills-mapping-411078575449-eu-west-1-preprod"
-          ]
-         ]
-        },
-        {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::ualter-aws-skills-mapping-411078575449-eu-west-1-preprod/*"
-          ]
-         ]
-        }
-       ]
-      },
-      {
-       "Action": [
-        "s3:GetBucket*",
-        "s3:GetObject*",
-        "s3:List*"
-       ],
-       "Effect": "Allow",
-       "Resource": [
-        {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1"
-          ]
-         ]
-        },
-        {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":s3:::awsskillsmapping-pipelineeplicationbucket2c9a4aa8b14c5f22cfe1/*"
-          ]
-         ]
-        }
-       ]
-      },
-      {
-       "Action": [
-        "kms:Decrypt",
-        "kms:DescribeKey"
-       ],
-       "Effect": "Allow",
-       "Resource": "*"
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicyA9A019FD",
-    "Roles": [
-     {
-      "Ref": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRole785CB19D"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy_PREPROD/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
-   }
-  },
   "AwsSkillsMappingBuildRole55DCCEA3": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -1276,6 +822,15 @@
     },
     "Environment": {
      "ComputeType": "BUILD_GENERAL1_SMALL",
+     "EnvironmentVariables": [
+      {
+       "Name": "AWS_SKILLS_MAPPING_API_URL",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::ImportValue": "S3-Api-Url"
+       }
+      }
+     ],
      "Image": "aws/codebuild/standard:1.0",
      "ImagePullCredentialsType": "CODEBUILD",
      "PrivilegedMode": false,
@@ -1309,7 +864,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02QzWrDMBCEnyV3RUkwKT02yTEX4xR6luUt2UjWGv1QjNC7V7IMzmm+GUbsrk789HHmx92X+HN7OahDlGSBx4cXUrEbGedtkJ7dfk0HjoKVkFjp5t4AE06g0eR+u1IpvvMP9E8ilZgaHY93mEtY5KJRuGIWSMw1PF6DVLDMWqlKSxrlvMWrr+YqXN4IxchjR3qZuej2qFKeYPIG3zShLGmFR+idtDh5JFPSd59YObEPqIftvtbSC+p/rJhSYu3sn2QODf/k593LIe5tMB5H4F3Vf6O3kyNnAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02PS4/CMAyEfwv3YEAItEceRy5VOew5pEaYpDHKQ6sqyn+naSp1T/ONNZbHO9gdD7BdneSfX6tOb5Jih5DuQSotrmx9cFEFcX3aFj1HpzCLkh1zHX7og4bsmG9mKsH//IuPF7POQvce0g2HMixyNiR9MRNk4feQLlFpnG7NVKVhQ2pYxrOv5iL92IhkD6llM92cdFmqlEUp/IhkuqVt4/iN9bsZc86iGcKL7WYPP3BYvT3R2kUbqEdoq34B+2HaKjUBAAA="
    },
    "Metadata": {
     "aws:cdk:path": "AwsSkillsMapping-PIPELINE/CDKMetadata/Default"

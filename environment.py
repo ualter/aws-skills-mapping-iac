@@ -1,5 +1,7 @@
 import abc
+from typing import Mapping, Optional
 
+from aws_cdk import aws_codebuild as codebuild
 from aws_cdk import core as cdk
 
 from configuration import ConfigurationLoader
@@ -40,18 +42,6 @@ class Environments:
             account=prod_config.Environment.Account,
             region=prod_config.Environment.Region,
         )
-
-    # def dev_account(self) -> Environment:
-    #     return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
-
-    # def preprod_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
-
-    # def pipeline_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
-
-    # def prod_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
 
 
 # STAGES Properties
@@ -116,10 +106,13 @@ class AwsSkillsMappingConfigProd(AwsSkillsMappingConfig):
         return Stages.PROD
 
 
-# Pipeline Properties
-class PipelineConfig:
+# Pipeline
+class AwsSkillsMappingConfigPipeline:
     def __init__(self) -> None:
         self.env = Environments()._PIPELINE_ENV
         self.configuration: ConfigurationPipeline = (
             ConfigurationLoader().get_configuration_pipeline()
         )
+        self.environment_variables: Optional[
+            Mapping[str, codebuild.BuildEnvironmentVariable]
+        ] = None

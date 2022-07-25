@@ -8,7 +8,7 @@ from aws_cdk import core as cdk
 
 from api.infrastructure import AwsSkillsMappingApi
 from environment import AwsSkillsMappingConfig
-from environment import PipelineConfig
+from environment import AwsSkillsMappingConfigPipeline
 from s3.infrastructure import BucketStaticWebSiteHosting
 
 # Application that represents "The Platform" itself,
@@ -88,7 +88,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         scope: cdk.Construct,
         id_: str,
         *,
-        pipe_config: PipelineConfig,
+        pipe_config: AwsSkillsMappingConfigPipeline,
         **kwargs: Any,
     ):
 
@@ -133,6 +133,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                         "./codebuild/buildspec.yaml"
                     ),
                     project_name="AwsSkillsMapping-Build",
+                    environment_variables=self._pipe_config.environment_variables,
                 ),
                 input=self._source_output,
                 outputs=[self._dist_output],
@@ -162,11 +163,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
         # this stage might be in a different region where this Pipeline Stack is deployed
         # ... also in another account - feature not implemented right now :-)
-        stage_region = ""
-        if (
-            stage.config.env is not None and stage.config.env.region is not None
-        ):  # avoid mypy checking error
-            stage_region = stage.config.env.region
+        stage_region = stage.config.env.region  # type: ignore
 
         target_bucket = s3.Bucket.from_bucket_attributes(
             self,
