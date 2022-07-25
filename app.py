@@ -30,6 +30,7 @@ preprod_stage = AwsSkillsMapping(
     env=preprod_config.env,
 )
 
+
 # PIPELINE Application: aws-skills-mapping
 pipeline_config = AwsSkillsMappingConfigPipeline()
 pipeline_config.environment_variables = {
