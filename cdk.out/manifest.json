@@ -37,7 +37,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-deploy-role-411078575449-eu-west-3",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-cfn-exec-role-411078575449-eu-west-3",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-411078575449-eu-west-3/4c59fa98185003af46c3a31ea2d0287d64f6d3e0f05523374a6a51f93782e1bb.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-411078575449-eu-west-3/59de64d446ed639a70c9fd2bd2117a8f90ccfb4076da7c2963585ab45551e425.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -50,6 +50,7 @@
         }
       },
       "dependencies": [
+        "cross-region-stack-411078575449:eu-west-1",
         "AwsSkillsMapping-PIPELINE.assets"
       ],
       "metadata": {
@@ -58,15 +59,15 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyFB9E1D2B",
             "trace": [
-              "new Key (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-kms/lib/key.js:302:26)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:167:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Key (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-kms/lib/key.js:302:26)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:167:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -76,15 +77,15 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEArtifactsBucketEncryptionKeyAlias583C421B",
             "trace": [
-              "new Alias (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-kms/lib/alias.js:83:26)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:174:17)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Alias (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-kms/lib/alias.js:83:26)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:174:17)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -94,15 +95,15 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEArtifactsBucketAD62E455",
             "trace": [
-              "new Bucket (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Bucket (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -112,18 +113,18 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEArtifactsBucketPolicy7D0DC044",
             "trace": [
-              "new BucketPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:45:25)",
-              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:169:27)",
-              "Bucket.enforceSSLStatement (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:929:14)",
-              "new Bucket (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:703:18)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new BucketPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:45:25)",
+              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:169:27)",
+              "Bucket.enforceSSLStatement (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:929:14)",
+              "new Bucket (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:703:18)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -133,15 +134,15 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINERole32049DE8",
             "trace": [
-              "new Role (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:191:35)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:191:35)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -151,20 +152,20 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINERoleDefaultPolicy5A94B78C",
             "trace": [
-              "new Policy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
-              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
-              "Function.addToPrincipal (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
-              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
-              "Bucket.grant (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
-              "Bucket.grantReadWrite (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:335:21)",
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:205:29)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Bucket.grant (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
+              "Bucket.grantReadWrite (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:335:21)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:205:29)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -174,14 +175,14 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINED4664A83",
             "trace": [
-              "new Pipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:29)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Pipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:29)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -191,20 +192,20 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINESourceGitHubWebhookResource50111606",
             "trace": [
-              "GitHubSourceAction.bound (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline-actions/lib/github/source-action.js:57:13)",
-              "GitHubSourceAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
-              "RichAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
-              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
-              "Stage.attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
-              "Stage.addAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "GitHubSourceAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/github/source-action.js:57:13)",
+              "GitHubSourceAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -214,19 +215,19 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEBuildDEVCodeBuildDEVCodePipelineActionRoleE7D4E37D",
             "trace": [
-              "new Role (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
-              "Pipeline.getRoleForAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
-              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
-              "Stage.attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
-              "Stage.addAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -236,23 +237,23 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEBuildDEVCodeBuildDEVCodePipelineActionRoleDefaultPolicyFB52FFF2",
             "trace": [
-              "new Policy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
-              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
-              "Role.addToPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
-              "CodeBuildAction.bound (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:82:22)",
-              "CodeBuildAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
-              "RichAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
-              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
-              "Stage.attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
-              "Stage.addAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "CodeBuildAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:82:22)",
+              "CodeBuildAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -262,19 +263,19 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRoleCC96A233",
             "trace": [
-              "new Role (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
-              "Pipeline.getRoleForAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
-              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
-              "Stage.attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
-              "Stage.addAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -284,26 +285,373 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingPIPELINEDeployDEVS3DeployCodePipelineActionRoleDefaultPolicy6E41E247",
             "trace": [
-              "new Policy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
-              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
-              "Function.addToPrincipal (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
-              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
-              "Import.grant (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
-              "Import.grantWrite (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-s3/lib/bucket.js:305:21)",
-              "S3DeployAction.bound (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/deploy-action.js:78:27)",
-              "S3DeployAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
-              "RichAction.bind (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
-              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
-              "Stage.attachActionToPipeline (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
-              "Stage.addAction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Import.grant (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
+              "Import.grantWrite (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:305:21)",
+              "S3DeployAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/deploy-action.js:78:27)",
+              "S3DeployAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleFD7E5278",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalCodePipelineActionRoleDefaultPolicyCD6C9D3C",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Topic.grantPublish (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:70:26)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:70:37)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceD851CBBC",
+            "trace": [
+              "new Topic (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic.js:43:26)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:67:39)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/ualter.junior@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourceualterjuniorgmailcom5176FAA7",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/subscription.js:54:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:39:9)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:72:41)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/SRETeamApproval/TopicResource/fake.paul.email@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsSRETeamApprovalTopicResourcefakepaulemailgmailcom191C9734",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/subscription.js:54:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:39:9)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:72:41)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleCE0DBB42",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalCodePipelineActionRoleDefaultPolicy6D411500",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Topic.grantPublish (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:70:26)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:70:37)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResource28D627E6",
+            "trace": [
+              "new Topic (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic.js:43:26)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:67:39)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.jonh.email@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResourcefakejonhemailgmailcom0AC67129",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/subscription.js:54:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:39:9)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:72:41)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Approvals/ApplicationTeamApproval/TopicResource/fake.ringo.email@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEApprovalsApplicationTeamApprovalTopicResourcefakeringoemailgmailcom20FD4C26",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/subscription.js:54:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:39:9)",
+              "ManualApprovalAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/manual-approval-action.js:72:41)",
+              "ManualApprovalAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Build-PREPROD/CodeBuild-PREPROD/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEBuildPREPRODCodeBuildPREPRODCodePipelineActionRole6FB5C226",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Build-PREPROD/CodeBuild-PREPROD/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEBuildPREPRODCodeBuildPREPRODCodePipelineActionRoleDefaultPolicyBDA9692A",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "CodeBuildAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:82:22)",
+              "CodeBuildAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy-PREPROD/S3Deploy/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleBC3AB988",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-PIPELINE/Deploy-PREPROD/S3Deploy/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingPIPELINEDeployPREPRODS3DeployCodePipelineActionRoleDefaultPolicy64CDCEC5",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Import.grant (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
+              "Import.grantWrite (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:305:21)",
+              "S3DeployAction.bound (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline-actions/lib/s3/deploy-action.js:78:27)",
+              "S3DeployAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -313,15 +661,15 @@
             "type": "aws:cdk:logicalId",
             "data": "SSMReaderDEVCustomResourcePolicyFBBF3033",
             "trace": [
-              "new Policy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
-              "new AwsCustomResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:201:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:201:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -331,15 +679,15 @@
             "type": "aws:cdk:logicalId",
             "data": "SSMReaderDEV46D25354",
             "trace": [
-              "new CustomResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/custom-resource.js:49:25)",
-              "new AwsCustomResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:208:31)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new CustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/custom-resource.js:49:25)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:208:31)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -349,18 +697,18 @@
             "type": "aws:cdk:logicalId",
             "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
             "trace": [
-              "new Role (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
-              "new Function (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:35)",
-              "SingletonFunction.ensureLambda (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:164:16)",
-              "new SingletonFunction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:32:36)",
-              "new AwsCustomResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:160:26)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Function (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:35)",
+              "SingletonFunction.ensureLambda (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:164:16)",
+              "new SingletonFunction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:32:36)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:160:26)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -370,17 +718,17 @@
             "type": "aws:cdk:logicalId",
             "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
             "trace": [
-              "new Function (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/function.js:172:26)",
-              "SingletonFunction.ensureLambda (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:164:16)",
-              "new SingletonFunction (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:32:36)",
-              "new AwsCustomResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:160:26)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Function (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/function.js:172:26)",
+              "SingletonFunction.ensureLambda (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:164:16)",
+              "new SingletonFunction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.js:32:36)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:160:26)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -390,16 +738,16 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingBuildDEVRoleBC5B1530",
             "trace": [
-              "new Role (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
-              "new Project (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/project.js:275:35)",
-              "new PipelineProject (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:275:35)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -409,18 +757,18 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingBuildDEVRoleDefaultPolicy5727FCB0",
             "trace": [
-              "new Policy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
-              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
-              "PipelineProject.addToRolePolicy (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/project.js:56:23)",
-              "new Project (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/project.js:360:14)",
-              "new PipelineProject (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "PipelineProject.addToRolePolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:56:23)",
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:360:14)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -430,15 +778,109 @@
             "type": "aws:cdk:logicalId",
             "data": "AwsSkillsMappingBuildDEV33BE4237",
             "trace": [
-              "new Project (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/project.js:317:26)",
-              "new PipelineProject (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8230:58",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "Kernel._create (/tmp/tmp_nhvz2bc/lib/program.js:8230:34)",
-              "Kernel.create (/tmp/tmp_nhvz2bc/lib/program.js:7969:29)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:317:26)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/SSMReader-PREPROD/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSMReaderPREPRODCustomResourcePolicyAB7AA8F6",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:201:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/SSMReader-PREPROD/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSMReaderPREPRODD001ED8E",
+            "trace": [
+              "new CustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/custom-resource.js:49:25)",
+              "new AwsCustomResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:208:31)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build-PREPROD/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingBuildPREPRODRoleBB39B6E3",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:275:35)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build-PREPROD/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingBuildPREPRODRoleDefaultPolicyB75744CE",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "PipelineProject.addToRolePolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:56:23)",
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:360:14)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/AwsSkillsMapping-PIPELINE/AwsSkillsMapping-Build-PREPROD/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AwsSkillsMappingBuildPREPROD8DBD2988",
+            "trace": [
+              "new Project (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/project.js:317:26)",
+              "new PipelineProject (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8230:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "Kernel._create (/tmp/tmpc7zj5mxv/lib/program.js:8230:34)",
+              "Kernel.create (/tmp/tmpc7zj5mxv/lib/program.js:7969:29)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -448,21 +890,21 @@
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata",
             "trace": [
-              "new MetadataResource (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
-              "/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
-              "injectMetadataResources (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
-              "Object.synthesize (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
-              "App.synth (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "new MetadataResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -472,22 +914,22 @@
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion",
             "trace": [
-              "addBootstrapVersionRule (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:282:19)",
-              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
-              "/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
-              "synthesizeTree (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
-              "Object.synthesize (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
-              "App.synth (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "addBootstrapVersionRule (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:282:19)",
+              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
+              "/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "synthesizeTree (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
+              "Object.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
+              "App.synth (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
@@ -497,28 +939,174 @@
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion",
             "trace": [
-              "addBootstrapVersionRule (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:290:5)",
-              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
-              "/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
-              "visit (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
-              "synthesizeTree (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
-              "Object.synthesize (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
-              "App.synth (/tmp/jsii-kernel-nXCMTu/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:134",
-              "Kernel._wrapSandboxCode (/tmp/tmp_nhvz2bc/lib/program.js:8630:24)",
-              "/tmp/tmp_nhvz2bc/lib/program.js:8045:107",
-              "Kernel._ensureSync (/tmp/tmp_nhvz2bc/lib/program.js:8611:28)",
-              "Kernel.invoke (/tmp/tmp_nhvz2bc/lib/program.js:8045:34)",
-              "KernelHost.processRequest (/tmp/tmp_nhvz2bc/lib/program.js:9614:36)",
-              "KernelHost.run (/tmp/tmp_nhvz2bc/lib/program.js:9577:22)",
-              "Immediate._onImmediate (/tmp/tmp_nhvz2bc/lib/program.js:9578:46)",
+              "addBootstrapVersionRule (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:290:5)",
+              "DefaultStackSynthesizer.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stack-synthesizers/default-synthesizer.js:172:13)",
+              "/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:155:35",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "synthesizeTree (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:148:5)",
+              "Object.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:33:5)",
+              "App.synth (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
               "processImmediate (internal/timers.js:461:21)"
             ]
           }
         ]
       },
       "displayName": "AwsSkillsMapping-PIPELINE"
+    },
+    "cross-region-stack-411078575449:eu-west-1": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://411078575449/eu-west-1",
+      "properties": {
+        "templateFile": "cross-region-stack-411078575449:eu-west-1.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-deploy-role-411078575449-eu-west-3",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-cfn-exec-role-411078575449-eu-west-3",
+        "stackName": "AwsSkillsMapping-PIPELINE-support-eu-west-1"
+      },
+      "metadata": {
+        "/cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrossRegionCodePipelineReplicationBucketEncryptionKey70216490",
+            "trace": [
+              "new Key (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-kms/lib/key.js:302:26)",
+              "new CrossRegionSupportConstruct (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:39:35)",
+              "new CrossRegionSupportStack (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:73:45)",
+              "Pipeline.createSupportResourcesForRegion (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:422:28)",
+              "Pipeline.obtainCrossRegionSupportFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:390:39)",
+              "Pipeline.ensureReplicationResourcesExistFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:370:41)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:318:38)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucketEncryptionAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrossRegionCodePipelineReplicationBucketEncryptionAliasF1A0F37D",
+            "trace": [
+              "new Alias (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-kms/lib/alias.js:83:26)",
+              "new AliasWithShorterGeneratedName (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:16:1)",
+              "new CrossRegionSupportConstruct (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:43:31)",
+              "new CrossRegionSupportStack (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:73:45)",
+              "Pipeline.createSupportResourcesForRegion (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:422:28)",
+              "Pipeline.obtainCrossRegionSupportFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:390:39)",
+              "Pipeline.ensureReplicationResourcesExistFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:370:41)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:318:38)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrossRegionCodePipelineReplicationBucketFC3227F2",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
+              "new CrossRegionSupportConstruct (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:49:34)",
+              "new CrossRegionSupportStack (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:73:45)",
+              "Pipeline.createSupportResourcesForRegion (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:422:28)",
+              "Pipeline.obtainCrossRegionSupportFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:390:39)",
+              "Pipeline.ensureReplicationResourcesExistFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:370:41)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:318:38)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/cross-region-stack-411078575449:eu-west-1/Default/CrossRegionCodePipelineReplicationBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrossRegionCodePipelineReplicationBucketPolicyB7BA2BCA",
+            "trace": [
+              "new BucketPolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:45:25)",
+              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:169:27)",
+              "Bucket.enforceSSLStatement (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:929:14)",
+              "new Bucket (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-s3/lib/bucket.js:703:18)",
+              "new CrossRegionSupportConstruct (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:49:34)",
+              "new CrossRegionSupportStack (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/cross-region-support-stack.js:73:45)",
+              "Pipeline.createSupportResourcesForRegion (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:422:28)",
+              "Pipeline.obtainCrossRegionSupportFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:390:39)",
+              "Pipeline.ensureReplicationResourcesExistFor (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:370:41)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:318:38)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/cross-region-stack-411078575449:eu-west-1/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-ogMSjJ/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpc7zj5mxv/lib/program.js:8630:24)",
+              "/tmp/tmpc7zj5mxv/lib/program.js:8045:107",
+              "Kernel._ensureSync (/tmp/tmpc7zj5mxv/lib/program.js:8611:28)",
+              "Kernel.invoke (/tmp/tmpc7zj5mxv/lib/program.js:8045:34)",
+              "KernelHost.processRequest (/tmp/tmpc7zj5mxv/lib/program.js:9614:36)",
+              "KernelHost.run (/tmp/tmpc7zj5mxv/lib/program.js:9577:22)",
+              "Immediate._onImmediate (/tmp/tmpc7zj5mxv/lib/program.js:9578:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "cross-region-stack-411078575449:eu-west-1"
     }
   }
 }

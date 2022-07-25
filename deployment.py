@@ -186,7 +186,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     ) -> None:
 
         # Read Cross Stack (Region) Dynamic Parameters
-        ssm_reader = SSMReader(
+        ssm_reader_api_url = SSMReader(
             self,
             f"SSMReader-{stage.config.stage().name}",
             parameter_name=AwsSkillsMappingConfig.KEY_API_URL,
@@ -194,7 +194,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
         _environment_variables = {
             "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
-                value=ssm_reader.getParameterValue()
+                value=ssm_reader_api_url.getParameterValue()
             )
         }
 

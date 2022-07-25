@@ -41,31 +41,9 @@ app_pipeline = AwsSkillsMappingPipeline(
     env=pipeline_config.env,
 )
 
-# ssm_reader = SSMReader(
-#     app_pipeline,
-#     "SSMReader-dev",
-#     parameter_name=AwsSkillsMappingConfig.KEY_API_URL,
-#     region=dev_config.env.region,  # type: ignore
-# )
-# vlr = ssm_reader.getParameterValue()
-
-# dev_environment_variables = {
-#     "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
-#         value=vlr
-#         # value=cdk.Fn.import_value(AwsSkillsMappingConfig.KEY_API_URL)
-#     )
-# }
 app_pipeline.add_deploy_stage(dev_stage, dev_config)
-
-# app_pipeline.add_approval_stage()
-
-# preprod_environment_variables = {
-#     "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
-#         value=SSMReader(app_pipeline, "SSMReader-preprod", AwsSkillsMappingConfig.KEY_API_URL,region=preprod_config.env.region).reader.get_response_field("Parameter.Value")
-#         # value=cdk.Fn.import_value(AwsSkillsMappingConfig.KEY_API_URL)
-#     )
-# }
-# app_pipeline.add_deploy_stage(preprod_stage, preprod_environment_variables)
+app_pipeline.add_approval_stage()
+app_pipeline.add_deploy_stage(preprod_stage, preprod_config)
 
 
 ########################################################################################################################
