@@ -7,6 +7,8 @@ from aws_cdk import aws_s3 as s3
 from aws_cdk import core as cdk
 
 from api.infrastructure import AwsSkillsMappingApi
+from custom_resources import SSMReader
+from custom_resources import SSMWriter
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
 from s3.infrastructure import BucketStaticWebSiteHosting
@@ -53,26 +55,43 @@ class AwsSkillsMapping(cdk.Stage):
 
         self.s3_bucket_website_name = cdk.CfnOutput(
             stateful,
-            f"{AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME}-Id",
+            f"{AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_NAME}-Id",
             value=self.s3_website.bucket.bucket_name,
-            export_name=AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME,
+            export_name=AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_NAME,
         )
         self.s3_bucket_website_url = cdk.CfnOutput(
             stateful,
-            f"{AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL}-Id",
+            f"{AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_URL}-Id",
             value=self.s3_website.bucket.bucket_website_url,
-            export_name=AwsSkillsMappingConfig.OUTPUT_KEY_S3_BUCKET_WEBSITE_URL,
+            export_name=AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_URL,
         )
 
     def build_stateless(self, stateless: cdk.Stack) -> None:
         self.api = AwsSkillsMappingApi(
             stateless, "AwsSkillsMappingApi", _name_api="Aws-Skills-Mapping-Api"
         )
+
+        self._save_parameter(
+            stateless,
+            AwsSkillsMappingConfig.KEY_API_URL,
+            self.api.skills_mapping_api.url,
+        )
+
         self.api_url = cdk.CfnOutput(
             stateless,
-            f"{AwsSkillsMappingConfig.OUTPUT_KEY_API_URL}-Id",
+            f"{AwsSkillsMappingConfig.KEY_API_URL}-Id",
             value=self.api.skills_mapping_api.url,
-            export_name=AwsSkillsMappingConfig.OUTPUT_KEY_API_URL,
+            export_name=AwsSkillsMappingConfig.KEY_API_URL,
+        )
+
+    def _save_parameter(
+        self, scope: cdk.Stack, parameter_name: str, parameter_value: str
+    ) -> None:
+        SSMWriter(
+            scope,
+            "SSM-Paramater-Id",
+            parameter_name=parameter_name,
+            parameter_value=parameter_value,
         )
 
 
@@ -93,15 +112,15 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     ):
 
         super().__init__(scope, id_, **kwargs)
+        self._scope = self
         self._pipe_config = pipe_config
         self._pipeline = codepipeline.Pipeline(
             self, id_, pipeline_name="AwsSkillsMapping-Pipeline"
         )
         self._source_output = codepipeline.Artifact()
-        self._dist_output = codepipeline.Artifact()
-
         self._add_source_stage()
-        self._add_build_stage(self)
+
+        # self._add_build_stage(self)
 
     def _add_source_stage(self) -> None:
         source_stage = self._pipeline.add_stage(stage_name="Source")
@@ -121,25 +140,25 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             )
         )
 
-    def _add_build_stage(self, scope: cdk.Construct) -> None:
-        build_stage = self._pipeline.add_stage(stage_name="Build")
-        build_stage.add_action(
-            codepipeline_actions.CodeBuildAction(
-                action_name="CodeBuild",
-                project=codebuild.PipelineProject(
-                    scope,
-                    "AwsSkillsMapping-Build",
-                    build_spec=codebuild.BuildSpec.from_source_filename(
-                        "./codebuild/buildspec.yaml"
-                    ),
-                    project_name="AwsSkillsMapping-Build",
-                    environment_variables=self._pipe_config.environment_variables,
-                ),
-                input=self._source_output,
-                outputs=[self._dist_output],
-                run_order=2,
-            )
-        )
+    # def _add_build_stage(self, scope: cdk.Construct) -> None:
+    #     build_stage = self._pipeline.add_stage(stage_name="Build")
+    #     build_stage.add_action(
+    #         codepipeline_actions.CodeBuildAction(
+    #             action_name="CodeBuild",
+    #             project=codebuild.PipelineProject(
+    #                 scope,
+    #                 "AwsSkillsMapping-Build",
+    #                 build_spec=codebuild.BuildSpec.from_source_filename(
+    #                     "./codebuild/buildspec.yaml"
+    #                 ),
+    #                 project_name="AwsSkillsMapping-Build",
+    #                 environment_variables=self._pipe_config.environment_variables,
+    #             ),
+    #             input=self._source_output,
+    #             outputs=[self._dist_output],
+    #             run_order=2,
+    #         )
+    #     )
 
     def add_approval_stage(self) -> None:
         approval_stage = self._pipeline.add_stage(stage_name="Approvals")
@@ -160,9 +179,49 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
         approval_stage.add_action(app_approval_action)
 
-    def add_deploy_stage(self, stage: AwsSkillsMapping) -> None:
-        # this stage might be in a different region where this Pipeline Stack is deployed
-        # ... also in another account - feature not implemented right now :-)
+    def add_deploy_stage(
+        self,
+        stage: AwsSkillsMapping,
+        stage_config: AwsSkillsMappingConfig,
+    ) -> None:
+
+        # Read Cross Stack (Region) Dynamic Parameters
+        ssm_reader = SSMReader(
+            self,
+            f"SSMReader-{stage.config.stage().name}",
+            parameter_name=AwsSkillsMappingConfig.KEY_API_URL,
+            region=stage_config.env.region,  # type: ignore
+        )
+        _environment_variables = {
+            "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
+                value=ssm_reader.getParameterValue()
+            )
+        }
+
+        _dist_output = codepipeline.Artifact()
+
+        build_stage = self._pipeline.add_stage(
+            stage_name=f"Build-{stage.config.stage().name}"
+        )
+        build_stage.add_action(
+            codepipeline_actions.CodeBuildAction(
+                action_name=f"CodeBuild-{stage.config.stage().name}",
+                project=codebuild.PipelineProject(
+                    self._scope,
+                    f"AwsSkillsMapping-Build-{stage.config.stage().name}",
+                    build_spec=codebuild.BuildSpec.from_source_filename(
+                        "./codebuild/buildspec.yaml"
+                    ),
+                    project_name=f"AwsSkillsMapping-Build-{stage.config.stage().name}",
+                    environment_variables=_environment_variables,
+                ),
+                input=self._source_output,
+                outputs=[_dist_output],
+                run_order=2,
+            )
+        )
+
+        # this stage might be in a different region (and/or account) where this Pipeline Stack is deployed
         stage_region = stage.config.env.region  # type: ignore
 
         target_bucket = s3.Bucket.from_bucket_attributes(
@@ -173,12 +232,12 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
 
         deploy_stage = self._pipeline.add_stage(
-            stage_name=f"Deploy_{stage.config.stage().name}"
+            stage_name=f"Deploy-{stage.config.stage().name}"
         )
         deploy_stage.add_action(
             codepipeline_actions.S3DeployAction(
                 action_name="S3Deploy",
                 bucket=target_bucket,
-                input=self._dist_output,
+                input=_dist_output,
             )
         )

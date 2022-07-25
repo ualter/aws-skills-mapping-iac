@@ -1,7 +1,5 @@
 import abc
-from typing import Mapping, Optional
 
-from aws_cdk import aws_codebuild as codebuild
 from aws_cdk import core as cdk
 
 from configuration import ConfigurationLoader
@@ -53,9 +51,10 @@ class Environments:
 
 # Abstract Stage
 class AwsSkillsMappingConfig(cdk.StageProps):
-    OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME = "S3-Bucket-Website-Name"
-    OUTPUT_KEY_S3_BUCKET_WEBSITE_URL = "S3-Bucket-Website-Url"
-    OUTPUT_KEY_API_URL = "S3-Api-Url"
+    KEY_APP = "App-AwsSkillsMapping"
+    KEY_S3_BUCKET_WEBSITE_NAME = f"{KEY_APP}-S3-Bucket-Website-Name"
+    KEY_S3_BUCKET_WEBSITE_URL = f"{KEY_APP}-S3-Bucket-Website-Url"
+    KEY_API_URL = f"{KEY_APP}-S3-Api-Url"
 
     def __init__(self, *, env: cdk.Environment) -> None:
         super().__init__(env=env, outdir=None)
@@ -113,6 +112,3 @@ class AwsSkillsMappingConfigPipeline:
         self.configuration: ConfigurationPipeline = (
             ConfigurationLoader().get_configuration_pipeline()
         )
-        self.environment_variables: Optional[
-            Mapping[str, codebuild.BuildEnvironmentVariable]
-        ] = None

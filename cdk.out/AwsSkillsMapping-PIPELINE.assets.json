@@ -1,7 +1,21 @@
 {
   "version": "20.0.0",
   "files": {
-    "e86acb43b3b5af27b09eeec8f06b4f56edfece6c5a601f997d76e14083d0ae60": {
+    "105b4f39ae68785e705640aa91919e412fcba2dd454aca53412747be8d955286": {
+      "source": {
+        "path": "asset.105b4f39ae68785e705640aa91919e412fcba2dd454aca53412747be8d955286",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "411078575449-eu-west-3": {
+          "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
+          "objectKey": "105b4f39ae68785e705640aa91919e412fcba2dd454aca53412747be8d955286.zip",
+          "region": "eu-west-3",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
+        }
+      }
+    },
+    "4c59fa98185003af46c3a31ea2d0287d64f6d3e0f05523374a6a51f93782e1bb": {
       "source": {
         "path": "AwsSkillsMapping-PIPELINE.template.json",
         "packaging": "file"
@@ -9,7 +23,7 @@
       "destinations": {
         "411078575449-eu-west-3": {
           "bucketName": "cdk-hnb659fds-assets-411078575449-eu-west-3",
-          "objectKey": "e86acb43b3b5af27b09eeec8f06b4f56edfece6c5a601f997d76e14083d0ae60.json",
+          "objectKey": "4c59fa98185003af46c3a31ea2d0287d64f6d3e0f05523374a6a51f93782e1bb.json",
           "region": "eu-west-3",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::411078575449:role/cdk-hnb659fds-file-publishing-role-411078575449-eu-west-3"
         }

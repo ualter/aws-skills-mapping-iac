@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-from aws_cdk import aws_codebuild as codebuild
 from aws_cdk import core as cdk
 
 import constants
 from deployment import AwsSkillsMapping
 from deployment import AwsSkillsMappingPipeline
-from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigDev
 from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
+
+# from aws_cdk import custom_resources as cr
+
 
 app = cdk.App()
 
@@ -33,11 +34,6 @@ preprod_stage = AwsSkillsMapping(
 
 # PIPELINE Application: aws-skills-mapping
 pipeline_config = AwsSkillsMappingConfigPipeline()
-pipeline_config.environment_variables = {
-    "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
-        value=cdk.Fn.import_value(AwsSkillsMappingConfig.OUTPUT_KEY_API_URL)
-    )
-}
 app_pipeline = AwsSkillsMappingPipeline(
     app,
     "AwsSkillsMapping-PIPELINE",
@@ -45,10 +41,41 @@ app_pipeline = AwsSkillsMappingPipeline(
     env=pipeline_config.env,
 )
 
+# ssm_reader = SSMReader(
+#     app_pipeline,
+#     "SSMReader-dev",
+#     parameter_name=AwsSkillsMappingConfig.KEY_API_URL,
+#     region=dev_config.env.region,  # type: ignore
+# )
+# vlr = ssm_reader.getParameterValue()
 
-app_pipeline.add_deploy_stage(dev_stage)
+# dev_environment_variables = {
+#     "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
+#         value=vlr
+#         # value=cdk.Fn.import_value(AwsSkillsMappingConfig.KEY_API_URL)
+#     )
+# }
+app_pipeline.add_deploy_stage(dev_stage, dev_config)
+
 # app_pipeline.add_approval_stage()
-# app_pipeline.add_deploy_stage(preprod_stage)
+
+# preprod_environment_variables = {
+#     "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
+#         value=SSMReader(app_pipeline, "SSMReader-preprod", AwsSkillsMappingConfig.KEY_API_URL,region=preprod_config.env.region).reader.get_response_field("Parameter.Value")
+#         # value=cdk.Fn.import_value(AwsSkillsMappingConfig.KEY_API_URL)
+#     )
+# }
+# app_pipeline.add_deploy_stage(preprod_stage, preprod_environment_variables)
+
+
+########################################################################################################################
+# NOTICE!
+#   As we are using a S3 Static Website to host our Angular sample project,
+#   we do not have the option of "inject" Environment Variables to be used during Runtime, because...
+#   S3 is a static object store, not a dynamic content server, so there's now such a thing like "Runtime",
+#   This is the reason, of why we have to have a Build Stage for each environment, to setup different variable values
+#   by each environment, we have to configured them at "Buildtime".
+########################################################################################################################
 
 
 # # PRE-PRODUCTION and PRODUCTION Stage will be deployed using this Pipeline

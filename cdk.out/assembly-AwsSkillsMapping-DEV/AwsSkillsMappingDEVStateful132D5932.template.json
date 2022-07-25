@@ -199,15 +199,15 @@
   }
  },
  "Outputs": {
-  "S3BucketWebsiteNameId": {
+  "AppAwsSkillsMappingS3BucketWebsiteNameId": {
    "Value": {
     "Ref": "WebSiteBucketStaticWebSiteHosting26664AF5"
    },
    "Export": {
-    "Name": "S3-Bucket-Website-Name"
+    "Name": "App-AwsSkillsMapping-S3-Bucket-Website-Name"
    }
   },
-  "S3BucketWebsiteUrlId": {
+  "AppAwsSkillsMappingS3BucketWebsiteUrlId": {
    "Value": {
     "Fn::GetAtt": [
      "WebSiteBucketStaticWebSiteHosting26664AF5",
@@ -215,7 +215,7 @@
     ]
    },
    "Export": {
-    "Name": "S3-Bucket-Website-Url"
+    "Name": "App-AwsSkillsMapping-S3-Bucket-Website-Url"
    }
   }
  },
