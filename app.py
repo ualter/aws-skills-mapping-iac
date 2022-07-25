@@ -10,10 +10,6 @@ from environment import AwsSkillsMappingConfigDev
 from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
 
-# from pipeline_app import AwsSkillsMappingPipelineProps
-
-# from pipeline import Pipeline
-
 app = cdk.App()
 
 # IaC DEVELOPMENT Stage
