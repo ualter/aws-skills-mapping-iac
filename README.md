@@ -8,6 +8,7 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 ---
 
 ### **Structure**
+Main classes and structure of the AWS-CDK project.
 ```bash
 CDK-Proj-Repo
  |
