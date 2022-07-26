@@ -42,7 +42,7 @@ class Environments:
 
 
 # STAGES Properties
-# Runtime information/properties for the defined stages
+# Information/properties for services/resources in each defined stages
 #   Example of properties defined by Stage:
 #    - Bucket name
 #    - DynamoDB Billing Mode

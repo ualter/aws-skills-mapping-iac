@@ -12,14 +12,14 @@ from custom_resources import SSMReader
 from custom_resources import SSMWriter
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
-from s3.infrastructure import BucketStaticWebSiteHosting
+from website.infrastructure import BucketStaticWebSiteHosting
 
-# Application that represents "The Platform" itself,
-# all the infrastructure/services that must be
-# provided by it.
-# In this case our application will consist of two Stacks (unit of deployments):
-# - Stateless
-# - Stateful
+# CDK Application that represents/model "the platform" for a specific application/solution,
+# that is, all the infrastructure/services that must be provided for the application/solution (in this case, AWS Skills Mapping Application).
+#
+# Here, we have decided that our application infrasctructure will consist of two Stacks (unit of deployments):
+#  - Stateless
+#  - Stateful
 
 #####################################
 # Application IaC Deployment
@@ -98,6 +98,11 @@ class AwsSkillsMapping(cdk.Stage):
         )
 
 
+#
+# Below, using aws-cdk we also build an CI/CD Pipeline in AWS (CodeBuild, CodePipeline)
+# for the AWS Skills Mapping (an Angular application)
+#
+
 #####################################
 # Application Pipeline Deployment
 # aws-skills-mapping
@@ -142,26 +147,6 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                 # trigger= https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_codepipeline_actions/GitHubTrigger.html#aws_cdk.aws_codepipeline_actions.GitHubTrigger
             )
         )
-
-    # def _add_build_stage(self, scope: cdk.Construct) -> None:
-    #     build_stage = self._pipeline.add_stage(stage_name="Build")
-    #     build_stage.add_action(
-    #         codepipeline_actions.CodeBuildAction(
-    #             action_name="CodeBuild",
-    #             project=codebuild.PipelineProject(
-    #                 scope,
-    #                 f"{constants.CDK_APP_NAME}-Build",
-    #                 build_spec=codebuild.BuildSpec.from_source_filename(
-    #                     "./codebuild/buildspec.yaml"
-    #                 ),
-    #                 project_name=f"{constants.CDK_APP_NAME}-Build",
-    #                 environment_variables=self._pipe_config.environment_variables,
-    #             ),
-    #             input=self._source_output,
-    #             outputs=[self._dist_output],
-    #             run_order=2,
-    #         )
-    #     )
 
     def add_approval_stage(self) -> None:
         approval_stage = self._pipeline.add_stage(stage_name="Approvals")
@@ -224,7 +209,6 @@ class AwsSkillsMappingPipeline(cdk.Stack):
             )
         )
 
-        # this stage might be in a different region (and/or account) where this Pipeline Stack is deployed
         stage_region = stage.config.env.region  # type: ignore
 
         target_bucket = s3.Bucket.from_bucket_attributes(

@@ -17,13 +17,13 @@ Github-Repo
 ├── api                     # <---- Logical Unit and its infrastructure
 │   ├── infrastructure.py
 │   └── runtime             # <---- Runtime assets (Lambda function code)
-│       └── app.js
+│       └── index.js
 |
 ├── database                # <---- Logical Unit and its infrastructure
 │   └── infrastructure.py
 │       
 |
-├── deployment.py           # <---- Modeling your Application, its Stage and Stacks
+├── deployment.py           # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
 ├── environment.py          # <---- Environments and Stage Configurations information
 ├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
 |                           #       in a environment with a specific desired configuration. 
