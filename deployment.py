@@ -183,7 +183,10 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         _environment_variables = {
             "AWS_SKILLS_MAPPING_API_URL": codebuild.BuildEnvironmentVariable(
                 value=ssm_reader_api_url.getParameterValue()
-            )
+            ),
+            "AWS_SKILLS_MAPPING_STAGE": codebuild.BuildEnvironmentVariable(
+                value=f"{stage.config.stage().name}"
+            ),
         }
 
         _dist_output = codepipeline.Artifact()
