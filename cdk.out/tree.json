@@ -391,18 +391,18 @@
                       "version": "1.165.0"
                     }
                   },
-                  "Aws-Skills-Mapping-Api": {
-                    "id": "Aws-Skills-Mapping-Api",
-                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api",
+                  "AwsSkillsMapping-Api": {
+                    "id": "AwsSkillsMapping-Api",
+                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Resource",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
                           "aws:cdk:cloudformation:props": {
-                            "description": "Aws-Skills-Mapping-Api",
-                            "name": "Aws-Skills-Mapping-Api"
+                            "description": "AwsSkillsMapping-Api",
+                            "name": "AwsSkillsMapping-Api"
                           }
                         },
                         "constructInfo": {
@@ -412,11 +412,11 @@
                       },
                       "CloudWatchRole": {
                         "id": "CloudWatchRole",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/CloudWatchRole",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole/Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/CloudWatchRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -461,13 +461,13 @@
                       },
                       "Account": {
                         "id": "Account",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Account",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Account",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
                           "aws:cdk:cloudformation:props": {
                             "cloudWatchRoleArn": {
                               "Fn::GetAtt": [
-                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleC0BAAACE",
+                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleBF4CC16D",
                                 "Arn"
                               ]
                             }
@@ -480,16 +480,16 @@
                       },
                       "Deployment": {
                         "id": "Deployment",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Deployment",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment/Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Deployment/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
                               "aws:cdk:cloudformation:props": {
                                 "restApiId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                 },
                                 "description": "Automatically created by the RestApi construct"
                               }
@@ -507,19 +507,19 @@
                       },
                       "DeploymentStage.api": {
                         "id": "DeploymentStage.api",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/DeploymentStage.api",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api/Resource",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/DeploymentStage.api/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
                               "aws:cdk:cloudformation:props": {
                                 "restApiId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                 },
                                 "deploymentId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentEF6F38437e3a36a7e3e106464ff304ee25d9033e"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentE377B6697b2e35c2095bd268abbc1c5d42e84f32"
                                 },
                                 "stageName": "api"
                               }
@@ -537,7 +537,7 @@
                       },
                       "Endpoint": {
                         "id": "Endpoint",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Endpoint",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Endpoint",
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.CfnOutput",
                           "version": "1.165.0"
@@ -545,15 +545,15 @@
                       },
                       "Default": {
                         "id": "Default",
-                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default",
+                        "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default",
                         "children": {
                           "GET": {
                             "id": "GET",
-                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET",
                             "children": {
-                              "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..": {
-                                "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
-                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                              "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..": {
+                                "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                   "aws:cdk:cloudformation:props": {
@@ -575,11 +575,11 @@
                                           },
                                           ":execute-api:eu-west-3:411078575449:",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                           },
                                           "/",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                                           },
                                           "/GET/"
                                         ]
@@ -592,9 +592,9 @@
                                   "version": "1.165.0"
                                 }
                               },
-                              "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..": {
-                                "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
-                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..",
+                              "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..": {
+                                "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                   "aws:cdk:cloudformation:props": {
@@ -616,7 +616,7 @@
                                           },
                                           ":execute-api:eu-west-3:411078575449:",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                           },
                                           "/test-invoke-stage/GET/"
                                         ]
@@ -631,19 +631,19 @@
                               },
                               "Resource": {
                                 "id": "Resource",
-                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/Resource",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                                   "aws:cdk:cloudformation:props": {
                                     "httpMethod": "GET",
                                     "resourceId": {
                                       "Fn::GetAtt": [
-                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi881E141E",
                                         "RootResourceId"
                                       ]
                                     },
                                     "restApiId": {
-                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                     },
                                     "authorizationType": "NONE",
                                     "integration": {
@@ -684,23 +684,23 @@
                           },
                           "skills": {
                             "id": "skills",
-                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills",
+                            "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/Resource",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
                                   "aws:cdk:cloudformation:props": {
                                     "parentId": {
                                       "Fn::GetAtt": [
-                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi881E141E",
                                         "RootResourceId"
                                       ]
                                     },
                                     "pathPart": "skills",
                                     "restApiId": {
-                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                     }
                                   }
                                 },
@@ -711,11 +711,11 @@
                               },
                               "GET": {
                                 "id": "GET",
-                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET",
+                                "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET",
                                 "children": {
-                                  "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills": {
-                                    "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
-                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                  "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills": {
+                                    "id": "ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                       "aws:cdk:cloudformation:props": {
@@ -737,11 +737,11 @@
                                               },
                                               ":execute-api:eu-west-3:411078575449:",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                               },
                                               "/",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                                               },
                                               "/GET/skills"
                                             ]
@@ -754,9 +754,9 @@
                                       "version": "1.165.0"
                                     }
                                   },
-                                  "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills": {
-                                    "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
-                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApi14DA1E56.GET..skills",
+                                  "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills": {
+                                    "id": "ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingDEVStatelessAwsSkillsMappingApiAwsSkillsMappingApiEFE8B6AA.GET..skills",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                       "aws:cdk:cloudformation:props": {
@@ -778,7 +778,7 @@
                                               },
                                               ":execute-api:eu-west-3:411078575449:",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                               },
                                               "/test-invoke-stage/GET/skills"
                                             ]
@@ -793,16 +793,16 @@
                                   },
                                   "Resource": {
                                     "id": "Resource",
-                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/Resource",
+                                    "path": "AwsSkillsMapping-DEV/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/Resource",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                                       "aws:cdk:cloudformation:props": {
                                         "httpMethod": "GET",
                                         "resourceId": {
-                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills59EA75CA"
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills0679CAC3"
                                         },
                                         "restApiId": {
-                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                         },
                                         "authorizationType": "NONE",
                                         "integration": {
@@ -890,7 +890,7 @@
                             [
                               "https://",
                               {
-                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                               },
                               ".execute-api.eu-west-3.",
                               {
@@ -898,7 +898,7 @@
                               },
                               "/",
                               {
-                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                               },
                               "/"
                             ]
@@ -1351,18 +1351,18 @@
                       "version": "1.165.0"
                     }
                   },
-                  "Aws-Skills-Mapping-Api": {
-                    "id": "Aws-Skills-Mapping-Api",
-                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api",
+                  "AwsSkillsMapping-Api": {
+                    "id": "AwsSkillsMapping-Api",
+                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Resource",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
                           "aws:cdk:cloudformation:props": {
-                            "description": "Aws-Skills-Mapping-Api",
-                            "name": "Aws-Skills-Mapping-Api"
+                            "description": "AwsSkillsMapping-Api",
+                            "name": "AwsSkillsMapping-Api"
                           }
                         },
                         "constructInfo": {
@@ -1372,11 +1372,11 @@
                       },
                       "CloudWatchRole": {
                         "id": "CloudWatchRole",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/CloudWatchRole",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/CloudWatchRole/Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/CloudWatchRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -1421,13 +1421,13 @@
                       },
                       "Account": {
                         "id": "Account",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Account",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Account",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
                           "aws:cdk:cloudformation:props": {
                             "cloudWatchRoleArn": {
                               "Fn::GetAtt": [
-                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleC0BAAACE",
+                                "AwsSkillsMappingApiAwsSkillsMappingApiCloudWatchRoleBF4CC16D",
                                 "Arn"
                               ]
                             }
@@ -1440,16 +1440,16 @@
                       },
                       "Deployment": {
                         "id": "Deployment",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Deployment",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Deployment/Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Deployment/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
                               "aws:cdk:cloudformation:props": {
                                 "restApiId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                 },
                                 "description": "Automatically created by the RestApi construct"
                               }
@@ -1467,19 +1467,19 @@
                       },
                       "DeploymentStage.api": {
                         "id": "DeploymentStage.api",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/DeploymentStage.api",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/DeploymentStage.api/Resource",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/DeploymentStage.api/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
                               "aws:cdk:cloudformation:props": {
                                 "restApiId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                 },
                                 "deploymentId": {
-                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentEF6F38439ee6c6300e80b47bd5f8984686abd0c9"
+                                  "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentE377B6692ce63983896176207e88022792260a5c"
                                 },
                                 "stageName": "api"
                               }
@@ -1497,7 +1497,7 @@
                       },
                       "Endpoint": {
                         "id": "Endpoint",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Endpoint",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Endpoint",
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.CfnOutput",
                           "version": "1.165.0"
@@ -1505,15 +1505,15 @@
                       },
                       "Default": {
                         "id": "Default",
-                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default",
+                        "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default",
                         "children": {
                           "GET": {
                             "id": "GET",
-                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET",
                             "children": {
-                              "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..": {
-                                "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
-                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                              "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..": {
+                                "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                   "aws:cdk:cloudformation:props": {
@@ -1535,11 +1535,11 @@
                                           },
                                           ":execute-api:eu-west-1:411078575449:",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                           },
                                           "/",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                                           },
                                           "/GET/"
                                         ]
@@ -1552,9 +1552,9 @@
                                   "version": "1.165.0"
                                 }
                               },
-                              "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..": {
-                                "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
-                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..",
+                              "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..": {
+                                "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                   "aws:cdk:cloudformation:props": {
@@ -1576,7 +1576,7 @@
                                           },
                                           ":execute-api:eu-west-1:411078575449:",
                                           {
-                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                            "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                           },
                                           "/test-invoke-stage/GET/"
                                         ]
@@ -1591,19 +1591,19 @@
                               },
                               "Resource": {
                                 "id": "Resource",
-                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/GET/Resource",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/GET/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                                   "aws:cdk:cloudformation:props": {
                                     "httpMethod": "GET",
                                     "resourceId": {
                                       "Fn::GetAtt": [
-                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi881E141E",
                                         "RootResourceId"
                                       ]
                                     },
                                     "restApiId": {
-                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                     },
                                     "authorizationType": "NONE",
                                     "integration": {
@@ -1644,23 +1644,23 @@
                           },
                           "skills": {
                             "id": "skills",
-                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills",
+                            "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/Resource",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
                                   "aws:cdk:cloudformation:props": {
                                     "parentId": {
                                       "Fn::GetAtt": [
-                                        "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7",
+                                        "AwsSkillsMappingApiAwsSkillsMappingApi881E141E",
                                         "RootResourceId"
                                       ]
                                     },
                                     "pathPart": "skills",
                                     "restApiId": {
-                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                      "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                     }
                                   }
                                 },
@@ -1671,11 +1671,11 @@
                               },
                               "GET": {
                                 "id": "GET",
-                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET",
+                                "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET",
                                 "children": {
-                                  "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills": {
-                                    "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
-                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                  "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills": {
+                                    "id": "ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/ApiPermission.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                       "aws:cdk:cloudformation:props": {
@@ -1697,11 +1697,11 @@
                                               },
                                               ":execute-api:eu-west-1:411078575449:",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                               },
                                               "/",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                                               },
                                               "/GET/skills"
                                             ]
@@ -1714,9 +1714,9 @@
                                       "version": "1.165.0"
                                     }
                                   },
-                                  "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills": {
-                                    "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
-                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApiF26F311E.GET..skills",
+                                  "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills": {
+                                    "id": "ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/ApiPermission.Test.AwsSkillsMappingPREPRODStatelessAwsSkillsMappingApiAwsSkillsMappingApi97566EDE.GET..skills",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                                       "aws:cdk:cloudformation:props": {
@@ -1738,7 +1738,7 @@
                                               },
                                               ":execute-api:eu-west-1:411078575449:",
                                               {
-                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                               },
                                               "/test-invoke-stage/GET/skills"
                                             ]
@@ -1753,16 +1753,16 @@
                                   },
                                   "Resource": {
                                     "id": "Resource",
-                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/Aws-Skills-Mapping-Api/Default/skills/GET/Resource",
+                                    "path": "AwsSkillsMapping-PREPROD/Stateless/AwsSkillsMappingApi/AwsSkillsMapping-Api/Default/skills/GET/Resource",
                                     "attributes": {
                                       "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                                       "aws:cdk:cloudformation:props": {
                                         "httpMethod": "GET",
                                         "resourceId": {
-                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills59EA75CA"
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiskills0679CAC3"
                                         },
                                         "restApiId": {
-                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                          "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                                         },
                                         "authorizationType": "NONE",
                                         "integration": {
@@ -1850,7 +1850,7 @@
                             [
                               "https://",
                               {
-                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi28F423F7"
+                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApi881E141E"
                               },
                               ".execute-api.eu-west-1.",
                               {
@@ -1858,7 +1858,7 @@
                               },
                               "/",
                               {
-                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapi09042C65"
+                                "Ref": "AwsSkillsMappingApiAwsSkillsMappingApiDeploymentStageapiA09954F5"
                               },
                               "/"
                             ]

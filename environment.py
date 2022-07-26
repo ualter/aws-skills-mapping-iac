@@ -6,13 +6,12 @@ from configuration import ConfigurationLoader
 from configuration import ConfigurationPipeline
 from stages import Stages
 
-# from dataclasses import dataclass
+# STAGES Environments
+# Simply, composed of:
+#  - AWS Account
+#  - AWS Region
 
-
-# @dataclass
-# class Environment:
-#     Account_Id: str
-#     Region: str
+# All the values/configuration are loaded from YAML Files using the ConfigurationLoader
 
 
 class Environments:
@@ -44,10 +43,10 @@ class Environments:
 
 # STAGES Properties
 # Runtime information/properties for the defined stages
-#   Example of properties defind by Stage:
+#   Example of properties defined by Stage:
 #    - Bucket name
-#    - Database Name
 #    - DynamoDB Billing Mode
+#    - API Gateway throttling
 
 # Abstract Stage
 class AwsSkillsMappingConfig(cdk.StageProps):

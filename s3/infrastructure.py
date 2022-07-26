@@ -5,19 +5,6 @@ from aws_cdk import aws_s3_deployment as s3deploy
 from aws_cdk import core as cdk
 
 
-class BucketHelmRepo(cdk.Construct):
-    def __init__(self, scope: cdk.Construct, id_: str, *, name: str):
-        super().__init__(scope, id_)
-
-        self.bucket = s3.Bucket(
-            self,
-            "Bucket",
-            bucket_name=name,
-            removal_policy=cdk.RemovalPolicy.DESTROY,
-            auto_delete_objects=True,
-        )
-
-
 class BucketStaticWebSiteHosting(cdk.Construct):
     def __init__(
         self, scope: cdk.Construct, id_: str, *, name: str, deploy_hello_world: bool

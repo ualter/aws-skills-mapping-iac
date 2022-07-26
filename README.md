@@ -1,7 +1,7 @@
 
 # **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
-**AWS Skills Mapping IaC** is a AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
+**AWS Skills Mapping IaC** is an AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
 Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sample (**Blueprint**) and guide to organize, to structure, to apply (*good / best*) practices, and patterns in the development of Cloud Solutions using AWS CDK.
 

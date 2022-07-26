@@ -4,7 +4,7 @@ set -o errexit
 # set -o verbose
 
 # targets=(api database monitoring tests app.py constants.py deployment.py pipeline.py)
-targets=(s3 app.py deployment.py environment.py constants.py repository.py)
+targets=(s3 app.py deployment.py environment.py constants.py repository.py custom_resources.py)
 
 CHECK_PARAMS="--check --diff"
 if [ "$1" == "perform-actions" ]; then

@@ -55,14 +55,4 @@ app_pipeline.add_deploy_stage(preprod_stage, preprod_config)
 #   by each environment, we have to configured them at "Buildtime".
 ########################################################################################################################
 
-
-# # PRE-PRODUCTION and PRODUCTION Stage will be deployed using this Pipeline
-# # Our Pipeline application will create the infra for CodePipeline and CodeBuild
-# pip = PipelineProps()
-# Pipeline(
-#     app,
-#     f"{constants.CDK_APP_NAME}-Pipeline",
-#     env=pip.env,  # We will deploy the Pipeline in Development Environment
-# )
-
 app.synth()

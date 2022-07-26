@@ -69,7 +69,9 @@ class AwsSkillsMapping(cdk.Stage):
 
     def build_stateless(self, stateless: cdk.Stack) -> None:
         self.api = AwsSkillsMappingApi(
-            stateless, f"{constants.CDK_APP_NAME}Api", _name_api=f"{constants.CDK_APP_NAME}-Api"
+            stateless,
+            f"{constants.CDK_APP_NAME}Api",
+            _name_api=f"{constants.CDK_APP_NAME}-Api",
         )
 
         self._save_parameter(

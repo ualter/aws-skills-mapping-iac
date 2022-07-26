@@ -72,6 +72,8 @@ class ConfigurationLoader:
         self.configurations[Stages.PIPELINE]["origin"] = file_origin_pipeline
     
     def merge(self) -> None:
+        """This merge will overwrite the default values with the stage when they match, 
+        also will add values from default to the stage when they not exist in there"""
         self.merge_dict(self.configurations[Stages.DEV],     self.configurations[Stages.DEFAULT])
         self.merge_dict(self.configurations[Stages.PREPROD], self.configurations[Stages.DEFAULT])
         self.merge_dict(self.configurations[Stages.PROD],    self.configurations[Stages.DEFAULT])
