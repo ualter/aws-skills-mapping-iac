@@ -29,7 +29,8 @@ class SSMReader(cr.AwsCustomResource):
         )
 
     def getParameterValue(self) -> Any:
-        return self.get_response_field("Parameter.Value")
+        if self is not None:
+            return self.get_response_field("Parameter.Value")
 
 
 class SSMWriter(cdk.Construct):

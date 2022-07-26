@@ -40,48 +40,48 @@ class AwsSkillsMapping(cdk.Stage):
         super().__init__(scope, id_, **kwargs)
         self.config = config
 
-        stateful = cdk.Stack(self, "Stateful")
-        stateless = cdk.Stack(self, "Stateless")
+        self.stateful = cdk.Stack(self, "Stateful")
+        self.stateless = cdk.Stack(self, "Stateless")
 
-        self.build_stateful(stateful)
-        self.build_stateless(stateless)
+        self.build_stateful()
+        self.build_stateless()
 
-    def build_stateful(self, stateful: cdk.Stack) -> None:
+    def build_stateful(self) -> None:
         self.s3_website = BucketStaticWebSiteHosting(
-            stateful,
+            self.stateful,
             "WebSite",
             name=f"{self.config.s3_bucket_website_name()}",
             deploy_hello_world=False,
         )
 
         self.s3_bucket_website_name = cdk.CfnOutput(
-            stateful,
+            self.stateful,
             f"{AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_NAME}-Id",
             value=self.s3_website.bucket.bucket_name,
             export_name=AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_NAME,
         )
         self.s3_bucket_website_url = cdk.CfnOutput(
-            stateful,
+            self.stateful,
             f"{AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_URL}-Id",
             value=self.s3_website.bucket.bucket_website_url,
             export_name=AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_URL,
         )
 
-    def build_stateless(self, stateless: cdk.Stack) -> None:
+    def build_stateless(self) -> None:
         self.api = AwsSkillsMappingApi(
-            stateless,
+            self.stateless,
             f"{constants.CDK_APP_NAME}Api",
             _name_api=f"{constants.CDK_APP_NAME}-Api",
         )
 
         self._save_parameter(
-            stateless,
+            self.stateless,
             AwsSkillsMappingConfig.KEY_API_URL,
             self.api.skills_mapping_api.url,
         )
 
         self.api_url = cdk.CfnOutput(
-            stateless,
+            self.stateless,
             f"{AwsSkillsMappingConfig.KEY_API_URL}-Id",
             value=self.api.skills_mapping_api.url,
             export_name=AwsSkillsMappingConfig.KEY_API_URL,
@@ -127,8 +127,6 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         )
         self._source_output = codepipeline.Artifact()
         self._add_source_stage()
-
-        # self._add_build_stage(self)
 
     def _add_source_stage(self) -> None:
         source_stage = self._pipeline.add_stage(stage_name="Source")

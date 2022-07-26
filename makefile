@@ -119,7 +119,7 @@ ls: check-tools ## cdk ls
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
-synth: check-tools ## cdk synth, syntax: make synth [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
+synth: check-tools ## cdk synth, syntax: make diff stacks="AwsSkillsMapping-DEV/*,AwsSkillsMapping-PREPROD/*"
 	clear ; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
@@ -129,7 +129,7 @@ synth: check-tools ## cdk synth, syntax: make synth [stacks="'Stack1 Stack2...'"
 	else \
 	    export stacks=${stacks}; \
 	fi; \
-	cdk synth $$stacks; \
+	cdk synth $${stacks//,/ }; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (synth)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
@@ -137,7 +137,7 @@ synth: check-tools ## cdk synth, syntax: make synth [stacks="'Stack1 Stack2...'"
 
 # make diff stacks="AwsSkillsMapping-Dev/*"
 # make diff
-diff: check-tools ## cdk diff, syntax: make diff [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
+diff: check-tools ## cdk diff, syntax: make diff stacks="AwsSkillsMapping-DEV/*,AwsSkillsMapping-PREPROD/*"
 	clear ; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
@@ -147,7 +147,7 @@ diff: check-tools ## cdk diff, syntax: make diff [stacks="'Stack1 Stack2...'"], 
 	else \
 	    export stacks=${stacks}; \
 	fi; \
-	cdk diff $$stacks; \
+	cdk diff $${stacks//,/ }; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (diff)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
@@ -159,7 +159,7 @@ ls-diffs: check-tools ## List all Pipelines, marking those with diffs found
 	source ./scripts/makefile-scripts.sh LIST_DIFFS Synth; \
 	printf " \n"; \
 
-deploy: check-tools ## cdk deploy, syntax: make deploy [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
+deploy: check-tools ## cdk deploy, syntax: make diff stacks="AwsSkillsMapping-DEV/*,AwsSkillsMapping-PREPROD/*"
 	clear ; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
@@ -169,13 +169,28 @@ deploy: check-tools ## cdk deploy, syntax: make deploy [stacks="'Stack1 Stack2..
 	else \
 	    export stacks=${stacks}; \
 	fi; \
-	cdk deploy --progress=bar $$stacks; \
+	printf " \033[36m ==> Deploying...: \033[33m$${stacks//,/ }\033[0m\n"; \
+	cdk deploy $${stacks//,/ } --progress=bar --require-approval never; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (deploy)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
-destroy: check-tools ## cdk destroy, syntax: make destroy [stacks="'Stack1 Stack2...'"], ex: make diff stacks="'AwsSkillsMapping-Dev/* AwsSkillsMapping-PreProd/*'"
+deploy-all: check-tools ## cdk deploy 1º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*"), then 2º("AwsSkillsMapping-PIPELINE")
+	clear ; \
+	printf " \n"; \
+	printf " \033[36m ==> Deploying...\033[0m\n"; \
+	printf " \033[36m     (1) \033[33mAwsSkillsMapping-DEV/*\033[0m\n"; \
+	printf " \033[36m     (1) \033[33mAwsSkillsMapping-PREPROD/*\033[0m\n"; \
+	printf " \033[36m     (2) \033[33mAwsSkillsMapping-PIPELINE\033[0m\n"; \
+	cdk deploy "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*" --progress=bar --require-approval never; \
+	cdk deploy "AwsSkillsMapping-PIPELINE" --progress=bar --require-approval never; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \033[36mDone! (deploy-all)\033[0m\n"; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \n"; \
+
+destroy: check-tools ## cdk destroy --force, syntax: make destroy stacks="AwsSkillsMapping-DEV/*,AwsSkillsMapping-PREPROD/*"
 	clear ; \
 	printf " \n"; \
 	if [ "${stacks}" = "" ]; then \
@@ -185,9 +200,24 @@ destroy: check-tools ## cdk destroy, syntax: make destroy [stacks="'Stack1 Stack
 	else \
 	    export stacks=${stacks}; \
 	fi; \
-	cdk destroy $$stacks; \
+	printf " \033[36m ==> Destroying...: \033[33m$${stacks//,/ }\033[0m\n"; \
+	cdk destroy $${stacks//,/ } --force; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (destroy)\033[0m\n"; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \n"; \
+
+destroy-all: check-tools ## cdk destroy --force 1º("AwsSkillsMapping-PIPELINE"), then 2º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*")
+	clear ; \
+	printf " \n"; \
+	printf " \033[36m ==> Destroying...\033[0m\n"; \
+	printf " \033[36m     (1) \033[33mAwsSkillsMapping-PIPELINE\033[0m\n"; \
+	printf " \033[36m     (2) \033[33mAwsSkillsMapping-DEV/*\033[0m\n"; \
+	printf " \033[36m     (2) \033[33mAwsSkillsMapping-PREPROD/*\033[0m\n"; \
+	cdk destroy --force "AwsSkillsMapping-PIPELINE"; \
+	cdk destroy --force "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*"; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \033[36mDone! (destroy-all)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
