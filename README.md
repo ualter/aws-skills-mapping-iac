@@ -76,7 +76,8 @@ $ pip-compile requirements.in
 $ pip-compile requirements-dev.in
 # install dependencies
 ./scripts/install-deps.sh  # check/change cdk version at package.json
-./scripts/run-checks.sh
+./scripts/run-checks.sh    # python code checking for: 
+                           #  security issues, formatting, style, sorting, type, complexity 
 # and wait with a...
      )  ( 
      (   ) )

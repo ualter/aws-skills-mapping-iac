@@ -19,7 +19,7 @@ if [[ "$INVENV" == "0" ]]; then
 fi
 
 # # Install local CDK CLI version
-# npm install
+npm install
 
 # # Install project dependencies
 pip install -r requirements.txt -r requirements-dev.txt
