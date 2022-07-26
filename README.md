@@ -129,7 +129,7 @@ make help
 
 #### **What ?**
 * **Constructs**
-  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./s3/infrastructure.py`.
+  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./website/infrastructure.py`.
 * **Stacks**
   * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class AwsSkillsMapping(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
     *  Stateful (database, s3)
