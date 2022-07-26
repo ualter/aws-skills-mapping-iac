@@ -32,10 +32,10 @@ class SSMReader(cr.AwsCustomResource):
                 service="SSM",
                 action="getParameter",
                 parameters={"Name": parameter_name, "WithDecryption": True},
-                # physical_resource_id=cr.PhysicalResourceId.of(
-                #     datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                # ),
-                physical_resource_id=cr.PhysicalResourceIdReference(),
+                physical_resource_id=cr.PhysicalResourceId.of(
+                    datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                ),
+                # physical_resource_id=cr.PhysicalResourceIdReference(),
                 region=region,
             ),
         )
