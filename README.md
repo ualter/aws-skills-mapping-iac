@@ -58,12 +58,12 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 ```bash
 ./configuration
   |
-  ├── environments            # <---- Configuration values (different) for each 
-  │   ├── dev.yml             #       environment and the Application Pipeline
+  ├── stages                  # <---- Configuration values (different) for each 
+  │   ├── dev.yml             #       stage/environment and the Application Pipeline
   │   ├── preprod.yml
   │   ├── pipeline.yml
   │   └── ...
-  └── default.yml             # <---- Default values (equal for all environments)
+  └── default.yml             # <---- Default values (equal for all environments - can be overwritten)
 
 ```
 
