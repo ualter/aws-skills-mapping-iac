@@ -1,5 +1,5 @@
 
-# **AWS Skills Mapping IaC** - *AWS-CDK Python*
+# :wrench: **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
 **AWS Skills Mapping IaC** is an AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
