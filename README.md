@@ -9,7 +9,7 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 
 ### **Structure**
 ```bash
-CDK-Source-Repository
+CDK-Proj-Repo
  |
  ├── website                 # <---- Logical Unit and its infrastructure
  │   └── infrastructure.py
