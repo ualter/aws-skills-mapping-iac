@@ -185,6 +185,6 @@ chmod +x codebuild_build.sh
   - *Solution*: 
     - `python3 -m pip install types-PyYAML`
 
-#### **Links**
+#### :link: **Links**
  - AWS CDK Toolkit (cdk command): https://docs.aws.amazon.com/cdk/v2/guide/cli.html
 
