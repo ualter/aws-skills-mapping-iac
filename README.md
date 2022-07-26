@@ -1,5 +1,5 @@
 
-# :wrench: **AWS Skills Mapping IaC** - *AWS-CDK Python*
+# :hammer: :wrench: **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
 **AWS Skills Mapping IaC** is an AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
@@ -7,7 +7,7 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 
 ---
 
-### **Structure**
+### :open_file_folder: **Structure**
 Main classes and structure of the AWS-CDK project.
 ```bash
 CDK-Proj-Repo
@@ -41,7 +41,7 @@ CDK-Proj-Repo
 
 ```
 
-#### **Logical Units**
+#### :blue_book: **Logical Units**
 The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/python/constructs.html), not [Stacks](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk/Stack.html). Each logical unit will include the related infrastructure (e.g., Amazon S3 buckets, Amazon RDS databases, Amazon VPC network), runtime (e.g., AWS Lambda function code), and configuration code.
 
 ---
