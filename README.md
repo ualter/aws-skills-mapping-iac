@@ -118,7 +118,7 @@ $ make synth
 $ make deploy
 ```
 
-**Check more actions at makefile**
+:arrow_forward: **Check more actions at makefile**
 ```bash
 make help
 ```
@@ -127,7 +127,7 @@ make help
 
 
 
-#### **What ?**
+#### :interrobang: **What ?**
 * **Constructs**
   * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./website/infrastructure.py`.
 * **Stacks**
@@ -137,7 +137,7 @@ make help
 
 ---
 
-#### **Cheat Sheet / Extra Info**
+#### :paperclip: **Cheat Sheet / Extra Info**
 
 Just some annotations, to help remember something quickly.
 ```bash
@@ -178,7 +178,7 @@ chmod +x codebuild_build.sh
 
 ```
 
-#### **Troubleshootings**
+#### :gun: **Troubleshootings**
 - **mypy checking errors**
   - *Error*: 
     - `error: Library stubs not installed for "yaml" (or incompatible with Python 3.8)  [import]`
