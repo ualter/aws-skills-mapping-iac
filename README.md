@@ -9,27 +9,27 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 
 ### **Structure**
 ```bash
-IaC-CDK-Github-Repo
-|
-├── website                 # <---- Logical Unit and its infrastructure
-│   └── infrastructure.py
-|
-├── api                     # <---- Logical Unit and its infrastructure
-│   ├── infrastructure.py
-│   └── runtime             # <---- Runtime assets (Lambda function code)
-│       └── index.js
-|
-├── database                # <---- Logical Unit and its infrastructure
-│   └── infrastructure.py
-│       
-|
-├── deployment.py           # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
-├── environment.py          # <---- Environments and Stage Configurations information
-├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
-|                           #       in an environment with a specific desired loaded configuration. 
-|                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
-├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
-└── constants.py            # <---- Well, you know...
+CDK-Source-Repository
+ |
+ ├── website                 # <---- Logical Unit and its infrastructure
+ │   └── infrastructure.py
+ |
+ ├── api                     # <---- Logical Unit and its infrastructure
+ │   ├── infrastructure.py
+ │   └── runtime             # <---- Runtime assets (Lambda function code)
+ │       └── index.js
+ |
+ ├── database                # <---- Logical Unit and its infrastructure
+ │   └── infrastructure.py
+ │       
+ |
+ ├── deployment.py           # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
+ ├── environment.py          # <---- Environments and Stage Configurations information
+ ├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
+ |                           #       in an environment with a specific desired loaded configuration. 
+ |                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
+ ├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
+ └── constants.py            # <---- Well, you know...
 
 ```
 
