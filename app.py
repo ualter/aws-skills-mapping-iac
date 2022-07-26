@@ -36,7 +36,7 @@ preprod_stage = AwsSkillsMapping(
 pipeline_config = AwsSkillsMappingConfigPipeline()
 app_pipeline = AwsSkillsMappingPipeline(
     app,
-    "AwsSkillsMapping-PIPELINE",
+    f"{constants.CDK_APP_NAME}-PIPELINE",
     pipe_config=pipeline_config,
     env=pipeline_config.env,
 )

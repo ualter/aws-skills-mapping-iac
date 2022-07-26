@@ -6,6 +6,7 @@ from aws_cdk import aws_codepipeline_actions as codepipeline_actions
 from aws_cdk import aws_s3 as s3
 from aws_cdk import core as cdk
 
+import constants
 from api.infrastructure import AwsSkillsMappingApi
 from custom_resources import SSMReader
 from custom_resources import SSMWriter
@@ -68,7 +69,7 @@ class AwsSkillsMapping(cdk.Stage):
 
     def build_stateless(self, stateless: cdk.Stack) -> None:
         self.api = AwsSkillsMappingApi(
-            stateless, "AwsSkillsMappingApi", _name_api="Aws-Skills-Mapping-Api"
+            stateless, f"{constants.CDK_APP_NAME}Api", _name_api=f"{constants.CDK_APP_NAME}-Api"
         )
 
         self._save_parameter(
@@ -115,7 +116,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         self._scope = self
         self._pipe_config = pipe_config
         self._pipeline = codepipeline.Pipeline(
-            self, id_, pipeline_name="AwsSkillsMapping-Pipeline"
+            self, id_, pipeline_name=f"{constants.CDK_APP_NAME}-Pipeline"
         )
         self._source_output = codepipeline.Artifact()
         self._add_source_stage()
@@ -147,11 +148,11 @@ class AwsSkillsMappingPipeline(cdk.Stack):
     #             action_name="CodeBuild",
     #             project=codebuild.PipelineProject(
     #                 scope,
-    #                 "AwsSkillsMapping-Build",
+    #                 f"{constants.CDK_APP_NAME}-Build",
     #                 build_spec=codebuild.BuildSpec.from_source_filename(
     #                     "./codebuild/buildspec.yaml"
     #                 ),
-    #                 project_name="AwsSkillsMapping-Build",
+    #                 project_name=f"{constants.CDK_APP_NAME}-Build",
     #                 environment_variables=self._pipe_config.environment_variables,
     #             ),
     #             input=self._source_output,
@@ -208,11 +209,11 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                 action_name=f"CodeBuild-{stage.config.stage().name}",
                 project=codebuild.PipelineProject(
                     self._scope,
-                    f"AwsSkillsMapping-Build-{stage.config.stage().name}",
+                    f"{constants.CDK_APP_NAME}-Build-{stage.config.stage().name}",
                     build_spec=codebuild.BuildSpec.from_source_filename(
                         "./codebuild/buildspec.yaml"
                     ),
-                    project_name=f"AwsSkillsMapping-Build-{stage.config.stage().name}",
+                    project_name=f"{constants.CDK_APP_NAME}-Build-{stage.config.stage().name}",
                     environment_variables=_environment_variables,
                 ),
                 input=self._source_output,
