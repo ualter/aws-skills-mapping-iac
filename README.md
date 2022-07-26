@@ -1,5 +1,5 @@
 
-# :hammer: :wrench: **AWS Skills Mapping IaC** - *AWS-CDK Python*
+# :hammer: **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
 **AWS Skills Mapping IaC** is an AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
@@ -46,7 +46,7 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 
 ---
 
-### **Quick Start**
+### :bullettrain_front: **Quick Start**
 
 0. [**Before start...**](#my-platform---aws-cdk-python-project-blueprint)
 
