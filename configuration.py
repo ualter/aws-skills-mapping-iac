@@ -60,10 +60,10 @@ class ConfigurationLoader:
         
     def load(self) -> None:
         self.configurations[Stages.DEFAULT],  file_origin_default  = self.load_config("default.yml")
-        self.configurations[Stages.PIPELINE], file_origin_pipeline = self.load_config("pipeline.yml","environments")
-        self.configurations[Stages.DEV],      file_origin_dev      = self.load_config("dev.yml"     ,"environments")
-        self.configurations[Stages.PREPROD],  file_origin_preprod  = self.load_config("preprod.yml" ,"environments")
-        self.configurations[Stages.PROD],     file_origin_prod     = self.load_config("prod.yml"    ,"environments")
+        self.configurations[Stages.PIPELINE], file_origin_pipeline = self.load_config("pipeline.yml","stages")
+        self.configurations[Stages.DEV],      file_origin_dev      = self.load_config("dev.yml"     ,"stages")
+        self.configurations[Stages.PREPROD],  file_origin_preprod  = self.load_config("preprod.yml" ,"stages")
+        self.configurations[Stages.PROD],     file_origin_prod     = self.load_config("prod.yml"    ,"stages")
 
         self.configurations[Stages.DEV]["origin"]      = file_origin_dev
         self.configurations[Stages.PREPROD]["origin"]  = file_origin_preprod
@@ -209,7 +209,6 @@ class ConfigurationLoader:
         sre_members = sre_members[0:len(sre_members)-6]
 
         app_members = "\n   - "
-        print(cfg_pipe.ApplicationTeam)
         for x in cfg_pipe.ApplicationTeam: app_members = app_members +  f"\033[0;32m{x.Name} \033[0m- \033[1;34m{x.Email}\033[0m" + "\n   - "
         app_members = app_members[0:len(app_members)-6]
 
