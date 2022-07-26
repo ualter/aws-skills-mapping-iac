@@ -17,17 +17,6 @@ class SSMReader(cr.AwsCustomResource):
             policy=cr.AwsCustomResourcePolicy.from_sdk_calls(
                 resources=cr.AwsCustomResourcePolicy.ANY_RESOURCE
             ),
-            # on_create=AwsSdkCall(
-            #     action='putParameter',
-            #     service='SSM',
-            #     parameters={
-            #         'Name': parameter_name,
-            #         'Type': 'String',
-            #         'Value': ,
-            #         'Overwrite': True,
-            #     },
-            #     physical_resource_id=name
-            # ),
             on_update=cr.AwsSdkCall(
                 service="SSM",
                 action="getParameter",
@@ -35,7 +24,6 @@ class SSMReader(cr.AwsCustomResource):
                 physical_resource_id=cr.PhysicalResourceId.of(
                     str(round(datetime.now().timestamp() * 1000))
                 ),
-                # physical_resource_id=cr.PhysicalResourceIdReference(),
                 region=region,
             ),
         )
