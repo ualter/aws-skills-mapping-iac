@@ -11,7 +11,7 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 ```bash
 Github-Repo
 |
-├── s3                      # <---- Logical Unit and its infrastructure
+├── website                 # <---- Logical Unit and its infrastructure
 │   └── infrastructure.py
 |
 ├── api                     # <---- Logical Unit and its infrastructure
