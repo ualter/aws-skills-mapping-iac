@@ -12,26 +12,33 @@ Main classes and structure of the AWS-CDK project.
 ```bash
 CDK-Proj-Repo
  |
- ├── website                 # <---- Logical Unit and its infrastructure
+ ├── website                  # <---- Logical Unit and its infrastructure
+ │   └── infrastructure.py 
+ | 
+ ├── api                      # <---- Logical Unit and its infrastructure
+ │   ├── infrastructure.py 
+ │   └── runtime              # <---- Runtime assets (ex: Lambda function code)
+ │       └── index.js 
+ | 
+ ├── database                 # <---- Logical Unit and its infrastructure
  │   └── infrastructure.py
- |
- ├── api                     # <---- Logical Unit and its infrastructure
- │   ├── infrastructure.py
- │   └── runtime             # <---- Runtime assets (Lambda function code)
- │       └── index.js
- |
- ├── database                # <---- Logical Unit and its infrastructure
- │   └── infrastructure.py
- │       
- |
- ├── deployment.py           # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
- ├── environment.py          # <---- Environments and Stage Configurations information
- ├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
- |                           #       in an environment with a specific desired loaded configuration. 
- |                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
- ├── configuration.py        # <---- Loads from YAML files all configuration/properties defined by Stage (see ./configuration subfolder)
- ├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
- └── constants.py            # <---- Well, you know...
+ │
+ ├── configuration            # <---- YAML files with informat/properties by stages/environment
+ │   └── environments         #       
+ │       ├── environments     #       
+ │       │   ├── dev.yml      #        
+ │       │   ├── preprod.yml  #
+ │       │   ├── prod.yml     #
+ |       |   └── pipeline.yml #
+ │       └── default.yml      #       default values
+ │          
+ ├── deployment.py            # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
+ ├── environment.py           # <---- Environments and Stage Configurations information
+ ├── app.py                   # <---- Instantiate an Application (Stage) and deploy it
+ |                            #       in an environment with a specific desired loaded configuration. 
+ |                            #       (Instantiate it multiple times to deploy in more than one environment/stage)
+ ├── configuration.py         # <---- Loads from YAML files all configuration/properties defined by Stage (see ./configuration subfolder)
+ └── constants.py             # <---- Well, you know...
 
 ```
 
