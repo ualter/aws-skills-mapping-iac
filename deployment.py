@@ -183,7 +183,7 @@ class AwsSkillsMappingPipeline(cdk.Stack):
                 value=ssm_reader_api_url.getParameterValue()
             ),
             "AWS_SKILLS_MAPPING_STAGE": codebuild.BuildEnvironmentVariable(
-                value=f"{stage.config.stage().name}"
+                value=f"{stage.config.stage().name.lower()}"
             ),
         }
 
