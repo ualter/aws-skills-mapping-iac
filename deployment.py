@@ -1,15 +1,15 @@
-from typing import Any, List
+from typing import Any, Dict, List, Mapping
 
 from aws_cdk import aws_codebuild as codebuild
 from aws_cdk import aws_codepipeline as codepipeline
 from aws_cdk import aws_codepipeline_actions as codepipeline_actions
 from aws_cdk import aws_s3 as s3
+from aws_cdk import aws_ssm as ssm
 from aws_cdk import core as cdk
 
 import constants
 from api.infrastructure import AwsSkillsMappingApi
 from custom_resources import SSMReader
-from custom_resources import SSMWriter
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
 from website.infrastructure import BucketStaticWebSiteHosting
@@ -54,6 +54,16 @@ class AwsSkillsMapping(cdk.Stage):
             deploy_hello_world=False,
         )
 
+        # Bucket to save my Artifacts used by Pipeline
+        # awsskillsmapping-pipeline-artifacts-ACCOUNT-REGION
+        self.my_artifacts_bucket = s3.Bucket(  # type: ignore
+            self.stateful,
+            f"{self.config.s3_bucket_my_artifacts_bucket_name()}-Id",
+            bucket_name=self.config.s3_bucket_my_artifacts_bucket_name(),
+            auto_delete_objects=True,
+            removal_policy=cdk.RemovalPolicy.DESTROY,
+        )
+
         self.s3_bucket_website_name = cdk.CfnOutput(
             self.stateful,
             f"{AwsSkillsMappingConfig.KEY_S3_BUCKET_WEBSITE_NAME}-Id",
@@ -90,11 +100,12 @@ class AwsSkillsMapping(cdk.Stage):
     def _save_parameter(
         self, scope: cdk.Stack, parameter_name: str, parameter_value: str
     ) -> None:
-        SSMWriter(
+        ssm.StringParameter(
             scope,
-            "SSM-Paramater-Id",
+            f"Parameter-{parameter_name}",
             parameter_name=parameter_name,
-            parameter_value=parameter_value,
+            string_value=parameter_value,
+            type=ssm.ParameterType.STRING,
         )
 
 
@@ -116,15 +127,33 @@ class AwsSkillsMappingPipeline(cdk.Stack):
         id_: str,
         *,
         pipe_config: AwsSkillsMappingConfigPipeline,
+        artifacts_buckets: Mapping[str, str],
         **kwargs: Any,
     ):
 
         super().__init__(scope, id_, **kwargs)
         self._scope = self
         self._pipe_config = pipe_config
+
+        # Add Bucket for Artifacts in the same Region of the Pipeline
+        cross_region_replication_buckets: Dict[str, s3.IBucket] = {}
+        for region in artifacts_buckets:
+            bucket_name = artifacts_buckets[region]
+            cross_region_replication_buckets[region] = s3.Bucket.from_bucket_attributes(
+                self,
+                f"bucket-{bucket_name}-Id",
+                bucket_name=bucket_name,
+                region=region,
+            )
+
         self._pipeline = codepipeline.Pipeline(
-            self, id_, pipeline_name=f"{constants.CDK_APP_NAME}-Pipeline"
+            self,
+            id_,
+            pipeline_name=f"{constants.CDK_APP_NAME}-Pipeline",
+            cross_region_replication_buckets=cross_region_replication_buckets,
         )
+        self._pipeline.apply_removal_policy(cdk.RemovalPolicy.DESTROY)
+
         self._source_output = codepipeline.Artifact()
         self._add_source_stage()
 

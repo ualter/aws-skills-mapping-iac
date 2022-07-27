@@ -2,6 +2,7 @@ import abc
 
 from aws_cdk import core as cdk
 
+import constants
 from configuration import ConfigurationLoader
 from configuration import ConfigurationPipeline
 from stages import Stages
@@ -63,14 +64,19 @@ class AwsSkillsMappingConfig(cdk.StageProps):
 
     # type ignore
     def s3_bucket_website_name(self) -> str:
-        default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
-        bucket_website_name_prefix = default_config.WebSite.BucketPrefix
+        # default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
+        # bucket_website_name_prefix = default_config.WebSite.BucketPrefix
 
+        bucket_website_name_prefix = self.configuration.WebSite.BucketPrefix
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
             return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage().value}"
         raise ValueError(
             "Somethings very wrong! The self.env of AwsSkillsMappingProps Class, is not of type cdk.Environment, it must be!"
         )
+
+    def s3_bucket_my_artifacts_bucket_name(self) -> str:
+        # awsskillsmapping-pipeline-artifacts-ACCOUNT-REGION
+        return f"{constants.CDK_APP_NAME.lower()}-pipeline-artifacts-{self.configuration.Environment.Account}-{self.configuration.Environment.Region}"
 
     @abc.abstractmethod
     def stage(self) -> Stages:

@@ -2,8 +2,6 @@ from datetime import datetime
 from typing import Any
 
 import constructs
-from aws_cdk import aws_ssm as ssm
-from aws_cdk import core as cdk
 from aws_cdk import custom_resources as cr
 
 
@@ -31,23 +29,3 @@ class SSMReader(cr.AwsCustomResource):
     def getParameterValue(self) -> Any:
         if self is not None:
             return self.get_response_field("Parameter.Value")
-
-
-class SSMWriter(cdk.Construct):
-    def __init__(
-        self,
-        scope: cdk.Construct,
-        id_: str,
-        *,
-        parameter_name: str,
-        parameter_value: str,
-    ) -> None:
-        super().__init__(scope, id_)
-
-        ssm.StringParameter(
-            scope,
-            f"Parameter-{parameter_name}",
-            parameter_name=parameter_name,
-            string_value=parameter_value,
-            type=ssm.ParameterType.STRING,
-        )

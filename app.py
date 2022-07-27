@@ -8,9 +8,6 @@ from environment import AwsSkillsMappingConfigDev
 from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
 
-# from aws_cdk import custom_resources as cr
-
-
 app = cdk.App()
 
 # IaC DEVELOPMENT Stage
@@ -31,7 +28,6 @@ preprod_stage = AwsSkillsMapping(
     env=preprod_config.env,
 )
 
-
 # PIPELINE Application: aws-skills-mapping
 pipeline_config = AwsSkillsMappingConfigPipeline()
 app_pipeline = AwsSkillsMappingPipeline(
@@ -39,6 +35,10 @@ app_pipeline = AwsSkillsMappingPipeline(
     f"{constants.CDK_APP_NAME}-PIPELINE",
     pipe_config=pipeline_config,
     env=pipeline_config.env,
+    artifacts_buckets={
+        dev_config.env.region: dev_config.s3_bucket_my_artifacts_bucket_name(),  # type: ignore
+        preprod_config.env.region: preprod_config.s3_bucket_my_artifacts_bucket_name(),  # type: ignore
+    },
 )
 
 app_pipeline.add_deploy_stage(dev_stage, dev_config)

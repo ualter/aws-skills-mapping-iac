@@ -176,20 +176,6 @@ deploy: check-tools ## cdk deploy, syntax: make diff stacks="AwsSkillsMapping-DE
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
-deploy-all: check-tools ## cdk deploy 1º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*"), then 2º("AwsSkillsMapping-PIPELINE")
-	clear ; \
-	printf " \n"; \
-	printf " \033[36m ==> Deploying...\033[0m\n"; \
-	printf " \033[36m     (1) \033[33mAwsSkillsMapping-DEV/*\033[0m\n"; \
-	printf " \033[36m     (1) \033[33mAwsSkillsMapping-PREPROD/*\033[0m\n"; \
-	printf " \033[36m     (2) \033[33mAwsSkillsMapping-PIPELINE\033[0m\n"; \
-	cdk deploy "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*" --progress=bar --require-approval never; \
-	cdk deploy "AwsSkillsMapping-PIPELINE" --progress=bar --require-approval never; \
-	printf " \033[36m-------------------------------------------\033[0m\n"; \
-	printf " \033[36mDone! (deploy-all)\033[0m\n"; \
-	printf " \033[36m-------------------------------------------\033[0m\n"; \
-	printf " \n"; \
-
 destroy: check-tools ## cdk destroy --force, syntax: make destroy stacks="AwsSkillsMapping-DEV/*,AwsSkillsMapping-PREPROD/*"
 	clear ; \
 	printf " \n"; \
@@ -207,7 +193,21 @@ destroy: check-tools ## cdk destroy --force, syntax: make destroy stacks="AwsSki
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
-destroy-all: check-tools ## cdk destroy --force 1º("AwsSkillsMapping-PIPELINE"), then 2º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*")
+deploy-all: check-tools ## cdk deploy, sequence: 1º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*"), then 2º("AwsSkillsMapping-PIPELINE")
+	clear ; \
+	printf " \n"; \
+	printf " \033[36m ==> Deploying...\033[0m\n"; \
+	printf " \033[36m     (1) \033[33mAwsSkillsMapping-DEV/*\033[0m\n"; \
+	printf " \033[36m     (1) \033[33mAwsSkillsMapping-PREPROD/*\033[0m\n"; \
+	printf " \033[36m     (2) \033[33mAwsSkillsMapping-PIPELINE\033[0m\n"; \
+	cdk deploy "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*" --progress=bar --require-approval never; \
+	cdk deploy "AwsSkillsMapping-PIPELINE" --progress=bar --require-approval never; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \033[36mDone! (deploy-all)\033[0m\n"; \
+	printf " \033[36m-------------------------------------------\033[0m\n"; \
+	printf " \n"; \
+
+destroy-all: check-tools ## cdk destroy --force, sequence: 1º("AwsSkillsMapping-PIPELINE"), then 2º("AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*")
 	clear ; \
 	printf " \n"; \
 	printf " \033[36m ==> Destroying...\033[0m\n"; \
