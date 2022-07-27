@@ -8,7 +8,7 @@ from aws_cdk import aws_ssm as ssm
 from aws_cdk import core as cdk
 
 import constants
-from api.infrastructure import AwsSkillsMappingApi
+from api.infrastructure import ApiAwsSkillsMapping
 from custom_resources import SSMReader
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
@@ -78,7 +78,7 @@ class AwsSkillsMapping(cdk.Stage):
         )
 
     def build_stateless(self) -> None:
-        self.api = AwsSkillsMappingApi(
+        self.api = ApiAwsSkillsMapping(
             self.stateless,
             f"{constants.CDK_APP_NAME}Api",
             _name_api=f"{constants.CDK_APP_NAME}-Api",

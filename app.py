@@ -9,11 +9,16 @@ from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
 
 from database.infrastructure import DynamoDBAwsSkillsMapping
+from api.infrastructure import ApiAwsSkillsMapping
 
 app = cdk.App()
 
 stack_test = cdk.Stack(app, "Testing")
-DynamoDBAwsSkillsMapping(stack_test,"DynamoDBTest")
+
+db = DynamoDBAwsSkillsMapping(stack_test,"DynamoDBTest")
+api = ApiAwsSkillsMapping(stack_test,"Api",_name_api="ApiAwsSkillsMapping")
+db.table.grant_read_data(api.lambda_handler)
+
 
 
 # # IaC DEVELOPMENT Stage

@@ -4,12 +4,12 @@ from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_apigateway as api_gw
 
 
-class AwsSkillsMappingApi(cdk.Construct):
+class ApiAwsSkillsMapping(cdk.Construct):
 
     def __init__(self, scope: cdk.Construct, id_: str, *, _name_api: str):
         super().__init__(scope, id_)
 
-        self._lambda_handler = _lambda.Function(self,"LambdaHandler-AwsSkillsMapping",
+        self.lambda_handler = _lambda.Function(self,"LambdaHandler-AwsSkillsMapping",
                             runtime=_lambda.Runtime.NODEJS_14_X,
                             handler="index.handler",
                             code=_lambda.Code.from_asset("api/runtime"),
@@ -26,7 +26,7 @@ class AwsSkillsMappingApi(cdk.Construct):
             )
         )
 
-        get_lamdba_integration = api_gw.LambdaIntegration(self._lambda_handler)
+        get_lamdba_integration = api_gw.LambdaIntegration(self.lambda_handler)
 
         # GET /
         self.skills_mapping_api.root.add_method("GET",get_lamdba_integration)
