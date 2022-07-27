@@ -1,11 +1,19 @@
-- v0.0.1
-  - Skelenton (nothing important)
-- v0.0.2
-  - Application Stages DEV and PREPROD deploying
-  - Application Pipeline Stack deploying
-- v0.0.3
-  - Configuration by YAML files implemented
-  - Removed Environment Variables depencies
-- v1.0.0
+- **v2.0.0**
+  - Added layers **API Gateway** and **Lambda Function** for API Calling Handler
+  - Data moved from Angular to Lambda Code
+  - Angular Application distinct builds by stage
+  - Artifact buckets owned by application stack
+  - Using Custom Resources SSM Parameters for cross-region dependencies (ex: API URL at deployment in CodePipeline)
+- **v1.0.0**
   - Deployment Application AwsSkillMapping Services (IaC) and its Pipeline (IaC)
   - Pipeline deploying to DEV and PREPROD with Approvals and notifications before deploying to PREPROD
+- **v0.0.3**
+  - Configuration by YAML files implemented
+  - Removed Environment Variables depencies  
+- **v0.0.2**
+  - Application Stages DEV and PREPROD deploying
+  - Application Pipeline Stack deploying
+- **v0.0.1**
+  - Skelenton (nothing important)
+
+
