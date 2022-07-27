@@ -1,44 +1,52 @@
 
-# **AWS Skills Mapping IaC** - *AWS-CDK Python*
+# :hammer: **AWS Skills Mapping IaC** - *AWS-CDK Python*
 
-**AWS Skills Mapping IaC** is a AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
+**AWS Skills Mapping IaC** is an AWS CDK Python project, aiming to build the infrastructure environment ( ***[IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)*** ) required by the application [AWS Skills Mapping](https://github.com/ualter/aws-skills-mapping-app).
 
 Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sample (**Blueprint**) and guide to organize, to structure, to apply (*good / best*) practices, and patterns in the development of Cloud Solutions using AWS CDK.
 
 ---
 
-### **Structure**
+### :open_file_folder: **Structure**
+Main classes and structure of the AWS-CDK project.
 ```bash
-Github-Repo
-|
-├── s3                      # <---- Logical Unit and its infrastructure
-│   └── infrastructure.py
-|
-├── api                     # <---- Logical Unit and its infrastructure
-│   ├── infrastructure.py
-│   └── runtime             # <---- Runtime assets (Lambda function code)
-│       └── app.js
-|
-├── database                # <---- Logical Unit and its infrastructure
-│   └── infrastructure.py
-│       
-|
-├── deployment.py           # <---- Modeling your Application, its Stage and Stacks
-├── environment.py          # <---- Environments and Stage Configurations information
-├── app.py                  # <---- Instantiate an Application (Stage) and deploy it
-|                           #       in a environment with a specific desired configuration. 
-|                           #       (Instantiate it multiple times to deploy in more than one environment/stage)
-├── pipeline.py             # <---- Create an AWS Pipeline and CodeBuild (self-mutating) for the Application IaC deployment (Optional)
-└── constants.py            # <---- Well, you know... :-)
+CDK-Proj-Repo
+ |
+ ├── website                # <---- Logical Unit and its infrastructure
+ │   └── infrastructure.py 
+ | 
+ ├── api                    # <---- Logical Unit and its infrastructure
+ │   ├── infrastructure.py 
+ │   └── runtime            # <---- Runtime assets (ex: Lambda function code)
+ │       └── index.js 
+ | 
+ ├── database               # <---- Logical Unit and its infrastructure
+ │   └── infrastructure.py
+ │
+ ├── configuration          # <---- YAML files with informat/properties by environment/stage
+ │   ├── stages             #       
+ │   │    ├── dev.yml       #        
+ │   │    ├── preprod.yml   #
+ │   │    ├── prod.yml      #
+ |   |    └── pipeline.yml  #       pipeline properties, like email of approvals, github branch (webhook)
+ │   └── default.yml        #       default values (will be overwritten when declared in stages)
+ │          
+ ├── deployment.py          # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
+ ├── environment.py         # <---- Environments and Stage Configurations information (uses configuration.py)
+ ├── app.py                 # <---- Instantiate an Application (Stage) and deploy it
+ |                          #       in an environment with a specific desired loaded configuration. 
+ |                          #       (Instantiate it multiple times to deploy in more than one environment/stage)
+ ├── configuration.py       # <---- Loads from YAML files all configuration/properties defined by Stage (see ./configuration subfolder)
+ └── constants.py           # <---- Well, you know...
 
 ```
 
-#### **Logical Units**
+#### :blue_book: **Logical Units**
 The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/python/constructs.html), not [Stacks](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk/Stack.html). Each logical unit will include the related infrastructure (e.g., Amazon S3 buckets, Amazon RDS databases, Amazon VPC network), runtime (e.g., AWS Lambda function code), and configuration code.
 
 ---
 
-### **Quick Start**
+### :bullettrain_front: **Quick Start**
 
 0. [**Before start...**](#my-platform---aws-cdk-python-project-blueprint)
 
@@ -50,12 +58,12 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 ```bash
 ./configuration
   |
-  ├── environments            # <---- Configuration values (different) for each 
-  │   ├── dev.yml             #       environment and the Application Pipeline
+  ├── stages                  # <---- Configuration values (different) for each 
+  │   ├── dev.yml             #       stage/environment and the Application Pipeline
   │   ├── preprod.yml
   │   ├── pipeline.yml
   │   └── ...
-  └── default.yml             # <---- Default values (equal for all environments)
+  └── default.yml             # <---- Default values (equal for all environments - can be overwritten)
 
 ```
 
@@ -68,7 +76,8 @@ $ pip-compile requirements.in
 $ pip-compile requirements-dev.in
 # install dependencies
 ./scripts/install-deps.sh  # check/change cdk version at package.json
-./scripts/run-checks.sh
+./scripts/run-checks.sh    # python code checking for: 
+                           #  security issues, formatting, style, sorting, type, complexity 
 # and wait with a...
      )  ( 
      (   ) )
@@ -109,7 +118,7 @@ $ make synth
 $ make deploy
 ```
 
-**Check more actions at makefile**
+:arrow_forward: **Check more actions at makefile**
 ```bash
 make help
 ```
@@ -118,9 +127,9 @@ make help
 
 
 
-#### **What ?**
+#### :interrobang: **What ?**
 * **Constructs**
-  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./s3/infrastructure.py`.
+  * Basic building block of AWS CDK Application. Check `class BucketStaticWebSiteHosting(cdk.Construct)` at file `./website/infrastructure.py`.
 * **Stacks**
   * Deployment units. All AWS Resources defined in a stack are provisioned as a single unit. (fail or work together). Check `class AwsSkillsMapping(cdk.Stage)` at file `deployment.py`, there the Stacks are being defined. Here, we split in two:
     *  Stateful (database, s3)
@@ -128,7 +137,7 @@ make help
 
 ---
 
-#### **Cheat Sheet / Extra Info**
+#### :paperclip: **Cheat Sheet / Extra Info**
 
 Just some annotations, to help remember something quickly.
 ```bash
@@ -169,13 +178,13 @@ chmod +x codebuild_build.sh
 
 ```
 
-#### **Troubleshootings**
+#### :gun: **Troubleshootings**
 - **mypy checking errors**
   - *Error*: 
     - `error: Library stubs not installed for "yaml" (or incompatible with Python 3.8)  [import]`
   - *Solution*: 
     - `python3 -m pip install types-PyYAML`
 
-#### **Links**
+#### :link: **Links**
  - AWS CDK Toolkit (cdk command): https://docs.aws.amazon.com/cdk/v2/guide/cli.html
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This is only necessary to some bash scripts / makefile utilities
+# This is only necessary to some bash scripts / makefile utilities (CDK is using YAML files from ./configuration folder)
 #
 
 alias mk='make $1 $2 $3 $4 $5 $6 $7'

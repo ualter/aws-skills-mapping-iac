@@ -1,5 +1,0 @@
-stage: preprod
-
-environment:
-  region: eu-west-1
-

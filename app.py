@@ -5,12 +5,8 @@ import constants
 from deployment import AwsSkillsMapping
 from deployment import AwsSkillsMappingPipeline
 from environment import AwsSkillsMappingConfigDev
+from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
-from environment import PipelineConfig
-
-# from pipeline_app import AwsSkillsMappingPipelineProps
-
-# from pipeline import Pipeline
 
 app = cdk.App()
 
@@ -33,25 +29,30 @@ preprod_stage = AwsSkillsMapping(
 )
 
 # PIPELINE Application: aws-skills-mapping
-pipeline_config = PipelineConfig()
+pipeline_config = AwsSkillsMappingConfigPipeline()
 app_pipeline = AwsSkillsMappingPipeline(
     app,
-    "AwsSkillsMapping-PIPELINE",
+    f"{constants.CDK_APP_NAME}-PIPELINE",
     pipe_config=pipeline_config,
     env=pipeline_config.env,
+    artifacts_buckets={
+        dev_config.env.region: dev_config.s3_bucket_my_artifacts_bucket_name(),  # type: ignore
+        preprod_config.env.region: preprod_config.s3_bucket_my_artifacts_bucket_name(),  # type: ignore
+    },
 )
-app_pipeline.add_deploy_stage(dev_stage)
+
+app_pipeline.add_deploy_stage(dev_stage, dev_config)
 app_pipeline.add_approval_stage()
-app_pipeline.add_deploy_stage(preprod_stage)
+app_pipeline.add_deploy_stage(preprod_stage, preprod_config)
 
 
-# # PRE-PRODUCTION and PRODUCTION Stage will be deployed using this Pipeline
-# # Our Pipeline application will create the infra for CodePipeline and CodeBuild
-# pip = PipelineProps()
-# Pipeline(
-#     app,
-#     f"{constants.CDK_APP_NAME}-Pipeline",
-#     env=pip.env,  # We will deploy the Pipeline in Development Environment
-# )
+########################################################################################################################
+# NOTICE!
+#   As we are using a S3 Static Website to host our Angular sample project,
+#   we do not have the option of "inject" Environment Variables to be used during Runtime, because...
+#   S3 is a static object store, not a dynamic content server, so there's now such a thing like "Runtime",
+#   This is the reason, of why we have to have a Build Stage for each environment, to setup different variable values
+#   by each environment, we have to configured them at "Buildtime".
+########################################################################################################################
 
 app.synth()

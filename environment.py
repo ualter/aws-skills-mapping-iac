@@ -2,17 +2,17 @@ import abc
 
 from aws_cdk import core as cdk
 
+import constants
 from configuration import ConfigurationLoader
 from configuration import ConfigurationPipeline
 from stages import Stages
 
-# from dataclasses import dataclass
+# STAGES Environments
+# Simply, composed of:
+#  - AWS Account
+#  - AWS Region
 
-
-# @dataclass
-# class Environment:
-#     Account_Id: str
-#     Region: str
+# All the values/configuration are loaded from YAML Files using the ConfigurationLoader
 
 
 class Environments:
@@ -41,30 +41,20 @@ class Environments:
             region=prod_config.Environment.Region,
         )
 
-    # def dev_account(self) -> Environment:
-    #     return Environment(Account_Id=self._DEV_ENV.account, Region=self._DEV_ENV.region)  # type: ignore
-
-    # def preprod_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PREPROD_ENV.account, Region=self._PREPROD_ENV.region)  # type: ignore
-
-    # def pipeline_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PIPELINE_ENV.account, Region=self._PIPELINE_ENV.region)  # type: ignore
-
-    # def prod_account(self) -> Environment:
-    #     return Environment(Account_Id=self._PROD_ENV.account, Region=self._PROD_ENV.region)  # type: ignore
-
 
 # STAGES Properties
-# Runtime information/properties for the defined stages
-#   Example of properties defind by Stage:
+# Information/properties for services/resources in each defined stages
+#   Example of properties defined by Stage:
 #    - Bucket name
-#    - Database Name
 #    - DynamoDB Billing Mode
+#    - API Gateway throttling
 
 # Abstract Stage
 class AwsSkillsMappingConfig(cdk.StageProps):
-    OUTPUT_KEY_S3_BUCKET_WEBSITE_NAME = "S3-Bucket-Website-Name"
-    OUTPUT_KEY_S3_BUCKET_WEBSITE_URL = "S3-Bucket-Website-Url"
+    KEY_APP = "App-AwsSkillsMapping"
+    KEY_S3_BUCKET_WEBSITE_NAME = f"{KEY_APP}-S3-Bucket-Website-Name"
+    KEY_S3_BUCKET_WEBSITE_URL = f"{KEY_APP}-S3-Bucket-Website-Url"
+    KEY_API_URL = f"{KEY_APP}-S3-Api-Url"
 
     def __init__(self, *, env: cdk.Environment) -> None:
         super().__init__(env=env, outdir=None)
@@ -74,14 +64,19 @@ class AwsSkillsMappingConfig(cdk.StageProps):
 
     # type ignore
     def s3_bucket_website_name(self) -> str:
-        default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
-        bucket_website_name_prefix = default_config.WebSite.BucketPrefix
+        # default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
+        # bucket_website_name_prefix = default_config.WebSite.BucketPrefix
 
+        bucket_website_name_prefix = self.configuration.WebSite.BucketPrefix
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
             return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage().value}"
         raise ValueError(
             "Somethings very wrong! The self.env of AwsSkillsMappingProps Class, is not of type cdk.Environment, it must be!"
         )
+
+    def s3_bucket_my_artifacts_bucket_name(self) -> str:
+        # awsskillsmapping-pipeline-artifacts-ACCOUNT-REGION
+        return f"{constants.CDK_APP_NAME.lower()}-pipeline-artifacts-{self.configuration.Environment.Account}-{self.configuration.Environment.Region}"
 
     @abc.abstractmethod
     def stage(self) -> Stages:
@@ -115,8 +110,8 @@ class AwsSkillsMappingConfigProd(AwsSkillsMappingConfig):
         return Stages.PROD
 
 
-# Pipeline Properties
-class PipelineConfig:
+# Pipeline
+class AwsSkillsMappingConfigPipeline:
     def __init__(self) -> None:
         self.env = Environments()._PIPELINE_ENV
         self.configuration: ConfigurationPipeline = (

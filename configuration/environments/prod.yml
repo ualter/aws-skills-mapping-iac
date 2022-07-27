@@ -1,4 +1,0 @@
-stage: dev
-
-environment:
-  region: eu-central-1
