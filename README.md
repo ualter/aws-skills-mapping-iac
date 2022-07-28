@@ -32,7 +32,7 @@ CDK-Proj-Repo
  │   └── default.yml        #       default values (will be overwritten when declared in stages)
  │          
  ├── deployment.py          # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
- ├── environment.py         # <---- Environments and Stage Configurations information (uses configuration.py)
+ ├── environment.py         # <---- Environments and Stage Configurations information
  ├── app.py                 # <---- Instantiate an Application (Stage) and deploy it in an 
  |                          #       environment with a specific desired loaded configuration. 
  |                          #       (Instantiate it multiple times to deploy 
