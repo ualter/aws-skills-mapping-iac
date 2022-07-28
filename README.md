@@ -10,6 +10,7 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 ### :open_file_folder: **Structure**
 Main classes and structure of the AWS-CDK project.
 ```bash
+
 CDK-Proj-Repo
  |
  ├── website                # <--- Logical Unit and its infrastructure
