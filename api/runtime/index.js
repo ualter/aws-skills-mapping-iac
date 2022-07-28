@@ -31,9 +31,10 @@ exports.handler = async function (event) {
                 
             } else if( event.path.includes("/skills") ) {
 
-                body = await readMySkills("1");
+                var result = await readMySkills("1");
+                body       = result["Item"];
                 return sendRes(200, JSON.stringify(body));
-
+                
             }
         }
 
