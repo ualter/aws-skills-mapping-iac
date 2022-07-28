@@ -1,3 +1,6 @@
+- **v3.0.0**
+  - Added layers **DynamoDB**
+  - All layers connected: **API Gateway** --> **Lambda Function** --> **DynamoDB**
 - **v2.0.0**
   - Added layers **API Gateway** and **Lambda Function** for API Calling Handler
   - Data moved from Angular to Lambda Code
