@@ -16,7 +16,7 @@ from environment import AwsSkillsMappingConfigPipeline
 from website.infrastructure import BucketStaticWebSiteHosting
 
 # CDK Application that represents/model "the platform" for a specific application/solution,
-# that is, all the infrastructure/services that must be provided for the application/solution (in this case, AWS Skills Mapping Application).
+# that is, all the infrastructure/services that must be provided, that is necessary for the application/solution (here, the AWS Skills Mapping Application).
 #
 # Here, we have decided that our application infrasctructure will consist of two Stacks (unit of deployments):
 #  - Stateless
