@@ -1,0 +1,908 @@
+{
+    "id": {
+      "S": "1"
+    },
+    "categories": {
+      "L": [
+        {
+          "M": {
+            "id": {
+              "S": "compute"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "EC2"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Lambda"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Elastic Beanstalk"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "AWS Batch"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "EC2 Image Builder"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "0"
+            },
+            "title": {
+              "S": "Compute"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "containers"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "EKS (Kubernetes)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "ECR (Container Registry)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "ECS (Container Services)"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "1"
+            },
+            "title": {
+              "S": "Containers"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "application_integration"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "EventBridge"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Amazon MQ"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "SNS"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "SQS"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "overview"
+                    },
+                    "service": {
+                      "S": "Step Functions"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "2"
+            },
+            "title": {
+              "S": "Application Integration"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "database"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "DynamoDB"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "RDS"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "ElastiCache (Redis)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "DocumentDB"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "3"
+            },
+            "title": {
+              "S": "Database"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "analytics"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "OpenSearch (ElasticSearch)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Kinesis (Data Streams)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Kinesis (Firehose)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "MSK Kakfa"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "Athena / Glue"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "overview"
+                    },
+                    "service": {
+                      "S": "Data Pipeline"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "4"
+            },
+            "title": {
+              "S": "Analytics"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "management_governance"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CloudFormation"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CloudTrail"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CloudWatch"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "AWS Config"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "System Manager (AWS SSM)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "AWS AppConfig"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "Organizations"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "Control Tower"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "Managed Grafana"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "Managed Prometheus"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "overview"
+                    },
+                    "service": {
+                      "S": "Resource Groups & Tag Editor"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "5"
+            },
+            "title": {
+              "S": "Management & Governance"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "migration_transfer"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "AWS Transfer Family"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "DMS (Database Migration Service)"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "DataSync"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "6"
+            },
+            "title": {
+              "S": "Migration & Transfer"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "security"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "IAM"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "KMS"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Secrets Manager"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "GuardDuty"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Security Hub"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "overview"
+                    },
+                    "service": {
+                      "S": "Resource Access Manager"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "Certificate Manager"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "Cognito"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "AWS SSO"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "AWS Firewall Manager"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "WAF & Shield"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "7"
+            },
+            "title": {
+              "S": "Security, Identity, & Compliance"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "storage"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "S3"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "EFS"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "S3 Glacier"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "experience"
+                    },
+                    "service": {
+                      "S": "AWS Backup"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "8"
+            },
+            "title": {
+              "S": "Storage"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "network"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "VPC"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "ELB / ASG / Launch Template"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "API Gateway"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CloudFront"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "Route 53"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "Direct Connect"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "VPN"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "9"
+            },
+            "title": {
+              "S": "Network & Content Delivery"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "developer_tools"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CodeBuild"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CodeArtifact"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CodeDeploy"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "practical"
+                    },
+                    "service": {
+                      "S": "CodePipeline"
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "Cloud9"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "10"
+            },
+            "title": {
+              "S": "Developer Tools"
+            }
+          }
+        },
+        {
+          "M": {
+            "id": {
+              "S": "machine_learning"
+            },
+            "description": {
+              "S": ""
+            },
+            "skills": {
+              "L": [
+                {
+                  "M": {
+                    "level": {
+                      "S": "medium"
+                    },
+                    "service": {
+                      "S": "CodeGuru ('Sonarqbe' by AWS)"
+                    }
+                  }
+                }
+              ]
+            },
+            "sort": {
+              "N": "11"
+            },
+            "title": {
+              "S": "Machine Learning"
+            }
+          }
+        }
+      ]
+    },
+    "email": {
+      "S": "ualter.junior@gmail.com"
+    },
+    "linkedin": {
+      "S": "https://linkedin.com/in/ualter"
+    },
+    "name": {
+      "S": "Ualter Otoni Pereira"
+    }
+  }

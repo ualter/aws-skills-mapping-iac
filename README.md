@@ -10,35 +10,37 @@ Actually, its main purpose is to serve as a ***sandbox*** project...  i.e. a sam
 ### :open_file_folder: **Structure**
 Main classes and structure of the AWS-CDK project.
 ```bash
+
 CDK-Proj-Repo
  |
- ├── website                # <---- Logical Unit and its infrastructure
+ ├── website                # <--- Logical Unit and its infrastructure
  │   └── infrastructure.py 
  | 
- ├── api                    # <---- Logical Unit and its infrastructure
+ ├── api                    # <--- Logical Unit and its infrastructure
  │   ├── infrastructure.py 
- │   └── runtime            # <---- Runtime assets (ex: Lambda function code)
+ │   └── runtime            # <--- Runtime assets (ex: Lambda function code)
  │       └── index.js 
  | 
- ├── database               # <---- Logical Unit and its infrastructure
+ ├── database               # <--- Logical Unit and its infrastructure
  │   └── infrastructure.py
  │
- ├── configuration          # <---- YAML files with informat/properties by environment/stage
+ ├── configuration          # <--- YAML files with informat/properties by environment/stage
  │   ├── stages             #       
  │   │    ├── dev.yml       #        
  │   │    ├── preprod.yml   #
  │   │    ├── prod.yml      #
- |   |    └── pipeline.yml  #       pipeline properties, like email of approvals, github branch (webhook)
- │   └── default.yml        #       default values (will be overwritten when declared in stages)
+ |   |    └── pipeline.yml  #      pipeline properties, like email of approvals, github branch (webhook)
+ │   └── default.yml        #      default values (will be overwritten when declared in stages)
  │          
- ├── deployment.py          # <---- Modeling your Application, its Stages and Stacks(unit of deployments)
- ├── environment.py         # <---- Environments and Stage Configurations information (uses configuration.py)
- ├── app.py                 # <---- Instantiate an Application (Stage) and deploy it
- |                          #       in an environment with a specific desired loaded configuration. 
- |                          #       (Instantiate it multiple times to deploy in more than one environment/stage)
- ├── configuration.py       # <---- Loads from YAML files all configuration/properties defined by Stage (see ./configuration subfolder)
- └── constants.py           # <---- Well, you know...
-
+ ├── deployment.py          # <--- Modeling your Application, its Stages and Stacks(unit of deployments)
+ ├── environment.py         # <--- Environments and Stage Configurations information
+ ├── app.py                 # <--- Instantiate an Application (Stage) and deploy it in an 
+ |                          #      environment with a specific desired loaded configuration. 
+ |                          #      Instantiate it multiple times to deploy in 
+ |                          #      more than one environment/stage.
+ └── configuration.py       # <--- Loads from YAML files all configuration/properties 
+                            #      defined by Stage (see ./configuration subfolder)
+ 
 ```
 
 #### :blue_book: **Logical Units**

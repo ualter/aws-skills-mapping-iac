@@ -8,14 +8,15 @@ from aws_cdk import aws_ssm as ssm
 from aws_cdk import core as cdk
 
 import constants
-from api.infrastructure import AwsSkillsMappingApi
+from api.infrastructure import ApiAwsSkillsMapping
 from custom_resources import SSMReader
+from database.infrastructure import DynamoDBAwsSkillsMapping
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
 from website.infrastructure import BucketStaticWebSiteHosting
 
 # CDK Application that represents/model "the platform" for a specific application/solution,
-# that is, all the infrastructure/services that must be provided for the application/solution (in this case, AWS Skills Mapping Application).
+# that is, all the infrastructure/services that must be provided, that is necessary for the application/solution (here, the AWS Skills Mapping Application).
 #
 # Here, we have decided that our application infrasctructure will consist of two Stacks (unit of deployments):
 #  - Stateless
@@ -54,6 +55,15 @@ class AwsSkillsMapping(cdk.Stage):
             deploy_hello_world=False,
         )
 
+        self.database = DynamoDBAwsSkillsMapping(
+            self.stateful,
+            "Database",
+            table_name="AwsSkillsMappingTable",
+            load_initial_data=True,
+        )
+        if hasattr(self, "api") and self.api is not None:
+            self.database.table.grant_read_data(self.api.lambda_handler)
+
         # Bucket to save my Artifacts used by Pipeline
         # awsskillsmapping-pipeline-artifacts-ACCOUNT-REGION
         self.my_artifacts_bucket = s3.Bucket(  # type: ignore
@@ -78,11 +88,13 @@ class AwsSkillsMapping(cdk.Stage):
         )
 
     def build_stateless(self) -> None:
-        self.api = AwsSkillsMappingApi(
+        self.api = ApiAwsSkillsMapping(
             self.stateless,
             f"{constants.CDK_APP_NAME}Api",
             _name_api=f"{constants.CDK_APP_NAME}-Api",
         )
+        if hasattr(self, "database") and self.database is not None:
+            self.database.table.grant_read_data(self.api.lambda_handler)
 
         self._save_parameter(
             self.stateless,

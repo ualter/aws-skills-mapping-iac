@@ -62,19 +62,6 @@ exec-bootstrap-%:
 	printf " \033[36m---------------------------------------------------------------------------\033[0m\n"; \
 	printf " \n"; \
 
-## (I am not sure...)
-# bootstrap-dev-chk: check-tools ## check bootstrap state in development
-# 	$(MAKE) -s chk-bootstrap-dev
-
-# bootstrap-pre-chk: check-tools ## check bootstrap state in pre-production
-# 	$(MAKE) -s chk-bootstrap-pre
-
-# bootstrap-prod-chk: check-tools ## check bootstrap state in production
-# 	$(MAKE) -s chk-bootstrap-prod
-
-# bootstrap-pip-chk: check-tools ## check bootstrap state in pipeline
-# 	$(MAKE) -s chk-bootstrap-pip
-
 ## (INTERNAL)
 chk-bootstrap-%: 
 	$(MAKE) -s check-boot-envvars; \
@@ -170,7 +157,7 @@ deploy: check-tools ## cdk deploy, syntax: make diff stacks="AwsSkillsMapping-DE
 	    export stacks=${stacks}; \
 	fi; \
 	printf " \033[36m ==> Deploying...: \033[33m$${stacks//,/ }\033[0m\n"; \
-	cdk deploy $${stacks//,/ } --progress=bar --require-approval never; \
+	cdk deploy $${stacks//,/ } --progress=bar --outputs-file deploy-outputs.json --require-approval never; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (deploy)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
@@ -200,8 +187,8 @@ deploy-all: check-tools ## cdk deploy, sequence: 1º("AwsSkillsMapping-DEV/*" "A
 	printf " \033[36m     (1) \033[33mAwsSkillsMapping-DEV/*\033[0m\n"; \
 	printf " \033[36m     (1) \033[33mAwsSkillsMapping-PREPROD/*\033[0m\n"; \
 	printf " \033[36m     (2) \033[33mAwsSkillsMapping-PIPELINE\033[0m\n"; \
-	cdk deploy "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*" --progress=bar --require-approval never; \
-	cdk deploy "AwsSkillsMapping-PIPELINE" --progress=bar --require-approval never; \
+	cdk deploy "AwsSkillsMapping-DEV/*" "AwsSkillsMapping-PREPROD/*" --progress=bar --outputs-file deploy-outputs-dev-preprod.json --require-approval never; \
+	cdk deploy "AwsSkillsMapping-PIPELINE" --progress=bar --outputs-file deploy-outputs-pipeline.json --require-approval never; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \
 	printf " \033[36mDone! (deploy-all)\033[0m\n"; \
 	printf " \033[36m-------------------------------------------\033[0m\n"; \

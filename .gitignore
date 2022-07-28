@@ -5,6 +5,7 @@ my-platform/scripts/set-env.sh
 codebuild/codebuild.env
 configuration/default.yml
 cdk.out/
+deploy-outputs*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

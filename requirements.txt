@@ -22,6 +22,7 @@ aws-cdk-aws-apigateway==1.165.0
     #   aws-cdk-aws-route53-targets
 aws-cdk-aws-applicationautoscaling==1.165.0
     # via
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-lambda
 aws-cdk-aws-autoscaling==1.165.0
@@ -61,6 +62,7 @@ aws-cdk-aws-cloudwatch==1.165.0
     #   aws-cdk-aws-cloudfront
     #   aws-cdk-aws-codebuild
     #   aws-cdk-aws-codedeploy
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-elasticloadbalancingv2
@@ -102,6 +104,8 @@ aws-cdk-aws-cognito==1.165.0
     # via
     #   aws-cdk-aws-apigateway
     #   aws-cdk-aws-route53-targets
+aws-cdk-aws-dynamodb==1.165.0
+    # via -r requirements.in
 aws-cdk-aws-ec2==1.165.0
     # via
     #   aws-cdk-aws-apigateway
@@ -197,6 +201,7 @@ aws-cdk-aws-iam==1.165.0
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -226,6 +231,7 @@ aws-cdk-aws-iam==1.165.0
     #   aws-cdk-pipelines
 aws-cdk-aws-kinesis==1.165.0
     # via
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-events-targets
     #   aws-cdk-aws-kinesisfirehose
 aws-cdk-aws-kinesisfirehose==1.165.0
@@ -238,6 +244,7 @@ aws-cdk-aws-kms==1.165.0
     #   aws-cdk-aws-codepipeline
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecs
@@ -266,6 +273,7 @@ aws-cdk-aws-lambda==1.165.0
     #   aws-cdk-aws-codedeploy
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ecs
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-elasticloadbalancingv2
@@ -418,6 +426,7 @@ aws-cdk-core==1.165.0
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -457,6 +466,7 @@ aws-cdk-custom-resources==1.165.0
     # via
     #   aws-cdk-aws-codedeploy
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-eks
     #   aws-cdk-aws-events-targets
     #   aws-cdk-aws-route53
@@ -523,6 +533,7 @@ constructs==3.4.46
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -582,6 +593,7 @@ jsii==1.62.0
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets
@@ -643,6 +655,7 @@ publication==0.0.3
     #   aws-cdk-aws-codepipeline-actions
     #   aws-cdk-aws-codestarnotifications
     #   aws-cdk-aws-cognito
+    #   aws-cdk-aws-dynamodb
     #   aws-cdk-aws-ec2
     #   aws-cdk-aws-ecr
     #   aws-cdk-aws-ecr-assets

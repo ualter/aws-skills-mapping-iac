@@ -1,49 +1,49 @@
 "use strict";
 
-const mockSkills = require('./mock-skills.js');
+const AWS       = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
 
-// const { DynamoDB, Lambda } = require('aws-sdk');
+async function readMySkills(_id){
+    var params = {
+        Key: {
+         "id": _id
+        }, 
+        TableName: "AwsSkillsMappingTable"
+    };
+    var result = await docClient.get(params).promise();
+    return result;
+}
 
 exports.handler = async function (event) {
-    
     console.log("request:", JSON.stringify(event, undefined, 2));
     try {
         var method = event.httpMethod;
+        var body   = {};
 
         if (method === "GET") {
             if (event.path === "/") {
-                var body = {
+
+                body = {
                     author: "Ualter Otoni",
                     email: "ualter.junior@gmail.com",
                 };
                 return sendRes(200, JSON.stringify(body));
-            } else if(event.path === "/skills") {
-                body  = mockSkills.getSkills(1);
+                
+            } else if( event.path.includes("/skills") ) {
+
+                var result = await readMySkills("1");
+                body       = result["Item"];
                 return sendRes(200, JSON.stringify(body));
+                
             }
         }
 
         return sendRes(200, 'OK');
 
     } catch (error) {
-        var body = error.stack || JSON.stringify(error, null, 2);
+        body = error.stack || JSON.stringify(error, null, 2);
         sendRes(500,body)
     }
-    
-
-    // create AWS SDK clients
-    // const dynamo = new DynamoDB();
-    // update dynamo entry for "path" with hits++
-    // await dynamo.updateItem({
-    //     TableName: process.env.HITS_TABLE_NAME,
-    //     Key: { path: { S: event.rawPath } },
-    //     UpdateExpression: 'ADD hits :incr',
-    //     ExpressionAttributeValues: { ':incr': { N: '1' } }
-    // }).promise();
-    // console.log('inserted counter for ' + event.rawPath);
-
-    // return response back to upstream caller
-    
 };
 
 const sendRes = (status, body) => {
