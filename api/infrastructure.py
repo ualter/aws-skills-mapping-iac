@@ -9,13 +9,14 @@ class ApiAwsSkillsMapping(cdk.Construct):
 
         self.lambda_handler = _lambda.Function(
             self,
-            "LambdaHandler-AwsSkillsMapping",
+            "AwsSkillsMapping-Id",
             runtime=_lambda.Runtime.NODEJS_14_X,
             handler="index.handler",
             code=_lambda.Code.from_asset("api/runtime"),
             environment={
                 "VERSION": "2",
             },
+            function_name="ApiAwsSkillsMapping"
         )
 
         self.skills_mapping_api = api_gw.RestApi(
