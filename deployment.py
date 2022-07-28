@@ -10,6 +10,7 @@ from aws_cdk import core as cdk
 import constants
 from api.infrastructure import ApiAwsSkillsMapping
 from custom_resources import SSMReader
+from database.infrastructure import DynamoDBAwsSkillsMapping
 from environment import AwsSkillsMappingConfig
 from environment import AwsSkillsMappingConfigPipeline
 from website.infrastructure import BucketStaticWebSiteHosting
@@ -54,6 +55,15 @@ class AwsSkillsMapping(cdk.Stage):
             deploy_hello_world=False,
         )
 
+        self.database = DynamoDBAwsSkillsMapping(
+            self.stateful,
+            "Database",
+            table_name="AwsSkillsMappingTable",
+            load_initial_data=True,
+        )
+        if hasattr(self, "api") and self.api is not None:
+            self.database.table.grant_read_data(self.api.lambda_handler)
+
         # Bucket to save my Artifacts used by Pipeline
         # awsskillsmapping-pipeline-artifacts-ACCOUNT-REGION
         self.my_artifacts_bucket = s3.Bucket(  # type: ignore
@@ -83,6 +93,8 @@ class AwsSkillsMapping(cdk.Stage):
             f"{constants.CDK_APP_NAME}Api",
             _name_api=f"{constants.CDK_APP_NAME}-Api",
         )
+        if hasattr(self, "database") and self.database is not None:
+            self.database.table.grant_read_data(self.api.lambda_handler)
 
         self._save_parameter(
             self.stateless,
