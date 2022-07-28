@@ -8,16 +8,7 @@ from environment import AwsSkillsMappingConfigDev
 from environment import AwsSkillsMappingConfigPipeline
 from environment import AwsSkillsMappingConfigPreProd
 
-# from database.infrastructure import DynamoDBAwsSkillsMapping
-# from api.infrastructure import ApiAwsSkillsMapping
-
 app = cdk.App()
-
-# FOR QUICK TESTING
-# stack_test = cdk.Stack(app, "Testing")
-# db = DynamoDBAwsSkillsMapping(stack_test,"DynamoDBTest")
-# api = ApiAwsSkillsMapping(stack_test,"Api",_name_api="ApiAwsSkillsMapping")
-# db.table.grant_read_data(api.lambda_handler)
 
 # IaC DEVELOPMENT Stage
 dev_config = AwsSkillsMappingConfigDev()
@@ -54,13 +45,14 @@ app_pipeline.add_deploy_stage(dev_stage, dev_config)
 app_pipeline.add_approval_stage()
 app_pipeline.add_deploy_stage(preprod_stage, preprod_config)
 
-# ########################################################################################################################
+# #############################################################################################################################################
 # # NOTICE!
-# #   As we are using a S3 Static Website to host our Angular sample project,
-# #   we do not have the option of "inject" Environment Variables to be used during Runtime, because...
-# #   S3 is a static object store, not a dynamic content server, so there's now such a thing like "Runtime",
-# #   This is the reason, of why we have to have a Build Stage for each environment, to setup different variable values
-# #   by each environment, we have to configured them at "Buildtime".
-# ########################################################################################################################
+# #   As we are using a S3 Static Website to host our AngularJS sample project, we do not have the option of "inject" 
+# #   Environment Variables to be used during Runtime, because...
+# #   S3 is a static object store, not a dynamic content server, so there's no such a thing like "Server Runtime" (in this case),
+# #   This is the reason of, why we have to have a Build Stage for each environment, to setup different variable values
+# #   by each environment, we have to configured them at "Buildtime". 
+# #   Besides, remember, AngularJS are purely client-side code (it runs in the browser).
+# #############################################################################################################################################
 
 app.synth()
