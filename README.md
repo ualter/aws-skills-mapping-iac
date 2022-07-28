@@ -35,7 +35,8 @@ CDK-Proj-Repo
  ├── environment.py         # <--- Environments and Stage Configurations information
  ├── app.py                 # <--- Instantiate an Application (Stage) and deploy it in an 
  |                          #      environment with a specific desired loaded configuration. 
- |                          #      (Instantiate it multiple times to deploy in more than one environment/stage)
+ |                          #      Instantiate it multiple times to deploy in 
+ |                          #      more than one environment/stage.
  └── configuration.py       # <--- Loads from YAML files all configuration/properties 
                             #      defined by Stage (see ./configuration subfolder)
  
