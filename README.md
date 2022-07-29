@@ -32,7 +32,7 @@ CDK-Proj-Repo
  |   |    └── pipeline.yml  #      pipeline properties, like email of approvals, github branch (webhook)
  │   └── default.yml        #      default values (will be overwritten when declared in stages)
  │          
- ├── deployment.py          # <--- Application Modeling, its Stacks(unit of deployments) and Cloud Components
+ ├── deployment.py          # <--- Application Modeling, the Stacks and its Cloud Components
  ├── environment.py         # <--- Environments and Stage Configurations information
  ├── app.py                 # <--- Instantiate an Application (Stage) and deploy it in an 
  |                          #      environment with a specific desired loaded configuration. 
