@@ -33,9 +33,9 @@ CDK-Proj-Repo
  │   └── default.yml        #      default values (will be overwritten when declared in stages)
  │          
  ├── deployment.py          # <--- Application Modeling, the Stacks and its Cloud Components
- ├── environment.py         # <--- Environments and Stage Configurations information
- ├── app.py                 # <--- Instantiate an Application (Stage) and deploy it in an 
- |                          #      environment with a specific desired loaded configuration. 
+ ├── environment.py         # <--- Environment and Configuration modeling
+ ├── app.py                 # <--- Instantiate an Application with its Stage and Environment
+ |                          #      Configuration and add it to the CDK App.
  |                          #      Instantiate it multiple times to deploy in 
  |                          #      more than one environment/stage.
  └── configuration.py       # <--- Loads from YAML files all configuration/properties 

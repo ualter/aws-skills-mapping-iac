@@ -64,9 +64,6 @@ class AwsSkillsMappingConfig(cdk.StageProps):
 
     # type ignore
     def s3_bucket_website_name(self) -> str:
-        # default_config = self.config_loader.get_configuration_stage(Stages.DEFAULT)
-        # bucket_website_name_prefix = default_config.WebSite.BucketPrefix
-
         bucket_website_name_prefix = self.configuration.WebSite.BucketPrefix
         if isinstance(self.env, cdk.Environment):  # avoid mypy error checking
             return f"{bucket_website_name_prefix}-{self.env.account}-{self.env.region}-{self.stage().value}"
