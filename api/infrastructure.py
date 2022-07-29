@@ -16,7 +16,7 @@ class ApiAwsSkillsMapping(cdk.Construct):
             environment={
                 "VERSION": "2",
             },
-            function_name="ApiAwsSkillsMapping"
+            function_name="ApiAwsSkillsMapping",
         )
 
         self.skills_mapping_api = api_gw.RestApi(

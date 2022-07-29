@@ -70,15 +70,25 @@ The logical unit consist of [Constructs](https://docs.aws.amazon.com/cdk/api/v2/
 ```
 
 ```bash
+# Set Env Vars for each AWS Account and Region Stage 
+# (in case you needed, used by makefile in some targets only)
 $ source ./scripts/set-env.sh
+```
+
+```bash
+# Create Python Virtual Environment
 $ python -m venv .venv
+# Activate Python Virtual Environment
 $ source .venv/bin/activate
+# Install pip-compile to handle our dependencies
 $ python -m pip install pip-tools
+# Creates the requirements.txt file based on the listed dependecies at requirements.in file
 $ pip-compile requirements.in
+# Creates the requirements-dev.txt file based on the listed dependecies at requirements-dev.in file
 $ pip-compile requirements-dev.in
 # install dependencies
 ./scripts/install-deps.sh  # check/change cdk version at package.json
-./scripts/run-checks.sh    # python code checking for: 
+./scripts/run-checks.sh    # (optional) python code checking for: 
                            #  security issues, formatting, style, sorting, type, complexity 
 # and wait with a...
      )  ( 
@@ -92,7 +102,9 @@ $ pip-compile requirements-dev.in
     '-------' 
 # check installed dependencies
 pip list
+```
 
+```bash
 # Troubleshooting: (Error "Role XXX not authorized to perform: cloudformation:GetTemplate")
 # Add this like to cdk.json (a feature flag)
 "@aws-cdk/core:newStyleStackSynthesis": true,
