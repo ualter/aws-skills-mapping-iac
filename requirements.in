@@ -9,5 +9,3 @@ aws_cdk.aws_lambda
 aws_cdk.aws_dynamodb
 aws_cdk.pipelines
 pyyaml
-# aws_cdk.aws_dynamodb
-# cdk-chalice

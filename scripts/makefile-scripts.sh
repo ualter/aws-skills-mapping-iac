@@ -64,10 +64,13 @@ checkBootstrap() {
 
 chooseStack() {
     listStacks RESULT TOTAL $1
-    printf "${Green}\n"
-    read -p "   Choose a Stage/Stack [0-$TOTAL]: " resp
+    printf "${Green}\n   [${IBlue}ENTER${Green}] for ${IYellow}Exit${Green}\n"
+    read -p           "   Choose a Stage/Stack [0-$TOTAL]: " resp
     if [ "$resp" = "0" ]; then
         export RESULT=$RESULT
+    elif [ "$resp" = "" ]; then
+        echo ""
+        exit
     elif (( $resp > $TOTAL )); then
         printf "\n   ${IGreen}Invalid choice, ${IRed}$resp${IGreen} > $TOTAL\n\n"
         exit 1
