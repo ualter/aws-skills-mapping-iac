@@ -6,6 +6,7 @@ codebuild/codebuild.env
 configuration/default.yml
 cdk.out/
 deploy-outputs*
+node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
