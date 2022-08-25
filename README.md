@@ -110,6 +110,11 @@ pip list
 "@aws-cdk/core:newStyleStackSynthesis": true,
 ```
 1. [**Bootstrapping**](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html)
+
+**IMPORTANT!**
+
+Notice, before proceeding, you **have to create** your own default configuration file (`./configuration/default.yml` -   based on `./configuration/default_template.yml`) with the respective values (AWS Account, website-name).
+
 ```bash
 
 #
