@@ -113,7 +113,7 @@ pip list
 
 **IMPORTANT!**
 
-Notice, before proceeding, you **have to create** your own default configuration file (`./configuration/default.yml` -   based on `./configuration/default_template.yml`) with the respective values (AWS Account, website-name).
+Notice, before proceeding, you **have to create** your own default configuration file (`./configuration/default.yml` -   based on `./configuration/default_template.yml`) with your respective values (AWS Account, website-name).
 
 ```bash
 
